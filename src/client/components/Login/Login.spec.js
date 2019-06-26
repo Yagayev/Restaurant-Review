@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme/build';
 import {expect} from 'chai';
-import App from './App.js';
+import App from './Login.js';
 
 describe('App', () => {
   let wrapper;

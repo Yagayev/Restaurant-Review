@@ -1,6 +1,6 @@
-import {AppActionsConstants} from './constants'
+import {LoginActionsConstants} from './constants'
 import { call, put, takeEvery } from 'redux-saga/effects'
-import AppActions from './actions'
+import LoginActions from './actions'
 
 function* loadTags(action){
     console.log('AppSaga=', action);
@@ -11,18 +11,60 @@ function* loadTags(action){
                 headers: {
                     'Content-Type': 'application/json'
                 },
+
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        yield put(AppActions.loadTagsSuccessAction(json));
+        yield put(LoginActions.loadTagsSuccessAction(json));
     } catch (e) {
-        yield put(AppActions.loadTagsFailureAction(e.message));
+        yield put(LoginActions.loadTagsFailureAction(e.message));
     }
 }
 
-function* AppSaga() {
-    //using takeEvery, you take the action away from reducer to saga
-    yield takeEvery(AppActionsConstants.LOAD_TAGS, loadTags);
+function* login(action){
+  console.log('LoginSaga=', action);
+  try {
+    const res = yield call(fetch, action.uri,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(action.payload)
+      });
+
+    const json = yield call([res, 'json']); //retrieve body of response
+    yield put(LoginActions.loginSuccessAction(json));
+  } catch (e) {
+    yield put(LoginActions.loginFailureAction(e.message));
+  }
 }
 
-export default AppSaga;
+function* signup(action){
+  console.log('signup saga=', action);
+  try {
+    const res = yield call(fetch, action.uri,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(action.payload)
+
+      });
+    const json = yield call([res, 'json']); //retrieve body of response
+    yield put(LoginActions.signupSuccessAction(json));
+  } catch (e) {
+    yield put(LoginActions.signupFailureAction(e.message));
+  }
+}
+
+function* LoginSaga() {
+    //using takeEvery, you take the action away from reducer to saga
+
+    yield takeEvery(LoginActionsConstants.LOGIN, login);
+    yield takeEvery(LoginActionsConstants.SIGNUP, signup);
+
+}
+
+export default LoginSaga;

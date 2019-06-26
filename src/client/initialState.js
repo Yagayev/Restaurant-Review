@@ -8,9 +8,15 @@ export default {
         activeFilter: List(),
         galleryWidth: 0
     }),
+    login: Map({
+        username: '',
+        password: '',
+        token: '',
+        message: ''
+    }),
     app: Map({
-      size: 200,
-      tag: 'art',
-      tags: List()
+        size: 200,
+        tag: 'art',
+        tags: List()
     })
 };

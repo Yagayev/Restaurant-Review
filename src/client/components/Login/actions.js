@@ -1,9 +1,9 @@
-import { AppActionsConstants} from './constants.js';
+import { LoginActionsConstants} from './constants.js';
 
 
 function updateTagAction(tag) {
   return {
-    type: AppActionsConstants.UPDATE_TAG,
+    type: LoginActionsConstants.UPDATE_TAG,
     payload: {
       tag
     }
@@ -12,14 +12,15 @@ function updateTagAction(tag) {
 
 function loadTagsAction(){
     return {
-        type: AppActionsConstants.LOAD_TAGS,
+        type: LoginActionsConstants.LOAD_TAGS,
         uri: '/api/load/tags'
     }
 }
 
 function loadTagsSuccessAction(tags){
+
     return {
-        type: AppActionsConstants.LOAD_TAGS_SUCCESS,
+        type: LoginActionsConstants.LOAD_TAGS_SUCCESS,
         payload: {
             tags: tags
         }
@@ -28,16 +29,110 @@ function loadTagsSuccessAction(tags){
 
 function loadTagsFailureAction(error){
     return {
-        type: AppActionsConstants.LOAD_TAGS_FAILURE,
+        type: LoginActionsConstants.LOAD_TAGS_FAILURE,
         error: error
     }
 }
 
-let AppActions  = {
+function updateUsernameAction (username){
+    return{
+        type: LoginActionsConstants.USERNAME_UPDATE,
+        payload:{
+            username: username
+        }
+    }
+}
+
+function updatePasswordAction (password){
+  return{
+    type: LoginActionsConstants.PASSWORD_UPDATE,
+    payload:{
+      password: password
+    }
+  }
+}
+
+function loginEventAction(username, password){
+  return {
+    type: LoginActionsConstants.LOGIN,
+    uri: '/api/account/login',
+    payload:{
+      username: username,
+      password: password
+    }
+  }
+}
+
+function signupEventAction(username, password){
+  return {
+    type: LoginActionsConstants.SIGNUP,
+    uri: '/api/account/signup',
+    payload:{
+      username: username,
+      password: password
+    }
+  }
+}
+
+function loginSuccessAction(json){
+    console.log("loginSuccessAction:", json);
+    if(!json.success){
+        return loginFailureAction(json);
+    }
+
+  return {
+    type: LoginActionsConstants.LOGIN_SUCCESS,
+    payload: {
+      json: json
+    }
+  }
+}
+function loginFailureAction(json){
+    console.log("loginFailureAction:", json);
+
+    return {
+    type: LoginActionsConstants.LOGIN_FAILURE,
+    payload: {
+      json: json
+    }
+  }
+}
+function signupSuccessAction(json){
+    console.log("signupSuccessAction:", json);
+    if(!json.success){
+        return signupFailureAction(json);
+    }
+  return {
+    type: LoginActionsConstants.SIGNUP_SUCCESS,
+    payload: {
+      json: json
+    }
+  }
+}
+function signupFailureAction(json){
+    console.log("signupFailureAction:", json);
+
+    return {
+    type: LoginActionsConstants.SIGNUP_FAILURE,
+    payload: {
+      json: json
+    }
+  }
+}
+
+let LoginActions  = {
     updateTagAction,
     loadTagsAction,
     loadTagsSuccessAction,
-    loadTagsFailureAction
+    loadTagsFailureAction,
+    updateUsernameAction,
+    updatePasswordAction,
+    loginEventAction,
+    signupEventAction,
+    loginSuccessAction,
+    loginFailureAction,
+    signupSuccessAction,
+    signupFailureAction,
 };
 
-export default AppActions
+export default LoginActions

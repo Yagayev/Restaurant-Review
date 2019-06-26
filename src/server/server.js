@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 
+mongoose.set('useFindAndModify', false);
 
 const config = {
   mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/gallery',
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Add backend api routes
 fs.readdirSync(__dirname + '/api').forEach((file) => {
   require(`./api/${file.substr(0, file.indexOf('.'))}`)(app);
+  console.log("registering ", `./api/${file.substr(0, file.indexOf('.'))}`);
 });
 
 

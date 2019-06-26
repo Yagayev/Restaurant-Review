@@ -1,33 +1,80 @@
 import React from 'react';
-import './App.scss';
-import Gallery from '../Gallery';
+import './Login.scss';
+// import Gallery from '../Gallery';
 import { connect } from 'react-redux';
-import AppActions from './actions';
+import LoginActions from './actions';
 import GalleryActions from '../Gallery/actions';
 import { Button } from 'primereact/button';
-import { Dropdown } from 'primereact/dropdown';
 import {InputText} from 'primereact/inputtext';
+import {Dropdown} from 'primereact/dropdown';
+import {Password} from 'primereact/password';
+import {getFromStorage, setInStorage} from '../../utils/storage';
+import { Redirect } from 'react-router';
+import App from '../App';
 
+const storage_token_key_name = 'restorant_review_token';
 
-
-class App extends React.Component {
-    componentDidMount() {
-        this.props.loadTagsEventHandler();
+class Login extends React.Component {
+    renderRedirect = () => {
+        if (this.props.token != '') {
+            return <Redirect to='/app' />
+        }
     }
 
+    componentDidMount() {
+        const token = getFromStorage(storage_token_key_name);
+        if(token){
+            //varify token
+
+        }
+        else{
+
+        }
+
+    }
+
+
+
   render() {
-    console.log('tags=', this.props.tags);
+    console.log('render: props=', this.props);
+      if (this.props.token != '') {
+          console
+          return <App />;
+      }
     return (
       <div className="app-root">
+
         <div className="app-header">
           <h2>Sign in</h2>
           <span className="p-float-label">
               <InputText
                 id="in"
                 value={this.props.username}
-                onChange={this.props.updateTagEventHandler} />
+                onChange={this.props.updateUsernameEventHandler} />
               <label htmlFor="in">Username</label>
           </span>
+          <br />
+          <Password
+            value={this.props.password}
+            onChange={this.props.updatePasswordEventHandler} />
+          <br />
+          <Button
+            label="Log in"
+            className="p-button-raised p-button-rounded"
+            onClick={() => this.props.LoginEventHandler(this.props.username, this.props.password)}
+          />
+          <br />
+          <Button
+            label="Sign up"
+            className="p-button-raised p-button-rounded"
+            onClick={() => this.props.SignupEventHandler(this.props.username, this.props.password)}
+          />
+            {
+                (this.props.message != '') ? (
+                    <p>{this.props.message}</p>
+                ) : (null)
+            }
+
           {/*<Dropdown*/}
           {/*    value={this.props.tag}*/}
           {/*    onChange={this.props.updateTagEventHandler}*/}
@@ -35,13 +82,13 @@ class App extends React.Component {
           {/*    placeholder="insert a tag"*/}
           {/*    editable={true}*/}
           {/*  />*/}
-          <Button
-              label="Search"
-              className="p-button-raised p-button-rounded"
-              onClick={() => this.props.loadImagesEventHandler(this.props.tag)}
-          />
+          {/*<Button*/}
+          {/*    label="Search"*/}
+          {/*    className="p-button-raised p-button-rounded"*/}
+          {/*    onClick={() => this.props.loadImagesEventHandler(this.props.tag)}*/}
+          {/*/>*/}
         </div>
-        <Gallery/>
+        {/*<Gallery/>*/}
       </div>
     );
   }
@@ -50,23 +97,38 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-      tag: state['app'].get('tag'),
-      tags: state['app'].get('tags').toArray()
+      username: state['login'].get('username'),
+      password: state['login'].get('password'),
+      message: state['login'].get('message'),
+      token: state['login'].get('token')
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
       loadTagsEventHandler: () => {
-          dispatch(AppActions.loadTagsAction());
+          dispatch(LoginActions.loadTagsAction());
       },
     updateTagEventHandler: (e) => {
-      dispatch(AppActions.updateTagAction(e.value));
+      dispatch(LoginActions.updateTagAction(e.value));
     },
     loadImagesEventHandler: (tag) => {
       dispatch(GalleryActions.loadImagesAction(tag))
+    },
+    updateUsernameEventHandler: (e) =>{
+      dispatch(LoginActions.updateUsernameAction(e.target.value))
+    },
+    updatePasswordEventHandler: (e) =>{
+      dispatch(LoginActions.updatePasswordAction(e.target.value))
+    },
+    LoginEventHandler: (username, password)  => {
+      dispatch(LoginActions.loginEventAction(username, password))
+    },
+    SignupEventHandler: (username, password)  => {
+      dispatch(LoginActions.signupEventAction(username, password))
     }
+
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
