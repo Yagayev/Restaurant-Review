@@ -5,12 +5,31 @@ let Restaurant = require('../model/Restaurant');
 
 module.exports = (app) => {
     app.post('/api/reviews/uploadReview', function(req, res) {
+        /*example query:
+        {
+          "restaurant": "booznakasd",
+          "reviewer": "tapuz",
+          "token": "5d11769317381d2fe057f051",
+          "description": "decent",
+          "ratings": {
+            "overall": 1,
+            "staff_kindness": 3,
+            "cleaniness": 5,
+            "drive_thru_quality": 4,
+            "delivery_speed": 5,
+            "food_quality": 9,
+            "taste": 9,
+            "prices": 7,
+            "waiting_time": 11
+          }
+        }
+         */
+
         const {body} = req;
         const err = verifyAllReviewFields(res, body);
         if(err){
             return err;
         }
-        console.log(body);
         // verify user
         verifySession(body.token, body.reviewer, res, (user)=>{
             // find matching review to user and restaurant
@@ -127,18 +146,32 @@ module.exports = (app) => {
     });
 
     app.post('/api/reviews/findRestaurants', function(req, res) {
+        /* example query:
+        {
+          "params":{
+            "name": "t",
+            "ratings": {
+              "overall": 5
+            },
+            "username": "tapuz",
+            "token": "5d11769317381d2fe057f051"
+        }
+}*/
         const {body} = req;
-
-        let {params, sortby} = body;
-        Restaurant.find(paramsToFilter(params), (err, docs)=>{
-            if(err){
-                return res.send({
-                    success: false,
-                    message: 'Error 1130: Server error'
-                });
-            }
-            return res.send(docs);
-        })
+        let {params, distanceVsScore, sortBy, token, username} = body;
+        console.log(token);
+        verifySession(token, username, res, (user) => {
+            Restaurant.find(paramsToFilter(params), (err, docs) => {
+                if (err) {
+                    return res.send({
+                        success: false,
+                        message: 'Error 1130: Server error'
+                    });
+                }
+                var sorted = sortRests(distanceVsScore, docs, user);
+                return res.send(sorted);
+            })
+        });
     });
     app.get('/api/account/viewUser', function(req, res) {
         //TODO
@@ -255,7 +288,7 @@ function paramsToFilter(params){
     }
     if(params.ratings){
         Object.keys(params.ratings).map(function(key, index) {
-            filter.average_ratings[key] = {
+            filter["average_ratings."+key] = {
                 '$gte': params.ratings[key]
             };
         });
@@ -317,7 +350,6 @@ async function updateRestRatings(id) {
         }, 0);
         ratings[key] = ratings[key]/len;
     });
-    console.log('updating ratings to:', id, ratings);
     Restaurant.updateOne({_id: id}, {$set: {average_ratings: ratings}}, (err, docs) => {
         return;
         // only works when there is a callback
@@ -328,3 +360,36 @@ async function updateRestRatings(id) {
 
 }
 
+function sortRests(distanceVsScore, docs, user) {
+    var score = (rest)=>{
+        let distance = getDistance(user,rest);
+        let score = rest.average_ratings.overall;
+        return 5*(1-distanceVsScore) * score - distanceVsScore * distance;
+    };
+    var sorter = (a,b) => score(b)-score(a);
+    return docs.sort(sorter);
+}
+
+function getDistance(pointA, pointB){
+    //TODO messure the distance
+    return 0;
+}
+
+
+function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1);
+    var a =
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon/2) * Math.sin(dLon/2)
+    ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in km
+    return d;
+}
+
+function deg2rad(deg) {
+    return deg * (Math.PI/180)
+}
