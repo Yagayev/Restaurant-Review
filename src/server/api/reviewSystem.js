@@ -153,8 +153,9 @@ module.exports = (app) => {
             "ratings": {
               "overall": 5
             },
-            "username": "tapuz",
-            "token": "5d11769317381d2fe057f051"
+          "username": "tapuz",
+          "token": "5d11769317381d2fe057f051",
+          "distanceVsScore": 0
         }
 }*/
         const {body} = req;
@@ -173,8 +174,51 @@ module.exports = (app) => {
             })
         });
     });
+
     app.get('/api/account/viewUser', function(req, res) {
-        //TODO
+        let {headers} = req;
+        let {token, username, usertoview} = headers;
+        console.log("looking up:"+ usertoview,token, username);
+        let userToView = usertoview;
+        verifySession(token, username, res, (user) => {
+            User.findOne({username: userToView}, (err, u)=>{
+                if (err) {
+                    return res.send({
+                        success: false,
+                        message: 'Error 1135: Server error'
+                    });
+                }
+                if(!u){
+                    return res.send({
+                        success: false,
+                        message: 'Error 1136: user '+ userToView +' does not exist'
+                    });
+                }
+                var retUser =  u.toObject();
+                delete retUser.password;
+
+                let writePermissions = userToView===username;
+                retUser.hasWritingPermissions = writePermissions;
+                Review.find({reviewer: retUser._id})
+                    // .populate('reviewer') //probably redundant because it's the same user?
+                    .populate('restaurant')
+                    .exec((err2, docs)=>{
+                    if (err2) {
+                        return res.send({
+                            success: false,
+                            message: 'Error 1136: Server error'
+                        });
+                    }
+                    retUser.reviews = docs;
+                    console.log(retUser);
+                    return res.send({
+                        success: true,
+                        user: retUser
+                    });
+                });
+            });
+
+        });
     });
     app.get('/api/account/viewRestaurant', function(req, res) {
         //TODO
