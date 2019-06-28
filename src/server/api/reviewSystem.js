@@ -176,6 +176,15 @@ module.exports = (app) => {
     });
 
     app.get('/api/account/viewUser', function(req, res) {
+        /* example:
+        {header: {
+        Content-Type: application/json
+            username: tapuz
+            token: 5d11769317381d2fe057f051
+            usertoview: tapuz
+            }
+        }
+        */
         let {headers} = req;
         let {token, username, usertoview} = headers;
         console.log("looking up:"+ usertoview,token, username);
@@ -206,7 +215,7 @@ module.exports = (app) => {
                     if (err2) {
                         return res.send({
                             success: false,
-                            message: 'Error 1136: Server error'
+                            message: 'Error 1137: Server error'
                         });
                     }
                     retUser.reviews = docs;
@@ -221,8 +230,55 @@ module.exports = (app) => {
         });
     });
     app.get('/api/account/viewRestaurant', function(req, res) {
-        //TODO
-    });
+        let {headers} = req;
+        let {restid} = headers;
+        Restaurant.findOne({_id: restid}, (err, r)=>{
+            if (err) {
+                return res.send({
+                    success: false,
+                    message: 'Error 1138: Server error'
+                });
+            }
+            if(!r){
+                return res.send({
+                    success: false,
+                    message: 'Error 1139: user '+ userToView +' does not exist'
+                });
+            }
+            var retRest =  r.toObject();
+            Review.find({restaurant: restid})
+            // .populate('reviewer') //probably redundant because it's the same user?
+                .populate('reviewer')
+                .exec((err, docs)=>{
+                    if (err) {
+                        return res.send({
+                            success: false,
+                            message: 'Error 1140: Server error'
+                        });
+                    }
+                    console.log(docs);
+                    let reviews = new Array();
+
+
+
+                    docs.map((review)=>{
+                        let r = review.toObject();
+
+                        delete r.reviewer.password;
+                        reviews.push(r);
+                    });
+
+                    retRest.reviews = reviews;
+                    // console.log(retRest);
+                    return res.send({
+                        success: true,
+                        rest: retRest
+                    });
+
+                });
+            });
+
+        });
     app.get('/api/account/updateDetails', function(req, res) {
         // verify user
         //TODO
