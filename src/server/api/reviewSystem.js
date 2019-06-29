@@ -229,7 +229,7 @@ module.exports = (app) => {
 
         });
     });
-    app.get('/api/account/viewRestaurant', function(req, res) {
+    app.get('/api/reviews/viewRestaurant', function(req, res) {
         let {headers} = req;
         let {restid} = headers;
         Restaurant.findOne({_id: restid}, (err, r)=>{
@@ -279,9 +279,28 @@ module.exports = (app) => {
             });
 
         });
-    app.get('/api/account/updateDetails', function(req, res) {
+    app.post('/api/account/updateDetails', function(req, res) {
         // verify user
-        //TODO
+        let {body} = req;
+        let {token, username, updates} = body;
+
+        verifySession(token, username, res, (user)=>{
+            if(updates.password){
+                updates.password = user.generateHash(updates.password);
+            }
+            User.updateOne({_id: user._id}, {$set: updates}, (err, docs)=>{
+                if(err){
+                    return res.send({
+                        success: false,
+                        message: 'Error 1141: Server error'
+                    });
+                }
+                return res.send({
+                    success: true,
+                    message: 'successfully updated '+username
+                });
+            });
+        });
     });
 }
 

@@ -154,7 +154,7 @@ module.exports = (app) => {
     app.post('/api/account/logout', function(req, res, next)  {
         let { query } = req;
         let { token } = query;
-
+        //TODO correct this to findOneAndDelete
         UserSession.findOneAndUpdate({
             _id: token,
             isDeleted: false
