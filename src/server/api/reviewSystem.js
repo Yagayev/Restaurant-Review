@@ -3,6 +3,13 @@ let UserSession = require('../model/userSession');
 let Review = require('../model/Review');
 let Restaurant = require('../model/Restaurant');
 
+/*TODO for this file:
+* move some of the functionality to more appropriate files(maybe refactor this and signin.js into 3 files)
+* add checks that every request consists only legal requests(assume malicious client)
+* possibly - to change the rest upload to only new rests, or perhaps allow both new and update but under different URIs.
+* */
+
+
 module.exports = (app) => {
     app.post('/api/reviews/uploadReview', function(req, res) {
         /*example query:
