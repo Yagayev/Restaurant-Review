@@ -18,5 +18,21 @@ export default {
         size: 200,
         tag: 'art',
         tags: List()
+    }),
+    menu: map({
+
+    }),
+    restsearch: map({
+        rests: List(),
+        openLightBox: false,
+        activeImage: 0,
+        activeFilter: List(),
+        galleryWidth: 0
+    }),
+    restreview: map({
+
+    }),
+    userpage: map({
+
     })
 };

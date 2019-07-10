@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 import LoginActions from './actions'
 
 function* loadTags(action){
-    console.log('AppSaga=', action);
+    console.log('MenuSaga=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
