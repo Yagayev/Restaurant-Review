@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import RestSearchActions from '../RestSearch/actions';
-import {Button} from 'primereact/button';
+import {Button} from 'react-bootstrap';
 import { Card } from 'react-bootstrap'
 // import './RestPreview.scss';
-import StarRatings from './react-star-ratings';
+import StarRatings from 'react-star-ratings';
 
 class RestPreview extends React.Component {
   // calcImageSize() {
@@ -29,21 +29,25 @@ class RestPreview extends React.Component {
             <Card.Body>
               {/*<Card.Title>Special title treatment</Card.Title>*/}
               <Card.Text>
-                {this.props.rest.location}
+                Location: {this.props.rest.location}
               </Card.Text>
               <StarRatings
-                  rating={this.props.average_ratings.overall}
+                  rating={this.props.rest.average_ratings.overall}
                   starRatedColor="red"
                   numberOfStars={11}
                   name='overall'
+                  starDimension='25px'
               />
+              <br />
+              <br />
               <Button
-                  variant="Dark"
-                  onClick={() => this.props.onClickGoToRestEventHandler(this.props.id)}>
-              View restaurant
-              </Button>
+                  variant="dark"
+                  size="sm"
+                  onClick={() => this.props.onClickGoToRestEventHandler(this.props.id)}
+              >View restaurant</Button>
             </Card.Body>
           </Card>
+          <br />
         </div>
 
 
@@ -77,7 +81,7 @@ class RestPreview extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    rest: state['restsearch'].getIn(['rests', props.id]),
+    rest: state['restSearch'].getIn(['rests', props.id]),
     id: props.id,
     token: state['login'].get('token'),
     username: state['login'].get('username')

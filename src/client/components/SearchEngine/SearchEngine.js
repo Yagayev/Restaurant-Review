@@ -16,6 +16,7 @@ class SearchEngine extends React.Component {
 
     render() {
         console.log('Search Engine props=', this.props);
+        console.log('Search Engine state=', this.state);
         //          {/*<div className="search-root">*/}
         //       {/*  <div className="search-header">*/}
         //            <Form
@@ -38,7 +39,7 @@ class SearchEngine extends React.Component {
                     <Button
                         label="Search"
                         className="p-button-raised p-button-rounded"
-                        onClick={() => this.props.loadRestsEventHandler(this.props.name)}
+                        onClick={() => this.props.loadRestsEventHandler(propsToParams(this.props))}
                     />
                 </div>
                 <RestSearch/>
@@ -47,19 +48,33 @@ class SearchEngine extends React.Component {
     }
 }
 
+function propsToParams(props){
+    return {
+        params: {
+            name: props.name,
+            ratings: props.ratings
+        },
+        username: props.username,
+        token: props.token,
+        distanceVsScore: props.distanceVsScore
+    }
+}
 
 const mapStateToProps = (state) => {
   return {
       name: state['searchEngine'].get('name'),
       ratings: state['searchEngine'].get('ratings').toArray(),
-      distanceVsScore: state['searchEngine'].get('distanceVsScore')
+      distanceVsScore: state['searchEngine'].get('distanceVsScore'),
+      username: state['login'].get('username'),
+      token: state['login'].get('token')
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     updateNameEventHandler: (e) => {
-      dispatch(SearchEngineActions.updateNameAction(e.value));
+        console.log("updateNameEventHandler, e=", e);
+      dispatch(SearchEngineActions.updateNameAction(e.target.value));
     },
     loadRestsEventHandler: (searchFields) => {
       dispatch(RestSearchActions.loadRestsAction(searchFields))

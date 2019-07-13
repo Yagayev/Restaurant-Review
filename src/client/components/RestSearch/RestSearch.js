@@ -4,7 +4,7 @@ import { Lightbox } from 'react-modal-image';
 // import './Gallery.scss';
 import {connect} from 'react-redux';
 import RestSearchActions from '../RestSearch/actions';
-
+import RestPreview from '../RestPreview'
 class RestSearch extends React.Component {
 
 
@@ -25,7 +25,7 @@ class RestSearch extends React.Component {
     return (
       <div className="rest-search-root">
         {this.props.rests.map((dto, idx) => {
-          return <Image
+          return <RestPreview
             key={'image-' + dto.id + idx}
             id={idx}
             dto={dto}

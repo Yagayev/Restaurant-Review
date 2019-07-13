@@ -166,7 +166,8 @@ module.exports = (app) => {
         }
 }*/
         const {body} = req;
-        let {params, distanceVsScore, sortBy, token, username} = body;
+        const { searchCriteria } = body
+        let {params, distanceVsScore, sortBy, token, username} = searchCriteria;
         console.log(req);
         verifySession(token, username, res, (user) => {
             Restaurant.find(paramsToFilter(params), (err, docs) => {

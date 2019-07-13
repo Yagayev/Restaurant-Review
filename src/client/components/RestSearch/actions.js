@@ -63,7 +63,7 @@ function deleteAction(idx){
 }
 
 //TODO delete all the above
-function goToRest(idx){
+function goToRestAction(idx){
   return {
     type: RestSearchActionsConstants.GO_TO_REST_ACTION,
     idx: idx,
@@ -100,7 +100,7 @@ function loadRestsFailureAction(message) {
 
 
 let RestSearchActions = {
-  goToRest,
+  goToRestAction,
   loadRestsAction,
   loadRestsSuccessAction,
   loadRestsFailureAction
