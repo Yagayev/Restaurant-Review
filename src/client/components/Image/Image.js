@@ -38,7 +38,7 @@ class Image extends React.Component {
             onClick={() => this.props.onClickApplyFilterEventHandler(this.props.id)}/>
           <Button
               icon="pi pi-th-large"
-            onClick={() => this.props.onClickOpenLightBoxEventHandler(this.props.id)}/>
+            onClick={() => this.props.handleClone(this.props.id)}/>
           <Button
               icon="pi pi-trash"
             onClick={() => this.props.onClickDeleteEventHandler(this.props.id)}/>

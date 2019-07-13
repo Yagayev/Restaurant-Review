@@ -9,9 +9,9 @@ export default {
         galleryWidth: 0
     }),
     login: Map({
-        username: '',
+        username: 'tapuz',
         password: '',
-        token: '',
+        token: '5d11769317381d2fe057f051',
         message: ''
     }),
     app: Map({
@@ -19,20 +19,22 @@ export default {
         tag: 'art',
         tags: List()
     }),
-    menu: map({
+    menu: Map({
 
     }),
-    restsearch: map({
-        rests: List(),
-        openLightBox: false,
-        activeImage: 0,
-        activeFilter: List(),
-        galleryWidth: 0
+    restSearch: Map({
+        rests: List()
     }),
-    restreview: map({
+    searchEngine: Map({
+        name: '',
+        ratings: List(),
+        distanceVsScore: 0
 
     }),
-    userpage: map({
+    restreview: Map({
+
+    }),
+    userpage: Map({
 
     })
 };

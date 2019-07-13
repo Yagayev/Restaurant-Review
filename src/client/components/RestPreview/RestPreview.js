@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import GalleryActions from '../Gallery/actions';
+import RestSearchActions from '../RestSearch/actions';
 import {Button} from 'primereact/button';
 import { Card } from 'react-bootstrap'
 // import './RestPreview.scss';
@@ -25,20 +25,23 @@ class RestPreview extends React.Component {
     return (
         <div>
           <Card>
-            <Card.Header>Featured</Card.Header>
+            <Card.Header>{this.props.rest.name}</Card.Header>
             <Card.Body>
-              <Card.Title>Special title treatment</Card.Title>
+              {/*<Card.Title>Special title treatment</Card.Title>*/}
               <Card.Text>
-                With supporting text below as a natural lead-in to additional content.
+                {this.props.rest.location}
               </Card.Text>
               <StarRatings
-                  rating={this.state.rating}
+                  rating={this.props.average_ratings.overall}
                   starRatedColor="red"
-                  changeRating={this.changeRating}
                   numberOfStars={11}
-                  name='rating'
+                  name='overall'
               />
-              <Button variant="Dark">Go somewhere</Button>
+              <Button
+                  variant="Dark"
+                  onClick={() => this.props.onClickGoToRestEventHandler(this.props.id)}>
+              View restaurant
+              </Button>
             </Card.Body>
           </Card>
         </div>
@@ -74,27 +77,17 @@ class RestPreview extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    image: state['gallery'].getIn(['images', props.id]),
+    rest: state['restsearch'].getIn(['rests', props.id]),
     id: props.id,
-    size: state['app'].get('size'),
-    activeFilter: state['gallery'].getIn(['activeFilter', props.id]),
-    galleryWidth: state['gallery'].get('galleryWidth')
+    token: state['login'].get('token'),
+    username: state['login'].get('username')
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClickCloneEventHandler: (idx) => {
-      dispatch(GalleryActions.cloneAction(idx))
-    },
-    onClickApplyFilterEventHandler: (idx) => {
-      dispatch(GalleryActions.applyFilterAction(idx))
-    },
-    onClickDeleteEventHandler: (idx) => {
-      dispatch(GalleryActions.deleteAction(idx))
-    },
-    onClickOpenLightBoxEventHandler: (idx) => {
-      dispatch(GalleryActions.setActiveImage(idx))
+    onClickGoToRestEventHandler: (idx) => {
+      dispatch(RestSearchActions.goToRestAction(idx))
     }
   }
 };

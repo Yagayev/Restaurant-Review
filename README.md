@@ -2,7 +2,7 @@
 Based on react-redux-reducers-saga-webkit-express-mongoose. 
 Made as the final project of the course Advanced Topics in Functional and Reactive Programming
 
-Simple(r) full stack boilerplate code implementing a Flickr Gallery using up to date dependencies (May2019).
+Simple(r) full stack boilerplate code implementing a Flickr RestSearch using up to date dependencies (May2019).
 
 To start the server:
 1. start mongodb using mongod
