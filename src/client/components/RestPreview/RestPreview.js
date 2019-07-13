@@ -38,8 +38,7 @@ class RestPreview extends React.Component {
                   name='overall'
                   starDimension='25px'
               />
-              <br />
-              <br />
+              <Card.Text> {this.props.rest.average_ratings.overall.toFixed(2)}/11</Card.Text>
               <Button
                   variant="dark"
                   size="sm"

@@ -15,6 +15,12 @@ const SearchEngineReducer = (state = initialState.searchEngine, action) => {
         //     return state.set('tags', new List(res));
         case SearchEngineActionsConstants.UPDATE_NAME:
             return state.set('name', action.payload.name);
+        case SearchEngineActionsConstants.ADVANCED_OPEN:
+            return state.set('advanced', true);
+        case SearchEngineActionsConstants.ADVANCED_CLOSE:
+            return state.set('advanced', false);
+        case SearchEngineActionsConstants.UPDATE_RATING:
+            return state.setIn(['ratings', action.payload.key], action.payload.rating);
         default: //otherwise state is lost!
             return state;
     }

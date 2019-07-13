@@ -42,13 +42,38 @@ function updateNameAction(name){
     }
 }
 
+function advancedOpenAction(){
+    return {
+        type: SearchEngineActionsConstants.ADVANCED_OPEN
+    }
+}
+
+function advancedCloseAction(){
+    return {
+        type: SearchEngineActionsConstants.ADVANCED_CLOSE
+    }
+}
+
+function updateRatingAction(key, rating){
+    return {
+        type: SearchEngineActionsConstants.UPDATE_RATING,
+        payload: {
+            key,
+            rating
+        }
+    }
+}
+
 let SearchEngineActions  = {
     updateTagAction,
     loadTagsAction,
     loadTagsSuccessAction,
     loadTagsFailureAction,
     //TODO delete the above
-    updateNameAction
+    updateNameAction,
+    advancedOpenAction,
+    advancedCloseAction,
+    updateRatingAction
 };
 
 export default SearchEngineActions
