@@ -32,12 +32,23 @@ const AppReducer = (state = initialState.login, action) => {
             state = state.set('password', '');
             return state;
         case LoginActionsConstants.LOGIN_SUCCESS:
-            state = state.set('username', '');
+            // state = state.set('username', '');
             state = state.set('password', '');
             state = state.set('message', action.payload.json.message);
             state = state.set('token', action.payload.json.token);
             setInStorage('restorant_review_token', action.payload.json.token);
-
+            setInStorage('restorant_review_username', action.payload.json.username);
+            return state;
+        case LoginActionsConstants.LOAD_USER:
+            state = state.set('token', getFromStorage('restorant_review_token'));
+            state = state.set('username', getFromStorage('restorant_review_username'));
+            return state;
+        case LoginActionsConstants.DISCONNECT:
+            console.log("DISCONNECT")
+            setInStorage('restorant_review_token','');
+            setInStorage('restorant_review_username','');
+            state = state.set('token','');
+            state = state.set('username', '');
             return state;
         default: //otherwise state is lost!
             return state;

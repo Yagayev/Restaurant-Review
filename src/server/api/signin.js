@@ -115,7 +115,8 @@ module.exports = (app) => {
                 return res.send({
                     success: true,
                     message: 'Successfully logged in',
-                    token: user.id
+                    token: user.id,
+                    username: username
                 });
             });
 

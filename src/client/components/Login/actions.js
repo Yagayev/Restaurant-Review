@@ -120,6 +120,18 @@ function signupFailureAction(json){
   }
 }
 
+function loadUserAction(){
+    return {
+        type: LoginActionsConstants.LOAD_USER
+    }
+}
+
+function disconnectAction(){
+    return {
+        type: LoginActionsConstants.DISCONNECT
+    };
+}
+
 let LoginActions  = {
     updateTagAction,
     loadTagsAction,
@@ -133,6 +145,8 @@ let LoginActions  = {
     loginFailureAction,
     signupSuccessAction,
     signupFailureAction,
+    loadUserAction,
+    disconnectAction
 };
 
 export default LoginActions

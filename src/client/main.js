@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/index';
+import MainRouter from './components/MainRouter/MainRouter';
 import Login from './components/Login/index';
 import Menu from './components/Menu/index';
 import SearchEngine from './components/SearchEngine/index';
@@ -35,11 +35,12 @@ sagaMiddleware.run(Sagas);
 
 ReactDOM.render(
   <Provider store={store}>
-
-      <div>
-          <Menu />
-          <SearchEngine />
-      </div>
+      <MainRouter/>
+      {/*<div>*/}
+      {/*    */}
+      {/*    /!*<Menu />*!/*/}
+      {/*    /!*<SearchEngine />*!/*/}
+      {/*</div>*/}
 
   </Provider>,
   document.getElementById('app'));

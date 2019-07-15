@@ -9,9 +9,9 @@ export default {
         galleryWidth: 0
     }),
     login: Map({
-        username: 'tapuz',
+        username: '',
         password: '',
-        token: '5d11769317381d2fe057f051',
+        token: '',
         message: ''
     }),
     app: Map({
