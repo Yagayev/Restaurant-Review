@@ -41,10 +41,31 @@ export default {
         distanceVsScore: 0,
         advanced: false
     }),
-    restreview: Map({
+    restPage: Map({
+        restId: 0,
+        rest: {
+
+            name: '',
+            location: '',
+            average_ratings: {
+                overall: 0,
+                staff_kindness: 0,
+                cleaniness: 0,
+                drive_thru_quality: 0,
+                delivery_speed: 0,
+                food_quality: 0,
+                taste: 0,
+                prices: 0,
+                waiting_time: 0
+            },
+        }
+        }
+    ),
+    restReview: Map({
+
 
     }),
-    userpage: Map({
+    userPage: Map({
 
     })
 };

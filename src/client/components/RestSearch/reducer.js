@@ -59,12 +59,12 @@ const RestSearchReducer = (state = initialState.restSearch, action) => {
       return state;
 
       //TODO delete the above
-    case RestSearchActionsConstants.GO_TO_REST_ACTION:
-      console.log('RECEIVED: RestSearchActionsConstants.GO_TO_REST_ACTION');
-      console.log('ACTION:', action);
-      console.log("AAAAAAAAAAAAAAAAAAAAA\AAAAAAAAA\AAAA");
-      console.log('reducing go to rest');
-      return state;
+    // case RestSearchActionsConstants.GO_TO_REST_ACTION:
+    //   console.log('RECEIVED: RestSearchActionsConstants.GO_TO_REST_ACTION');
+    //   console.log('ACTION:', action);
+    //   console.log("AAAAAAAAAAAAAAAAAAAAA\AAAAAAAAA\AAAA");
+    //   console.log('reducing go to rest');
+    //   return state;
 
     case RestSearchActionsConstants.LOAD_RESTS_ACTION_SUCCESS:
       console.log('RECEIVED: RestSearchActionsConstants.LOAD_IMAGES_ACTION_SUCCESS');

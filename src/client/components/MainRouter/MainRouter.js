@@ -1,7 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Login from '../Login';
-import SearchEngine from "../SearchEngine/SearchEngine";
+import SearchEngine from "../SearchEngine";
+import RestPage from "../RestPage";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Menu from "../Menu";
 import LoginActions from "../Login/actions";
@@ -29,6 +30,10 @@ class MainRouter extends React.Component {
                         <Route
                             path="/login"
                             component={Login}
+                        />
+                        <Route
+                            path="/rest/:id"
+                            component={RestPage}
                         />
                         <Route
                             component={PageNotFound}

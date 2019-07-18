@@ -10,10 +10,7 @@ let restaurantSchema = new Schema({
         type: String,
         default: ''
     },
-    // reviews: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Review'
-    // }],
+
     average_ratings: {
         overall: {
             type: Number,
@@ -52,7 +49,10 @@ let restaurantSchema = new Schema({
             default: 0
         }
     },
-
+    // reviews: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Review'
+    // }],
 });
 
 module.exports = mongoose.model('Rstaurant', restaurantSchema);

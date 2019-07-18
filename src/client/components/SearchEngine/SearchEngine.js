@@ -39,21 +39,21 @@ class SearchEngine extends React.Component {
                         <br/>
                         <Button
                             label="Search"
-                            className="p-button-raised p-button-rounded"
+                            className="p-button-secondary"
                             onClick={() => this.props.loadRestsEventHandler(propsToParams(this.props))}
                         />
                         {!this.props.advanced && (
                             <div>
                                 <Button
                                     label="Advanced"
-                                    className="p-button-raised p-button-rounded"
+                                    className="p-button-secondary"
                                     onClick={this.props.advancedOpenHandler}
                                 />
                             </div>
                         )}
                         {this.props.advanced && (
                             <div>
-                                <table style={{fontSize:15}}>
+                                <table style={{fontSize:15}} className="center">
                                     <tbody>
                                     <tr >
                                         <th>Overall:</th>
@@ -169,7 +169,7 @@ class SearchEngine extends React.Component {
                                 <br />
                                 <Button
                                     label="Close advanced"
-                                    className="p-button-raised p-button-rounded"
+                                    className="p-button-danger p-button-rounded"
                                     onClick={this.props.advancedCloseHandler}
                                 />
                             </div>

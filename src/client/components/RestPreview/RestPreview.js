@@ -38,11 +38,12 @@ class RestPreview extends React.Component {
                   name='overall'
                   starDimension='25px'
               />
-              <Card.Text> {this.props.rest.average_ratings.overall.toFixed(2)}/11</Card.Text>
+              <Card.Text> {this.props.rest.average_ratings.overall.toFixed(1)}/11</Card.Text>
               <Button
                   variant="dark"
                   size="sm"
-                  onClick={() => this.props.onClickGoToRestEventHandler(this.props.id)}
+                  href={"/rest/"+this.props.rest._id}
+                  // onClick={() => this.props.onClickGoToRestEventHandler(this.props.id)}
               >View restaurant</Button>
             </Card.Body>
           </Card>

@@ -57,13 +57,13 @@ class Login extends React.Component {
                     <br />
                     <Button
                         label="Log in"
-                        className="p-button-raised p-button-rounded"
+                        className="p-button-secondary"
                         onClick={() => this.props.LoginEventHandler(this.props.username, this.props.password)}
                     />
                     <br />
                     <Button
                         label="Sign up"
-                        className="p-button-raised p-button-rounded"
+                        className="p-button-secondary"
                         onClick={() => this.props.SignupEventHandler(this.props.username, this.props.password)}
                     />
                     {

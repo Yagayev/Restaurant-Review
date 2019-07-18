@@ -4,12 +4,13 @@ import AppReducer from './components/App/reducer';
 import LoginReducer from './components/Login/reducer';
 import SearchEngineReducer from './components/SearchEngine/reducer';
 import RestSearchReducer from "./components/RestSearch/reducer";
-
+import RestPageReducer from "./components/RestPage/reducer";
 
 export default combineReducers({
   app: AppReducer,
   gallery: GalleryReducer,
   login: LoginReducer,
   searchEngine: SearchEngineReducer,
-  restSearch: RestSearchReducer
+  restSearch: RestSearchReducer,
+  restPage: RestPageReducer
 });

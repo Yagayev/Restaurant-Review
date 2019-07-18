@@ -6,11 +6,12 @@ import React from 'react';
 // import GalleryActions from '../Gallery/actions';
 // import { Button } from 'primereact/button';
 // import { Dropdown } from 'primereact/dropdown';
+// import GalleryActions from "../Gallery/actions";
+// import {NavLink} from "react-router-dom";
+
 import { Navbar, Nav, Form , FormControl, Button  } from 'react-bootstrap'
 import LoginActions from "../Login/actions";
-import GalleryActions from "../Gallery/actions";
 import {connect} from "react-redux";
-// import {NavLink} from "react-router-dom";
 
 class Menu extends React.Component {
     render = () => (
@@ -41,10 +42,7 @@ class Menu extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        username: state['login'].get('username'),
-        password: state['login'].get('password'),
-        message: state['login'].get('message'),
-        token: state['login'].get('token')
+
     }
 };
 

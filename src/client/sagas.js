@@ -4,6 +4,7 @@ import AppSaga from './components/App/saga'
 import LoginSaga from './components/Login/saga'
 import SearchEngineSaga from "./components/SearchEngine/saga";
 import RestSearchSaga from "./components/RestSearch/saga";
+import RestPageSaga from "./components/RestPage/saga";
 
 export default function* Sagas() {
     yield all([
@@ -11,6 +12,7 @@ export default function* Sagas() {
         GallerySaga(),
         LoginSaga(),
         SearchEngineSaga(),
-        RestSearchSaga()
+        RestSearchSaga(),
+        RestPageSaga()
     ])
 }
