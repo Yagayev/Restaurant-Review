@@ -42,9 +42,9 @@ export default {
         advanced: false
     }),
     restPage: Map({
+        loading: true,
         restId: 0,
         rest: {
-
             name: '',
             location: '',
             average_ratings: {
@@ -58,6 +58,7 @@ export default {
                 prices: 0,
                 waiting_time: 0
             },
+            reviews: []
         }
         }
     ),

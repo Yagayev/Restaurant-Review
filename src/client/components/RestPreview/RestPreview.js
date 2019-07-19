@@ -43,38 +43,12 @@ class RestPreview extends React.Component {
                   variant="dark"
                   size="sm"
                   href={"/rest/"+this.props.rest._id}
-                  // onClick={() => this.props.onClickGoToRestEventHandler(this.props.id)}
               >View restaurant</Button>
             </Card.Body>
           </Card>
           <br />
         </div>
 
-
-      // <div
-      //   className="image-root"
-      //   style={{
-      //     backgroundImage: `url(${RestPreview.urlFromDto(this.props.image)})`,
-      //     filter: this.props.activeFilter,
-      //     width: size + 'px',
-      //     height: size + 'px'
-      //   }}
-      // >
-      //   <div>
-      //     <Button
-      //         icon="pi pi-clone"
-      //       onClick={() => this.props.onClickCloneEventHandler(this.props.id)}/>
-      //     <Button
-      //         icon="pi pi-filter"
-      //       onClick={() => this.props.onClickApplyFilterEventHandler(this.props.id)}/>
-      //     <Button
-      //         icon="pi pi-th-large"
-      //       onClick={() => this.props.onClickOpenLightBoxEventHandler(this.props.id)}/>
-      //     <Button
-      //         icon="pi pi-trash"
-      //       onClick={() => this.props.onClickDeleteEventHandler(this.props.id)}/>
-      //   </div>
-      // </div>
     );
   }
 }

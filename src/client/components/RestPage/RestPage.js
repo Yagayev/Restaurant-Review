@@ -4,13 +4,15 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import './App.scss';
+import '../../utils/App.scss';
 import { Redirect } from 'react-router';
 
 // import { Navbar, Nav, Form , FormControl, Button  } from 'react-bootstrap'
 import RestPageActions from "./actions";
 import StarRatings from "react-star-ratings";
-import {Button} from "primereact/components/button/Button";
+import RestPageReview from "../RestPageReview";
+import { Card } from 'react-bootstrap/Card'
+import RestPreview from "../RestPreview";
 
 class RestPage extends React.Component {
 
@@ -19,28 +21,23 @@ class RestPage extends React.Component {
     };
 
     renderRedirect = () => {
-        //TODO for some reason it always redirects
-
-        // console.log("redirecting?", this.props.token, this.props.username,
-        //     !this.props.token,
-        //     !this.props.token=== '' ,
-        //     !this.props.username,
-        //     !this.props.username === '' , !this.props.token||
-        //     !this.props.token === ''||
-        //     !this.props.username||
-        //     !this.props.username === '')
-        // if (!this.props.token||
-        //     !this.props.token === ''||
-        //     !this.props.username||
-        //     !this.props.username === ''
-        // ) {
-        //     console.log("YES!!!")
-        //     return (<Redirect to='/login' />)
-        // }
+        if (!this.props.token||
+            !this.props.token === ''||
+            !this.props.username||
+            !this.props.username === ''
+        ) {
+            return (<Redirect to='/login' />)
+        }
     };
 
     render = () => {
         const restId = this.props.match.params.id;
+
+        if(this.props.loading){
+            return (
+                <h3>Loading...</h3>
+            )
+        }
         return (
             <div>
                 {this.renderRedirect()}
@@ -58,7 +55,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='overall'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.overall.toFixed(1)}/11</th>
                                 </tr>
@@ -69,7 +66,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='staff_kindness'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.staff_kindness.toFixed(1)}/11</th>
                                 </tr>
@@ -80,7 +77,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='cleaniness'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.cleaniness.toFixed(1)}/11</th>
                                 </tr>
@@ -91,7 +88,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='drive_thru_quality'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.drive_thru_quality.toFixed(1)}/11</th>
                                 </tr>
@@ -102,7 +99,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='delivery_speed'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.delivery_speed.toFixed(1)}/11</th>
                                 </tr>
@@ -113,7 +110,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='food_quality'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.food_quality.toFixed(1)}/11</th>
                                 </tr>
@@ -124,7 +121,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='taste'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.taste.toFixed(1)}/11</th>
                                 </tr>
@@ -135,7 +132,7 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='prices'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.prices.toFixed(1)}/11</th>
                                 </tr>
@@ -146,13 +143,25 @@ class RestPage extends React.Component {
                                         starRatedColor="red"
                                         numberOfStars={11}
                                         name='waiting_time'
-                                        starDimension='20px'
+                                        starDimension='25px'
                                     /></th>
                                     <th>{this.props.rest.average_ratings.waiting_time.toFixed(1)}/11</th>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div>
+                       <h3>All reviews:</h3>
+                    </div>
+                    <div>
+                            {this.props.rest.reviews.map((dto, idx) => {
+                                return <RestPageReview
+                                    key={'review-' + dto.id + idx}
+                                    id={idx}
+                                    dto={dto}
+                                    />;
+                            })}
                     </div>
                 </div>
             </div>
@@ -166,7 +175,8 @@ const mapStateToProps = (state) => {
     return {
         username: state['login'].get('username'),
         token: state['login'].get('token'),
-        rest: state['restPage'].get('rest')
+        rest: state['restPage'].get('rest'),
+        loading: state['restPage'].get('loading')
     }
 };
 

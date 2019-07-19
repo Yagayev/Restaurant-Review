@@ -29,16 +29,8 @@ class RestSearch extends React.Component {
             key={'image-' + dto.id + idx}
             id={idx}
             dto={dto}
-            handleGoToRest={idx => this.props.goToRestEventHandler(idx)}
-            galleryWidth={this.props.galleryWidth}/>;
+            />;
         })}
-        {this.props.openLightBox && (
-          <Lightbox
-            medium={Image.urlFromDto(this.props.images.get(this.props.activeImage))}
-            large={Image.urlFromDto(this.props.images.get(this.props.activeImage))}
-            onClose={() => this.props.applyCloseLightBoxEventHandler(this.props.activeImage)}
-          />)}
-
       </div>
     );
   }
@@ -54,12 +46,12 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    goToRestEventHandler: (idx) => {
-      dispatch(RestSearchActions.goToRest(idx))
-    },
-    loadRestsEventHandler: (searchFields) => {
-      dispatch(RestSearchActions.loadRestsAction(searchFields))
-    }
+    // goToRestEventHandler: (idx) => {
+    //   dispatch(RestSearchActions.goToRest(idx))
+    // },
+    // loadRestsEventHandler: (searchFields) => {
+    //   dispatch(RestSearchActions.loadRestsAction(searchFields))
+    // }
   }
 };
 

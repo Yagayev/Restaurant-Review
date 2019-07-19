@@ -10,6 +10,7 @@ const RestPageReducer = (state = initialState.restPage, action) => {
         //     return state.set('restId', action.payload.restId);
         case RestPageActionsConstants.LOAD_REST_INFO_SUCCSESS:
             state = state.set('rest', action.payload.rest);
+            state = state.set('loading', false);
             console.log("RestPageReducer returning state=", state.toString());
             return state;
         default: //otherwise state is lost!

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import '../../utils/App.scss';
 import RestSearch from '../RestSearch';
 import { connect } from 'react-redux';
 import SearchEngineActions from './actions';

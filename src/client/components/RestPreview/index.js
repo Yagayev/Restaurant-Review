@@ -1,3 +1,3 @@
-import Image from './RestPreview';
+import RestPreview from './RestPreview';
 
-export default Image;
+export default RestPreview;

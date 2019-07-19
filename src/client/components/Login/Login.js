@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.scss';
+import '../../utils/App.scss';
 // import Gallery from '../Gallery';
 import { connect } from 'react-redux';
 import LoginActions from './actions';
