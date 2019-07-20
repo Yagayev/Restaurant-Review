@@ -27,7 +27,6 @@ function loadRestInfoFailureAction(message){
         type: RestPageActionsConstants.LOAD_REST_INFO_FAIL,
         message: message
     }
-
 }
 
 

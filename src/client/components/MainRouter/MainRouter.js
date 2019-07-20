@@ -5,7 +5,10 @@ import SearchEngine from "../SearchEngine";
 import RestPage from "../RestPage";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Menu from "../Menu";
+import AddReview from "../AddReview";
+
 import LoginActions from "../Login/actions";
+
 import GalleryActions from "../Gallery/actions";
 import {connect} from "react-redux";
 
@@ -34,6 +37,10 @@ class MainRouter extends React.Component {
                         <Route
                             path="/rest/:id"
                             component={RestPage}
+                        />
+                        <Route
+                            path="/addreview/:id"
+                            component={AddReview}
                         />
                         <Route
                             component={PageNotFound}

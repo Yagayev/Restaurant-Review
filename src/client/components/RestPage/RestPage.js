@@ -13,6 +13,8 @@ import StarRatings from "react-star-ratings";
 import RestPageReview from "../RestPageReview";
 import { Card } from 'react-bootstrap/Card'
 import RestPreview from "../RestPreview";
+// import {Button} from "primereact/button";
+import { Button } from 'react-bootstrap';
 
 class RestPage extends React.Component {
 
@@ -150,6 +152,11 @@ class RestPage extends React.Component {
                                 </tbody>
                             </table>
                         </div>
+                        <Button
+                            variant="light"
+                            // size="sm"
+                            href={"/addreview/"+this.props.match.params.id}
+                        >Add review</Button>
                     </div>
                     <div>
                        <h3>All reviews:</h3>

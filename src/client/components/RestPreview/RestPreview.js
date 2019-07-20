@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import RestSearchActions from '../RestSearch/actions';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap'
 // import './RestPreview.scss';
 import StarRatings from 'react-star-ratings';

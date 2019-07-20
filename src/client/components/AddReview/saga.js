@@ -1,9 +1,7 @@
-import {SearchEngineActionsConstants} from './constants'
+import {AddReviewActionsConstants} from './constants'
 import { call, put, takeEvery } from 'redux-saga/effects'
-import SearchEngineActions from './actions'
-
-function* loadTags(action){
-    console.log('MenuSaga=', action);
+function* loadRest(action){
+    console.log('loadRest SAGA=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -14,15 +12,17 @@ function* loadTags(action){
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        yield put(SearchEngineActions.loadTagsSuccessAction(json));
+        yield put(AddReviewActionsConstants.loadRestSuccessAction(json));
     } catch (e) {
-        yield put(SearchEngineActions.loadTagsFailureAction(e.message));
+        yield put(AddReviewActionsConstants.loadRestFailureAction(e.message));
     }
 }
 
-function* SearchEngineSaga() {
+function* AddReviewSaga() {
+    yield takeEvery(AddReviewActionsConstants.LOAD_REST, loadRest);
+
     //using takeEvery, you take the action away from reducer to saga
     // yield takeEvery(AddReviewActionsConstants.LOAD_TAGS, loadTags);
 }
 
-export default SearchEngineSaga;
+export default AddReviewSaga;

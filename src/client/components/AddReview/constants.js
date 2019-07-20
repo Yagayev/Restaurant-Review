@@ -1,0 +1,9 @@
+const AddReviewActionsConstants = {
+    LOAD_REST: 'LOAD_REST',
+    LOAD_REST_SUCCESS: 'LOAD_REST_SUCCESS',
+    LOAD_REST_FAIL: 'LOAD_REST_FAIL',
+    UPDATE_DESCRIPTION: 'UPDATE_DESCRIPTION',
+    UPDATE_RATING: 'UPDATE_RATING'
+};
+
+export { AddReviewActionsConstants }

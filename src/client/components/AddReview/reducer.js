@@ -1,8 +1,9 @@
 import initialState from '../../initialState';
-import {SearchEngineActionsConstants} from './constants.js';
+import {AddReviewActionsConstants} from './constants.js';
 import { List } from 'immutable';
+import {SearchEngineActionsConstants} from "../SearchEngine/constants";
 
-const SearchEngineReducer = (state = initialState.searchEngine, action) => {
+const AddReviewReducer = (state = initialState.searchEngine, action) => {
     console.log('SearchEngineReducerState=', state);
     console.log('RECEIVED ACTION:', action);
     switch (action.type){
@@ -13,12 +14,8 @@ const SearchEngineReducer = (state = initialState.searchEngine, action) => {
         //         return {label: elm, value: elm }
         //     });
         //     return state.set('tags', new List(res));
-        case SearchEngineActionsConstants.UPDATE_NAME:
-            return state.set('name', action.payload.name);
-        case SearchEngineActionsConstants.ADVANCED_OPEN:
-            return state.set('advanced', true);
-        case SearchEngineActionsConstants.ADVANCED_CLOSE:
-            return state.set('advanced', false);
+        case AddReviewActionsConstants.UPDATE_DESCRIPTION:
+            return state.set('description', action.payload.description);
         case SearchEngineActionsConstants.UPDATE_RATING:
             return state.setIn(['ratings', action.payload.key], action.payload.rating);
         default: //otherwise state is lost!
@@ -26,4 +23,4 @@ const SearchEngineReducer = (state = initialState.searchEngine, action) => {
     }
 };
 
-export default SearchEngineReducer
+export default AddReviewReducer

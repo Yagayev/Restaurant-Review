@@ -5,6 +5,7 @@ import LoginReducer from './components/Login/reducer';
 import SearchEngineReducer from './components/SearchEngine/reducer';
 import RestSearchReducer from "./components/RestSearch/reducer";
 import RestPageReducer from "./components/RestPage/reducer";
+import AddReviewReducer from "./components/AddReview/reducer";
 
 export default combineReducers({
   app: AppReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   login: LoginReducer,
   searchEngine: SearchEngineReducer,
   restSearch: RestSearchReducer,
-  restPage: RestPageReducer
+  restPage: RestPageReducer,
+  addReview: AddReviewReducer
 });
