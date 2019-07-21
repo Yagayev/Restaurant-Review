@@ -63,6 +63,8 @@ export default {
         }
     ),
     addReview: Map({
+        // loading: true,
+        submitted: false,
         restName: '',
         description: '',
         ratings: {

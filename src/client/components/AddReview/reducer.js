@@ -1,9 +1,8 @@
 import initialState from '../../initialState';
 import {AddReviewActionsConstants} from './constants.js';
 import { List } from 'immutable';
-import {SearchEngineActionsConstants} from "../SearchEngine/constants";
 
-const AddReviewReducer = (state = initialState.searchEngine, action) => {
+const AddReviewReducer = (state = initialState.addReview, action) => {
     console.log('SearchEngineReducerState=', state);
     console.log('RECEIVED ACTION:', action);
     switch (action.type){
@@ -16,8 +15,10 @@ const AddReviewReducer = (state = initialState.searchEngine, action) => {
         //     return state.set('tags', new List(res));
         case AddReviewActionsConstants.UPDATE_DESCRIPTION:
             return state.set('description', action.payload.description);
-        case SearchEngineActionsConstants.UPDATE_RATING:
+        case AddReviewActionsConstants.UPDATE_RATING:
             return state.setIn(['ratings', action.payload.key], action.payload.rating);
+        case AddReviewActionsConstants.SUBMIT_REVIEW_SUCCESS:
+            return state.set('submitted', true);
         default: //otherwise state is lost!
             return state;
     }

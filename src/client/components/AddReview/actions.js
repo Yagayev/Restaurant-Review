@@ -51,13 +51,43 @@ function loadRestFailureAction(message){
     }
 }
 
-let SearchEngineActions  = {
+
+function submitReviewAction(review){
+    return {
+        type: AddReviewActionsConstants.SUBMIT_REVIEW,
+        uri: '/api/reviews/uploadReview',
+        payload: {
+            review: review
+        }
+    }
+}
+
+function submitReviewSuccessAction(json){
+    if(!json.success){
+        return submitReviewFailureAction(json.message);
+    }
+    return{
+        type: AddReviewActionsConstants.SUBMIT_REVIEW_SUCCESS
+    }
+}
+function submitReviewFailureAction(msg){
+    return{
+        type: AddReviewActionsConstants.SUBMIT_REVIEW_SUCCESS,
+        message: msg
+    }
+}
+
+
+let AddReviewActions  = {
     updateDescriptionAction,
     updateRatingAction,
     loadRestAction,
     loadRestSuccessAction,
-    loadRestFailureAction
+    loadRestFailureAction,
+    submitReviewAction,
+    submitReviewSuccessAction,
+    submitReviewFailureAction
     
 };
 
-export default SearchEngineActions
+export default AddReviewActions

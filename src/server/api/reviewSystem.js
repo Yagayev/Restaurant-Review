@@ -33,6 +33,7 @@ module.exports = (app) => {
          */
 
         const {body} = req;
+        console.log("submit review body", body);
         const err = verifyAllReviewFields(res, body);
         if(err){
             return err;
@@ -194,7 +195,7 @@ module.exports = (app) => {
         */
         let {headers} = req;
         let {token, username, usertoview} = headers;
-        console.log("looking up:"+ usertoview,token, username);
+        // console.log("looking up:"+ usertoview,token, username);
         let userToView = usertoview;
         verifySession(token, username, res, (user) => {
             User.findOne({username: userToView}, (err, u)=>{
@@ -226,7 +227,7 @@ module.exports = (app) => {
                         });
                     }
                     retUser.reviews = docs;
-                    console.log(retUser);
+                    // console.log(retUser);
                     return res.send({
                         success: true,
                         user: retUser
@@ -263,7 +264,7 @@ module.exports = (app) => {
                             message: 'Error 1140: Server error'
                         });
                     }
-                    console.log(docs);
+                    // console.log(docs);
                     let reviews = new Array();
 
 
@@ -326,7 +327,7 @@ function verifySession(token, username, res, continuation) {
                 });
             }
             if (sessions.length != 1) {
-                console.log("sessions:", sessions);
+                // console.log("sessions:", sessions);
                 return res.send({
                     success: false,
                     message: 'Error 1101: Not a valid session'
@@ -346,7 +347,7 @@ function verifyAllReviewFields(res, body){
     if(!body.reviewer||!validStr(body.reviewer)){
         return res.send({
             success: false,
-            message: 'Error 1200: illigal username'
+            message: 'Error 1200: illigal username '+body.reviewer
         });
     }
 
@@ -385,12 +386,12 @@ function verifyAllReviewFields(res, body){
 
 function validStr(str){
     // require:
-    // at least 4 chars long
+    // at least 3 chars long
     // allowed:
     // letters
     // numbers
     // ! @ !@#$%^&*()
-    return str.match("^[A-Z, .!@#$%^\\&\\*\\(\\)a-z0-9]{4}[A-Z, .!@#$%^\\&\\*\\(\\)a-z0-9]*");
+    return str.match("^[A-Z, .!@#$%^\\&\\*\\(\\)a-z0-9]{3}[A-Z, .!@#$%^\\&\\*\\(\\)a-z0-9]*");
 }
 
 function validNum(num){

@@ -39,7 +39,7 @@ class MainRouter extends React.Component {
                             component={RestPage}
                         />
                         <Route
-                            path="/addreview/:id"
+                            path="/addreview/:restName"
                             component={AddReview}
                         />
                         <Route

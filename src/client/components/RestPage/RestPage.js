@@ -155,7 +155,7 @@ class RestPage extends React.Component {
                         <Button
                             variant="light"
                             // size="sm"
-                            href={"/addreview/"+this.props.match.params.id}
+                            href={"/addreview/"+this.props.rest.name}
                         >Add review</Button>
                     </div>
                     <div>

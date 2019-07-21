@@ -2,7 +2,7 @@ import React from 'react';
 import '../../utils/App.scss';
 import RestSearch from '../RestSearch';
 import { connect } from 'react-redux';
-import AddReviewActionsConstants from './actions';
+import AddReviewActions from './actions';
 import StarRatings from 'react-star-ratings';
 import {InputTextarea} from 'primereact/inputtextarea';
 import {Button} from "primereact/button";
@@ -13,7 +13,7 @@ import LoginActions from "../Login/actions";
 
 class AddReview extends React.Component {
     // componentDidMount() {
-    //     this.props.loadUserEventHandler()
+    //     this.props.loadRestEventHandler()
     // };
     renderRedirect = () => {
         // if (!this.props.token||
@@ -27,13 +27,21 @@ class AddReview extends React.Component {
 
     render() {
         console.log('Search Engine props=', this.props);
+        if(this.props.submitted){
+            return (
+                <div>
+                    <h3>Thank you for submmitting your review!</h3>
+                    <Redirect to='/' />
+                </div>
+            )
+        }
         return (
             <div>
                 {this.renderRedirect()}
                 <div className="app-root">
 
                     <div className="app-header">
-                        <h2>Restr</h2>
+                        <h3>Submitting a new review for {this.props.match.params.restName}</h3>
                         <InputTextarea
                             rows={5}
                             cols={60}
@@ -162,7 +170,7 @@ class AddReview extends React.Component {
                                 <Button
                                     label="Submit review"
                                     className="p-button-secondary"
-                                    // onClick={() => this.props.loadRestsEventHandler(propsToParams(this.props))}
+                                    onClick={() => this.props.submitReviewEventHandler(propsToReview(this.props))}
                                 />
                             </div>
 
@@ -174,15 +182,33 @@ class AddReview extends React.Component {
     }
 }
 
-function propsToParams(props){
+function propsToReview(props){
+    /*example query:
+        {
+          "restaurant": "booznakasd",
+          "reviewer": "tapuz",
+          "token": "5d11769317381d2fe057f051",
+          "description": "decent",
+          "ratings": {
+            "overall": 1,
+            "staff_kindness": 3,
+            "cleaniness": 5,
+            "drive_thru_quality": 4,
+            "delivery_speed": 5,
+            "food_quality": 9,
+            "taste": 9,
+            "prices": 7,
+            "waiting_time": 11
+          }
+        }
+         */
     return {
-        params: {
-            name: props.name,
-            ratings: props.ratings
-        },
-        username: props.username,
+
+        restaurant: props.match.params.restName,
+        description: props.description,
+        ratings: props.ratings,
+        reviewer: props.username,
         token: props.token,
-        distanceVsScore: props.distanceVsScore
     }
 }
 
@@ -190,7 +216,9 @@ const mapStateToProps = (state) => {
   return {
       ratings: state['addReview'].get('ratings'),
       restName: state['addReview'].get('restName'),
+      submitted: state['addReview'].get('submitted'),
       description: state['addReview'].get('description'),
+      // loading: state['addReview'].get('loading'),
       username: state['login'].get('username'),
       token: state['login'].get('token')
 
@@ -201,14 +229,17 @@ const mapDispatchToProps = (dispatch) => {
   return {
 
     updateDescriptionEventHandler: (e) =>{
-        dispatch(AddReviewActionsConstants.updateDescriptionAction(e.target.value));
+        dispatch(AddReviewActions.updateDescriptionAction(e.target.value));
     },
 
-    loadRestEventHandler: (searchFields) => {
-      dispatch(RestSearchActions.loadRestAction(searchFields))
-    },
+    // loadRestEventHandler: (searchFields) => {
+    //   dispatch(RestSearchActions.loadRestAction(searchFields))
+    // },
     updateRatingHandler: (key, rating) =>{
-        dispatch(AddReviewActionsConstants.updateRatingAction(key, rating));
+        dispatch(AddReviewActions.updateRatingAction(key, rating));
+    },
+    submitReviewEventHandler: (review) => {
+        dispatch(AddReviewActions.submitReviewAction(review));
     }
   }
 };
