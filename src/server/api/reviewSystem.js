@@ -33,7 +33,7 @@ module.exports = (app) => {
          */
 
         const {body} = req;
-        console.log("submit review body", body);
+        // console.log("submit review body", body);
         const err = verifyAllReviewFields(res, body);
         if(err){
             return err;
@@ -292,25 +292,60 @@ module.exports = (app) => {
         let {body} = req;
         let {token, username, updates} = body;
 
+
         verifySession(token, username, res, (user)=>{
             if(updates.password){
                 updates.password = user.generateHash(updates.password);
             }
-            User.updateOne({_id: user._id}, {$set: updates}, (err, docs)=>{
-                if(err){
-                    return res.send({
-                        success: false,
-                        message: 'Error 1141: Server error'
+
+            if(updates.username){
+                User.find({
+                    username: updates.username
+                }, (err, existingUsers) => {
+                    if (err) {
+                        return res.send({
+                            success: false,
+                            message: 'Error 1060: Server error'
+                        });
+                    } else if (existingUsers.length > 0) {
+                        return res.send({
+                            success: false,
+                            message: 'Error 1061: Username taken'
+                        });
+                    }
+                    User.updateOne({_id: user._id}, {$set: updates}, (err, docs) => {
+                        if (err) {
+                            return res.send({
+                                success: false,
+                                message: 'Error 1162: Server error'
+                            });
+                        }
+                        return res.send({
+                            success: true,
+                            message: 'successfully updated ' + username
+                        });
                     });
-                }
-                return res.send({
-                    success: true,
-                    message: 'successfully updated '+username
                 });
-            });
+
+            }
+            else{
+                User.updateOne({_id: user._id}, {$set: updates}, (err, docs)=>{
+                    if(err){
+                        return res.send({
+                            success: false,
+                            message: 'Error 1141: Server error'
+                        });
+                    }
+                    return res.send({
+                        success: true,
+                        message: 'successfully updated '+username
+                    });
+                });
+            }
+
         });
     });
-}
+};
 
 
 

@@ -6,6 +6,8 @@ import SearchEngineReducer from './components/SearchEngine/reducer';
 import RestSearchReducer from "./components/RestSearch/reducer";
 import RestPageReducer from "./components/RestPage/reducer";
 import AddReviewReducer from "./components/AddReview/reducer";
+import UserPageReducer from "./components/UserPage/reducer";
+import UpdateUserDetailsReducer from "./components/UpdateUserDetails/reducer";
 
 export default combineReducers({
   app: AppReducer,
@@ -14,5 +16,7 @@ export default combineReducers({
   searchEngine: SearchEngineReducer,
   restSearch: RestSearchReducer,
   restPage: RestPageReducer,
-  addReview: AddReviewReducer
+  addReview: AddReviewReducer,
+  userPage: UserPageReducer,
+  updateUserDetails: UpdateUserDetailsReducer
 });

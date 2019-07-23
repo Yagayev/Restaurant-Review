@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import './RestPreview.scss';
+// import './UserPreview.scss';
 import StarRatings from 'react-star-ratings';
 import { Card } from 'react-bootstrap'
 import '../../utils/App.scss';
 
 
-class RestPageReview extends React.Component {
+class UserPageReview extends React.Component {
 
 
   render() {
@@ -18,8 +18,9 @@ class RestPageReview extends React.Component {
           <h3>Loading...</h3>
       );
     }
-    const username = this.props.review.reviewer.username
-    const userLink = <a href={'/user/'+username}>{username}</a>;
+    const restId = this.props.review.restaurant._id;
+    const restName = this.props.review.restaurant.name;
+    const userLink = <a href={'/rest/'+restId}>{restName}</a>;
 
     return (
         <div>
@@ -143,21 +144,21 @@ class RestPageReview extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    review: state['restPage'].getIn(['rest', 'reviews', props.id]),
+    review: state['userPage'].getIn(['userViewing', 'reviews', props.id]),
     id: props.id,
     token: state['login'].get('token'),
     username: state['login'].get('username'),
-    loading: state['restPage'].get('loading')
+    loading: state['userPage'].get('loading')
 
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // onClickGoToRestEventHandler: (idx) => {
-    //   dispatch(RestSearchActions.goToRestAction(idx))
+    // onClickGoToUserEventHandler: (idx) => {
+    //   dispatch(UserSearchActions.goToUserAction(idx))
     // }
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestPageReview);
+export default connect(mapStateToProps, mapDispatchToProps)(UserPageReview);

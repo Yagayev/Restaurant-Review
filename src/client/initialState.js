@@ -1,3 +1,5 @@
+import {getFromStorage} from "./utils/storage";
+
 const { List, Map } = require('immutable');
 
 export default {
@@ -9,9 +11,9 @@ export default {
         galleryWidth: 0
     }),
     login: Map({
-        username: '',
+        username: getFromStorage('restorant_review_username'),
         password: '',
-        token: '',
+        token: getFromStorage('restorant_review_token'),
         message: ''
     }),
     app: Map({
@@ -60,8 +62,7 @@ export default {
             },
             reviews: []
         }
-        }
-    ),
+    }),
     addReview: Map({
         // loading: true,
         submitted: false,
@@ -79,12 +80,20 @@ export default {
             waiting_time: 0
         },
     }),
-
-    restReview: Map({
-
-
-    }),
     userPage: Map({
-
+        userViewing: {
+            userViewing: '',
+            location: '',
+            reviews: [],
+            hasWritingPermissions: false
+        },
+        loading: true
+    }),
+    updateUserDetails: Map({
+        newUsername: '',
+        location: '',
+        password: '',
+        submitted: false,
+        message: false
     })
 };

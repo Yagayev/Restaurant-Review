@@ -6,6 +6,9 @@ import RestPage from "../RestPage";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Menu from "../Menu";
 import AddReview from "../AddReview";
+import UserPage from "../UserPage";
+import UpdateUserDetails from "../UpdateUserDetails";
+
 
 import LoginActions from "../Login/actions";
 
@@ -16,7 +19,7 @@ import {connect} from "react-redux";
 class MainRouter extends React.Component {
 
     componentDidMount() {
-        this.props.loadUserEventHandler()
+        // this.props.loadUserEventHandler()
     };
 
     render() {
@@ -43,6 +46,18 @@ class MainRouter extends React.Component {
                             component={AddReview}
                         />
                         <Route
+                        path="/addreview/:restName"
+                        component={AddReview}
+                        />
+                        <Route
+                            path="/user/:username"
+                            component={UserPage}
+                        />
+                        <Route
+                            path="/editDetails"
+                            component={UpdateUserDetails}
+                        />
+                        <Route
                             component={PageNotFound}
                         />
 
@@ -55,6 +70,8 @@ class MainRouter extends React.Component {
 const
 mapStateToProps = (state) => {
     return {
+        username: state['login'].get('username'),
+        token: state['login'].get('token'),
 
     }
 };
