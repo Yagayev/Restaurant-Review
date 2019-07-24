@@ -290,6 +290,48 @@ module.exports = (app) => {
 
         });
     });
+
+    app.get('/api/account/userSearch', function(req, res) {
+        /* example:
+        {header: {
+        Content-Type: application/json
+            username: tapuz
+            token: 5d11769317381d2fe057f051
+            usertoview: tapuz
+            }
+        }
+        */
+        let {headers} = req;
+        let {token, username, searchquery} = headers;
+        // console.log("looking up:"+ usertoview,token, username);
+
+
+
+        verifySession(token, username, res, (user) => {
+            User.find({username: {"$regex": searchquery, "$options": "i" }}, (err, users)=>{
+                if (err) {
+                    return res.send({
+                        success: false,
+                        message: 'Error 1182: Server error'
+                    });
+                }
+
+                var retUsers = [];
+                users.map((x)=>{
+                    if(!retUsers.includes(x.username)){
+                        retUsers.push(x.username);
+                    }
+                });
+                return res.send({
+                    success: true,
+                    users: retUsers
+                });
+            });
+
+        });
+    });
+
+
     app.get('/api/reviews/viewRestaurant', function(req, res) {
         let {headers} = req;
         let {restid} = headers;

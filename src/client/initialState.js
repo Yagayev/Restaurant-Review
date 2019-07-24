@@ -103,5 +103,9 @@ export default {
         description: '',
         submitted: false,
         // redirect: ''
+    }),
+    userSearch: Map({
+       searchQuery: '',
+        users: List()
     })
 };

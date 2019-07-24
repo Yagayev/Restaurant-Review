@@ -15,10 +15,7 @@ let userSchema = new Schema({
         type: String,
         default: ''
     },
-    // reviews: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Review'
-    // }],
+
     //TODO add image
 });
 

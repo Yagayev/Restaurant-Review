@@ -9,6 +9,8 @@ import AddReview from "../AddReview";
 import UserPage from "../UserPage";
 import UpdateUserDetails from "../UpdateUserDetails";
 import SubmitRest from "../SubmitRest";
+import UserSearch from "../UserSearch";
+
 
 
 import LoginActions from "../Login/actions";
@@ -62,6 +64,10 @@ class MainRouter extends React.Component {
                             path="/submitRest"
                             component={SubmitRest}
                         />
+                        <Route
+                            path="/userSearch"
+                            component={UserSearch}
+                        />UserSearch
 
                         <Route
                             component={PageNotFound}

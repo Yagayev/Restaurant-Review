@@ -27,6 +27,8 @@ class Menu extends React.Component {
 
                         <Nav.Link href={"/submitRest"}
                                   text="white">Submit restaurant</Nav.Link>
+                        <Nav.Link href={"/userSearch"}
+                                  text="white">User search</Nav.Link>
 
                         <Nav.Link
                             onSelect={this.props.disconnectEventHandler}

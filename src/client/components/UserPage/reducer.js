@@ -6,7 +6,7 @@ const UserPageReducer = (state = initialState.userPage, action) => {
     console.log('userPageReducerState=', state);
     console.log('RECEIVED ACTION:', action);
     switch (action.type){
-        // case UserPageActionsConstants.UPDATE_USER_ID:
+        // case UserSearchActionsConstants.UPDATE_USER_ID:
         //     return state.set('userId', action.payload.userId);
         case UserPageActionsConstants.LOAD_USER_INFO_SUCCSESS:
             state = state.set('userViewing', action.payload.user);

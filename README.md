@@ -11,3 +11,12 @@ To start the server:
 
 This project is based on [this](https://github.com/majeek/simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate
 ) boilerplate, which subsequently is based on [this](https://github.com/wix-incubator/flickr-gallery-exam) code.
+
+####Libraries used:
+bcrypt - for password encryption
+React-route - for routing between pages
+
+UI:
+Bootstrap
+Primreact
+react-star-ratings

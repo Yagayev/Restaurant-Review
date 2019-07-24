@@ -20,6 +20,7 @@ let restaurantSchema = new Schema({
         default: 0
     },
 
+
     average_ratings: {
         overall: {
             type: Number,

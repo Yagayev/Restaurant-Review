@@ -58,7 +58,7 @@ function deleteReviewAction(token, username, reviewid, restid){
 // }
 // function deleteReviewFailureAction(message){
 //     return {
-//         type: UserPageActionsConstants.LOAD_USER_INFO_FAIL,
+//         type: UserSearchActionsConstants.LOAD_USER_INFO_FAIL,
 //         message: message
 //     }
 // }

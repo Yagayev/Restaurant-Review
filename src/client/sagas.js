@@ -9,6 +9,7 @@ import AddReviewSaga from "./components/AddReview/saga";
 import UserPageSaga from "./components/UserPage/saga";
 import UpdateUserDetailsSaga from "./components/UpdateUserDetails/saga";
 import SubmitRestSaga from "./components/SubmitRest/saga";
+import UserSearchSaga from "./components/UserSearch/saga";
 
 export default function* Sagas() {
     yield all([
@@ -21,6 +22,7 @@ export default function* Sagas() {
         AddReviewSaga(),
         UserPageSaga(),
         UpdateUserDetailsSaga(),
-        SubmitRestSaga()
+        SubmitRestSaga(),
+        UserSearchSaga()
     ])
 }
