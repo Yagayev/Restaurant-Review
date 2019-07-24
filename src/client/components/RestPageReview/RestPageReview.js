@@ -18,15 +18,18 @@ class RestPageReview extends React.Component {
           <h3>Loading...</h3>
       );
     }
-    const username = this.props.review.reviewer.username
+    const username = this.props.review.reviewer.username;
     const userLink = <a href={'/user/'+username}>{username}</a>;
-
+    var description = null;
+    if(this.props.review.description!==''){
+      description = (<Card.Text>{'\"'+this.props.review.description+'\"'}</Card.Text>)
+    }
     return (
         <div>
           <Card>
             <Card.Header>{userLink}</Card.Header>
             <Card.Body>
-              <Card.Text>"{this.props.review.description}"</Card.Text>
+              {description}
               <div>
                 <table style={{fontSize:15}} className="center">
                   <tbody>

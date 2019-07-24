@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fed73b01-2ced-462f-aae0-2c6c78628f88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPage/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPage/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPage/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPage/saga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/components/UserPageReview/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/RestPage/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPage/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/Menu/Menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/RestPage/RestPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPage/RestPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/UpdateUserDetails/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UpdateUserDetails/saga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/UserPage/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPage/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/UserPage/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPage/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/UserPage/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPage/saga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/initialState.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/reducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/sagas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/api/reviewSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/reviewSystem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/model/Restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/model/Restaurant.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,108 +31,90 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/UpdateUserDetails.js">
+        <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/UserPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            <state relative-caret-position="621">
+              <caret line="97" column="10" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="10" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#95#133#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#180#206#0" expanded="true" />
+                <element signature="e#395#435#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/actions.js">
+        <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/saga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="69" column="9" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="9" />
+            <state relative-caret-position="232">
+              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="161" column="14" lean-forward="true" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#96#141#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/initialState.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="63" column="23" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/saga.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/reducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/Menu/Menu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/Login/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="68" column="20" lean-forward="true" selection-start-line="68" selection-start-column="20" selection-end-line="72" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/api/reviewSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="347" column="2" selection-start-line="347" selection-start-column="2" selection-end-line="347" selection-end-column="2" />
+            <state relative-caret-position="-204">
+              <caret line="74" column="45" lean-forward="true" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
               <folding>
                 <element signature="e#179#519#0" />
+                <element signature="e#621#1124#0" />
+                <element signature="e#3150#3653#0" />
+                <element signature="e#3136#5429#0" />
+                <element signature="e#5497#6395#0" />
+                <element signature="e#6455#8372#0" />
+                <element signature="e#8437#10001#0" />
                 <element signature="n#!!block;n#validNum#0" />
                 <element signature="n#!!block;n#paramsToFilter#0" />
-                <element signature="n#!!block;n#updateRestRatings#0" />
                 <element signature="n#!!block;n#sortRests#0" />
                 <element signature="n#!!block;n#getDistance#0" />
                 <element signature="n#!!block;n#getDistanceFromLatLonInKm#0" />
-                <element signature="n#!!block;n#deg2rad#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/api/signin.js">
+        <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2099">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="40" selection-end-column="13" />
+            <state relative-caret-position="635">
+              <caret line="51" column="15" lean-forward="true" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -141,15 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>overalltoFixed</find>
-      <find>TOGGLE</find>
-      <find>HEADER</find>
-      <find>rest.average_ratings</find>
-      <find>.toFixed(1)</find>
-      <find>./App.scss</find>
-      <find>20px</find>
-      <find>RestInfo</find>
-      <find>REST_INFO</find>
       <find>BUTTON</find>
       <find>ADD</find>
       <find>PROPS</find>
@@ -171,6 +144,15 @@
       <find>console</find>
       <find>UPDATE</find>
       <find>INPUTTEXT</find>
+      <find>submitRestSuccessAction</find>
+      <find>UpdateUserDetailsActions</find>
+      <find>UPDATE_REST_NAME</find>
+      <find>-1</find>
+      <find>BUTT</find>
+      <find>delete</find>
+      <find>updateRestRatings</find>
+      <find>consol</find>
+      <find>C</find>
     </findStrings>
     <replaceStrings>
       <replace>body</replace>
@@ -185,6 +167,7 @@
       <replace>USER</replace>
       <replace>user</replace>
       <replace>updateUserDetails</replace>
+      <replace>0</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\components\Gallery</dir>
@@ -196,14 +179,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/client/components/Login/reducer.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Menu/Menu.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Menu/index.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestPage/index.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestSearch/saga.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestPage/constants.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/saga.js" />
-        <option value="$PROJECT_DIR$/src/server/model/Restaurant.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/App.scss" />
         <option value="$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js" />
         <option value="$PROJECT_DIR$/src/client/components/SearchEngine/App.scss" />
@@ -216,37 +192,44 @@
         <option value="$PROJECT_DIR$/src/client/components/Login/Login.js" />
         <option value="$PROJECT_DIR$/src/client/components/AddReview/index.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/actions.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestPage/RestPage.js" />
         <option value="$PROJECT_DIR$/src/client/components/AddReview/actions.js" />
         <option value="$PROJECT_DIR$/src/client/components/AddReview/saga.js" />
         <option value="$PROJECT_DIR$/src/client/main.js" />
         <option value="$PROJECT_DIR$/src/client/components/AddReview/AddReview.js" />
-        <option value="$PROJECT_DIR$/src/client/components/AddReview/reducer.js" />
         <option value="$PROJECT_DIR$/src/client/components/AddReview/constants.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UserPage/constants.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UserPage/saga.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/reducer.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/UsertPage.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/index.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UserPage/actions.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPageReview/RestPageReview.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPageReview/index.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/index.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/Login.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/constants.js" />
-        <option value="$PROJECT_DIR$/src/client/reducers.js" />
-        <option value="$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/actions.js" />
-        <option value="$PROJECT_DIR$/src/client/sagas.js" />
-        <option value="$PROJECT_DIR$/src/client/initialState.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/UpdateUserDetails.js" />
-        <option value="$PROJECT_DIR$/src/server/api/reviewSystem.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/reducer.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/saga.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SubmitRest/constants.js" />
+        <option value="$PROJECT_DIR$/src/client/components/AddReview/reducer.js" />
+        <option value="$PROJECT_DIR$/src/client/sagas.js" />
+        <option value="$PROJECT_DIR$/src/client/reducers.js" />
+        <option value="$PROJECT_DIR$/src/client/components/Menu/Menu.js" />
+        <option value="$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/actions.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SubmitRest/saga.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SubmitRest/actions.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SubmitRest/reducer.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SubmitRest/SubmitRest.js" />
+        <option value="$PROJECT_DIR$/src/client/initialState.js" />
+        <option value="$PROJECT_DIR$/src/server/model/Restaurant.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestPage/RestPage.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UserPage/constants.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UserPage/actions.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UserPage/saga.js" />
+        <option value="$PROJECT_DIR$/src/server/api/reviewSystem.js" />
       </list>
     </option>
   </component>
@@ -293,31 +276,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainRouter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="UpdateUserDetails" type="462c0819:PsiDirectoryNode" />
+              <item name="UserPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate" type="b2602c69:ProjectViewProjectNode" />
@@ -447,12 +406,12 @@
       <workItem from="1563546936064" duration="22036000" />
       <workItem from="1563654064823" duration="9279000" />
       <workItem from="1563729292593" duration="9291000" />
-      <workItem from="1563795040889" duration="19827000" />
+      <workItem from="1563795040889" duration="45782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314156000" />
+    <option name="totallyTimeSpent" value="340111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -467,21 +426,21 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.2075347" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.2075347" />
       <window_info id="Structure" order="1" sideWeight="0.5010352" side_tool="true" weight="0.19960344" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4970258" visible="true" weight="0.20670392" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4957039" visible="true" weight="0.3198324" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32960895" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.504957" side_tool="true" weight="0.1857542" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49504295" weight="0.1857542" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.504957" side_tool="true" weight="0.52374303" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49504295" weight="0.33100557" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -515,92 +474,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/model/Review.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestSearch/RestSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#134#170#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestSearch/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="1" lean-forward="true" selection-start-line="3" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/AddReview/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6343" column="16" selection-start-line="6343" selection-start-column="16" selection-end-line="6343" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/actions.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/saga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="59" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/saga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/Login/saga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -646,44 +519,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/AddReview/AddReview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="121" column="100" selection-start-line="121" selection-start-column="81" selection-end-line="121" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/AddReview/actions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/AddReview/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="52" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/model/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -711,38 +550,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#96#141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -753,31 +564,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Login/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="43" column="87" selection-start-line="42" selection-start-column="39" selection-end-line="43" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UserPageReview/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="146" column="49" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#96#141#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -791,97 +581,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="45" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/saga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/RestPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="32" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#180#206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/UserPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="56" column="55" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="55" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#180#206#0" expanded="true" />
-            <element signature="e#395#435#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/reducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/sagas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/initialState.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -913,53 +616,320 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/api/reviewSystem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="347" column="2" selection-start-line="347" selection-start-column="2" selection-end-line="347" selection-end-column="2" />
-          <folding>
-            <element signature="e#179#519#0" />
-            <element signature="n#!!block;n#validNum#0" />
-            <element signature="n#!!block;n#paramsToFilter#0" />
-            <element signature="n#!!block;n#updateRestRatings#0" />
-            <element signature="n#!!block;n#sortRests#0" />
-            <element signature="n#!!block;n#getDistance#0" />
-            <element signature="n#!!block;n#getDistanceFromLatLonInKm#0" />
-            <element signature="n#!!block;n#deg2rad#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Menu/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/saga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/AddReview/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/sagas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/AddReview/AddReview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="44" column="24" lean-forward="true" selection-start-line="44" selection-start-column="24" selection-end-line="50" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Menu/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="71" column="1" lean-forward="true" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9787" column="16" selection-start-line="9787" selection-start-column="16" selection-end-line="9787" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/MainRouter/MainRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/saga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="53" column="60" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" column="72" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Login/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="87" selection-start-line="42" selection-start-column="39" selection-end-line="43" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/SubmitRest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="97" column="34" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1563916797799" expanded="true" signature="3541:3603" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/Restaurant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/RestPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2567">
+          <caret line="155" column="82" selection-start-line="155" selection-start-column="70" selection-end-line="155" selection-end-column="82" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#180#206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1301">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#96#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Image/Image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="77" column="15" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Gallery/Gallery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="161" column="14" lean-forward="true" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#96#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/UserPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="97" column="10" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#180#206#0" expanded="true" />
+            <element signature="e#395#435#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/Review.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="51" column="15" lean-forward="true" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/saga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/initialState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="63" column="23" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/api/reviewSystem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="74" column="45" lean-forward="true" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+          <folding>
+            <element signature="e#179#519#0" />
+            <element signature="e#621#1124#0" />
+            <element signature="e#3150#3653#0" />
+            <element signature="e#3136#5429#0" />
+            <element signature="e#5497#6395#0" />
+            <element signature="e#6455#8372#0" />
+            <element signature="e#8437#10001#0" />
+            <element signature="n#!!block;n#validNum#0" />
+            <element signature="n#!!block;n#paramsToFilter#0" />
+            <element signature="n#!!block;n#sortRests#0" />
+            <element signature="n#!!block;n#getDistance#0" />
+            <element signature="n#!!block;n#getDistanceFromLatLonInKm#0" />
           </folding>
         </state>
       </provider>

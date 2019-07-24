@@ -46,6 +46,7 @@ class RestPage extends React.Component {
                 <div className="app-root">
                     <div className="app-header">
                         <h2>{this.props.rest.name}</h2>
+                        <h4>{this.props.rest.description}</h4>
                         <h4>Location: {this.props.rest.location}</h4>
                         <div>
                             <table style={{fontSize:15}} className="center">
@@ -152,6 +153,7 @@ class RestPage extends React.Component {
                                 </tbody>
                             </table>
                         </div>
+                        <h5>Total number of reviews: {this.props.rest.review_count}</h5>
                         <Button
                             variant="light"
                             // size="sm"

@@ -22,7 +22,12 @@ class Menu extends React.Component {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/" text="white">Home</Nav.Link>
-                        <Nav.Link href="/err" text="white">Link</Nav.Link>
+                        <Nav.Link href={"/user/"+this.props.username}
+                                  text="white">My profile</Nav.Link>
+
+                        <Nav.Link href={"/submitRest"}
+                                  text="white">Submit restaurant</Nav.Link>
+
                         <Nav.Link
                             onSelect={this.props.disconnectEventHandler}
                             eventKey="disconnect"
@@ -42,7 +47,7 @@ class Menu extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        username: state['login'].get('username')
     }
 };
 

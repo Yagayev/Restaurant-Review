@@ -71,6 +71,7 @@ module.exports = (app) => {
                         }
                         else{
                             updateRestRatings(rest.id);
+                            // console.log("restid:", rest.id);
                             return res.send({
                                 success: true,
                                 message: 'Review of \"' + body.reviewer + '\" for \"' + body.restaurant + '\" successfully created/updated',
@@ -84,70 +85,122 @@ module.exports = (app) => {
         });
 
     });
+
+    app.get('/api/reviews/deleteReview', function(req, res) {
+        /*example query:
+        {
+          "restaurant": "booznakasd",
+          "reviewer": "tapuz",
+          "token": "5d11769317381d2fe057f051",
+          "description": "decent",
+          "ratings": {
+            "overall": 1,
+            "staff_kindness": 3,
+            "cleaniness": 5,
+            "drive_thru_quality": 4,
+            "delivery_speed": 5,
+            "food_quality": 9,
+            "taste": 9,
+            "prices": 7,
+            "waiting_time": 11
+          }
+        }
+         */
+
+        const {headers} = req;
+        const {token, username, reviewid, restid} = headers;
+
+        // verify user
+        verifySession(token, username, res, (user) => {
+            // find matching review to user and restaurant
+
+
+            Review.findOneAndDelete({_id: reviewid, 'reviewer': user}, (err) => {
+                if (err) {
+                    return res.send({
+                        success: false,
+                        message: 'Error 1180: Server error'
+                    });
+                }
+
+                updateRestRatings(restid);
+                // console.log("restid2:", restid);
+                return res.send({
+                    success: true,
+                    message: 'Review ' + reviewid + ' of ' + username + 'for successfully deleted',
+                });
+
+            });
+        });
+    });
+
+
     app.post('/api/reviews/newRestaurant', function(req, res) {
         const {body} = req;
 
         // 2 versions:
         // create if not exist, update if does
-        Restaurant.findOneAndUpdate({
-                name: body.name
-            },
-            {$set:{
-                name: body.name,
-                location: body.location
-            }},
-            { upsert: true},
-            (err) => {
-                if (err) {
-                    return res.send({
-                        success: false,
-                        message: 'Error 1103: Server error'
-                    });
-                } else {
-                    return res.send({
-                        success: true,
-                        message: 'Restaurant \"' + body.name + '\"  successfully created',
-                    });
-                }
-            });
-
-        //create if not exist, return error if does
-        // Restaurant.find({
-        //     name: body.name
-        // }, (err, docs) =>{
-        //     if(err) {
-        //         return res.send({
-        //             success: false,
-        //             message: 'Error 1103: Server error'
-        //         });
-        //     }
-        //
-        //     if(!docs || docs.length == 0){
-        //         //if not exists create
-        //         const newRest = new Restaurant();
-        //         newRest.name = body.name;
-        //         newRest.location = body.location;
-        //         newRest.save((err, seesion) => {
-        //             if (err) {
-        //                 return res.send({
-        //                     success: false,
-        //                     message: 'Error 1104: Server error'
-        //                 });
-        //             }
+        // Restaurant.findOneAndUpdate({
+        //         name: body.name
+        //     },
+        //     {$set:{
+        //         name: body.name,
+        //         location: body.location,
+        //         description: body.description
+        //     }},
+        //     { upsert: true},
+        //     (err) => {
+        //         if (err) {
+        //             return res.send({
+        //                 success: false,
+        //                 message: 'Error 1103: Server error'
+        //             });
+        //         } else {
         //             return res.send({
         //                 success: true,
         //                 message: 'Restaurant \"' + body.name + '\"  successfully created',
-        //                 token: seesion.id
         //             });
-        //         });
-        //     }
-        //     else{
-        //         res.send({
-        //             success: false,
-        //             message: 'Error 1104: Restaurant \"'+body.name+'\" already exists'
-        //         });
-        //     }
-        // });
+        //         }
+        //     });
+        // second version:
+        //create if not exist, return error if does
+        Restaurant.find({
+            name: body.name
+        }, (err, docs) =>{
+            if(err) {
+                return res.send({
+                    success: false,
+                    message: 'Error 1103: Server error'
+                });
+            }
+
+            if(!docs || docs.length == 0){
+                //if not exists create
+                const newRest = new Restaurant();
+                newRest.name = body.name;
+                newRest.location = body.location;
+                newRest.description = body.description;
+                newRest.save((err, seesion) => {
+                    if (err) {
+                        return res.send({
+                            success: false,
+                            message: 'Error 1104: Server error'
+                        });
+                    }
+                    return res.send({
+                        success: true,
+                        message: 'Restaurant \"' + body.name + '\"  successfully created',
+                        token: seesion.id
+                    });
+                });
+            }
+            else{
+                res.send({
+                    success: false,
+                    message: 'Error 1104: Restaurant \"'+body.name+'\" already exists'
+                });
+            }
+        });
 
 
 
@@ -167,7 +220,7 @@ module.exports = (app) => {
         }
 }*/
         const {body} = req;
-        const { searchCriteria } = body
+        const { searchCriteria } = body;
         let {params, distanceVsScore, sortBy, token, username} = searchCriteria;
         verifySession(token, username, res, (user) => {
             Restaurant.find(paramsToFilter(params), (err, docs) => {
@@ -512,7 +565,7 @@ async function updateRestRatings(id) {
         }, 0);
         ratings[key] = ratings[key]/len;
     });
-    Restaurant.updateOne({_id: id}, {$set: {average_ratings: ratings}}, (err, docs) => {
+    Restaurant.updateOne({_id: id}, {$set: {average_ratings: ratings, review_count: len}}, (err, docs) => {
         return;
         // only works when there is a callback
         // otherwise it does not update
@@ -554,4 +607,4 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
     return deg * (Math.PI/180)
-}
+};

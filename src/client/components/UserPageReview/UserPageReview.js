@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 // import './UserPreview.scss';
 import StarRatings from 'react-star-ratings';
-import { Card } from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 import '../../utils/App.scss';
+import UserPageActions from "../UserPage/actions";
 
 
 class UserPageReview extends React.Component {
@@ -20,14 +21,17 @@ class UserPageReview extends React.Component {
     }
     const restId = this.props.review.restaurant._id;
     const restName = this.props.review.restaurant.name;
-    const userLink = <a href={'/rest/'+restId}>{restName}</a>;
-
+    const restLink = <a href={'/rest/'+restId}>{restName}</a>;
+    let description = null;
+    if (this.props.review.description!==''){
+      description = (<Card.Text>{'\"'+this.props.review.description+'\"'}</Card.Text>)
+    }
     return (
         <div>
           <Card>
-            <Card.Header>{userLink}</Card.Header>
+            <Card.Header>{restLink}</Card.Header>
             <Card.Body>
-              <Card.Text>"{this.props.review.description}"</Card.Text>
+              {description}
               <div>
                 <table style={{fontSize:15}} className="center">
                   <tbody>
@@ -133,6 +137,25 @@ class UserPageReview extends React.Component {
                   </tbody>
                 </table>
               </div>
+              <div>
+                <br />
+                <Button
+                    variant="dark"
+                    size="sm"
+                    href={"/addreview/"+this.props.review.restaurant.name}
+                >Edit</Button>
+                <a>    </a>
+                <Button
+                    variant="danger"
+                    size="sm"
+                    onClick={()=>
+                        this.props.deleteReviewEventHandler(this.props.token,
+                                                            this.props.username,
+                                                            this.props.review._id,
+                                                            this.props.review.restaurant._id)
+                    }
+                >Delete</Button>
+              </div>
             </Card.Body>
           </Card>
           <br />
@@ -158,6 +181,9 @@ const mapDispatchToProps = (dispatch) => {
     // onClickGoToUserEventHandler: (idx) => {
     //   dispatch(UserSearchActions.goToUserAction(idx))
     // }
+    deleteReviewEventHandler: (token, username, reviewid, restid) => {
+      dispatch(UserPageActions.deleteReviewAction(token, username, reviewid, restid));
+    }
   }
 };
 

@@ -8,6 +8,7 @@ import Menu from "../Menu";
 import AddReview from "../AddReview";
 import UserPage from "../UserPage";
 import UpdateUserDetails from "../UpdateUserDetails";
+import SubmitRest from "../SubmitRest";
 
 
 import LoginActions from "../Login/actions";
@@ -57,6 +58,11 @@ class MainRouter extends React.Component {
                             path="/editDetails"
                             component={UpdateUserDetails}
                         />
+                        <Route
+                            path="/submitRest"
+                            component={SubmitRest}
+                        />
+
                         <Route
                             component={PageNotFound}
                         />

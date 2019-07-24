@@ -31,12 +31,44 @@ function loadUserInfoFailureAction(message){
     }
 }
 
+function deleteReviewAction(token, username, reviewid, restid){
+    return {
+        type: UserPageActionsConstants.DELETE_USER_REVIEW,
+        uri: '/api/reviews/deleteReview',
+        payload:{
+            token,
+            username,
+            reviewid,
+            restid
+        }
+    }
+}
+
+
+// function deleteReviewSuccessAction(json, ){
+//     if(!json.success){
+//         return loadUserInfoFailureAction(json.message)
+//     }
+//     return {
+//         type: deleteReviewFailureAction.LOAD_USER_INFO_SUCCSESS,
+//         payload: {
+//             user: json.user
+//         }
+//     }
+// }
+// function deleteReviewFailureAction(message){
+//     return {
+//         type: UserPageActionsConstants.LOAD_USER_INFO_FAIL,
+//         message: message
+//     }
+// }
 
 
 let UserPageActions  = {
     loadUserInfo,
     loadUserInfoSuccessAction,
-    loadUserInfoFailureAction
+    loadUserInfoFailureAction,
+    deleteReviewAction
 };
 
 export default UserPageActions

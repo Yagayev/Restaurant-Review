@@ -29,6 +29,9 @@ class RestPreview extends React.Component {
             <Card.Body>
               {/*<Card.Title>Special title treatment</Card.Title>*/}
               <Card.Text>
+                {this.props.rest.description}
+              </Card.Text>
+              <Card.Text>
                 Location: {this.props.rest.location}
               </Card.Text>
               <StarRatings
@@ -39,6 +42,9 @@ class RestPreview extends React.Component {
                   starDimension='25px'
               />
               <Card.Text> {this.props.rest.average_ratings.overall.toFixed(1)}/11</Card.Text>
+              <Card.Text>
+                Out of {this.props.rest.review_count} reviews
+              </Card.Text>
               <Button
                   variant="dark"
                   size="sm"

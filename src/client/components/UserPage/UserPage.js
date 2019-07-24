@@ -95,8 +95,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         loadUserInfoEventHandler: (token, username, usertoview) =>{
             dispatch(UserPageActions.loadUserInfo(token, username, usertoview));
-        }
-
+        },
     }
 };
 

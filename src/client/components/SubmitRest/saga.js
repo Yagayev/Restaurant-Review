@@ -1,10 +1,10 @@
-import {UpdateUserDetailsActionsConstants} from './constants'
+import {SubmitRestActionsConstants} from './constants'
 import { call, put, takeEvery } from 'redux-saga/effects'
-import UpdateUserDetailsActions from './actions'
+import SubmitRestActions from './actions'
 import LoginActions from "../Login/actions";
 
 
-function* updateUserDetails(action){
+function* submitRest(action){
   console.log('SubmitRestSaga=', action);
   try {
     const res = yield call(fetch, action.uri,
@@ -18,16 +18,16 @@ function* updateUserDetails(action){
 
     const json = yield call([res, 'json']); //retrieve body of response
     // yield put(UpdateUserDetailsActions.submitRestSuccessAction(json));
-    yield put(LoginActions.disconnectAction());
+    yield put(SubmitRestActions.submitRestSuccessAction(json));
   } catch (e) {
-    yield put(UpdateUserDetailsActions.updateUserDetailsFailureAction(e.message));
+    yield put(SubmitRestActions.submitRestFailureAction(e.message));
   }
 }
 
-function* UpdateUserDetailsSaga() {
+function* SubmitRestSaga() {
     //using takeEvery, you take the action away from reducer to saga
-    yield takeEvery(UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS, updateUserDetails);
+    yield takeEvery(SubmitRestActionsConstants.SUBMIT_NEW_REST, submitRest);
 
 }
 
-export default UpdateUserDetailsSaga;
+export default SubmitRestSaga;

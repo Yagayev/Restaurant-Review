@@ -60,7 +60,8 @@ export default {
                 prices: 0,
                 waiting_time: 0
             },
-            reviews: []
+            reviews: [],
+            description: ''
         }
     }),
     addReview: Map({
@@ -95,5 +96,12 @@ export default {
         password: '',
         submitted: false,
         message: false
+    }),
+    submitRest: Map({
+        name: '',
+        location: '',
+        description: '',
+        submitted: false,
+        // redirect: ''
     })
 };

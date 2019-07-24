@@ -8,6 +8,7 @@ import RestPageReducer from "./components/RestPage/reducer";
 import AddReviewReducer from "./components/AddReview/reducer";
 import UserPageReducer from "./components/UserPage/reducer";
 import UpdateUserDetailsReducer from "./components/UpdateUserDetails/reducer";
+import SubmitRestReducer from "./components/SubmitRest/reducer";
 
 export default combineReducers({
   app: AppReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
   restPage: RestPageReducer,
   addReview: AddReviewReducer,
   userPage: UserPageReducer,
-  updateUserDetails: UpdateUserDetailsReducer
+  updateUserDetails: UpdateUserDetailsReducer,
+  submitRest: SubmitRestReducer
 });

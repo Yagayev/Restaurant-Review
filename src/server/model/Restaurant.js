@@ -10,6 +10,15 @@ let restaurantSchema = new Schema({
         type: String,
         default: ''
     },
+    description: {
+        type: String,
+        default: ''
+    },
+
+    review_count: {
+        type: Number,
+        default: 0
+    },
 
     average_ratings: {
         overall: {
