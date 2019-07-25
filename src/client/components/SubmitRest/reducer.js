@@ -15,7 +15,8 @@ const SubmitRestReducer = (state = initialState.submitRest, action) => {
             return state.set('description', action.payload.description);
         case SubmitRestActionsConstants.UPDATE_REST_LOCATION:
             return state.set('location', action.payload.location);
-
+        case SubmitRestActionsConstants.UPDATE_REST_COORDS:
+            return state.set('coords', action.payload.coords);
 
 
         case SubmitRestActionsConstants.SUBMIT_NEW_REST_SUCCESS:

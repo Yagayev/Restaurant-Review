@@ -5,6 +5,7 @@ const SubmitRestActionsConstants = {
     SUBMIT_NEW_REST: 'SUBMIT_NEW_REST',
     SUBMIT_NEW_REST_SUCCESS: 'SUBMIT_NEW_REST_SUCCESS',
     SUBMIT_NEW_REST_FAIL: 'SUBMIT_NEW_REST_FAIL',
+    UPDATE_REST_COORDS: 'UPDATE_REST_COORDS'
 };
 
 export { SubmitRestActionsConstants }

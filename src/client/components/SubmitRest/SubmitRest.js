@@ -55,6 +55,12 @@ class SubmitRest extends React.Component {
                         placeholder="Location"
                         onChange={this.props.updateLocationEventHandler} />
                     <br />
+                    <InputText
+                        id="inCoords"
+                        value={this.props.coords}
+                        placeholder="Please paste coordinates"
+                        onChange={this.props.updateCoordsEventHandler} />
+                    <br />
                     <br />
                     <InputTextarea
                         placeholder="Description"
@@ -73,6 +79,7 @@ class SubmitRest extends React.Component {
                                                                         this.props.token,
                                                                         this.props.name,
                                                                         this.props.location,
+                                                                        this.props.coords,
                                                                         this.props.description )}/>
                     {
                         (this.props.message !== '') ? (
@@ -96,6 +103,7 @@ const mapStateToProps = (state) => {
       location: state['submitRest'].get('location'),
       description: state['submitRest'].get('description'),
       submitted: state['submitRest'].get('submitted'),
+      coords: state['submitRest'].get('coords'),
       // redirect: state['updateUserDetails'].get('redirect'),
   }
 };
@@ -111,9 +119,13 @@ const mapDispatchToProps = (dispatch) => {
       updateDescriptionEventHandler: (e) =>{
       dispatch(UpdateUserDetailsActions.updateDescriptionAction(e.target.value));
     },
-    submitRestEventHandler: (username, token, name, location, description)  => {
-      dispatch(UpdateUserDetailsActions.submitRestAction(username, token, name, location, description));
+    updateCoordsEventHandler: (e)  => {
+      dispatch(UpdateUserDetailsActions.updateCoordsAction(e.target.value));
     },
+    submitRestEventHandler: (username, token, name, location, coords, description)  => {
+      dispatch(UpdateUserDetailsActions.submitRestAction(username, token, name, location, coords, description));
+    },
+
   }
 };
 

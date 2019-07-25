@@ -1,5 +1,5 @@
 import { SubmitRestActionsConstants} from './constants.js';
-
+import {strToLonAndLat} from '../../utils/geo';
 
 function updateNameAction (name){
     return{
@@ -30,7 +30,8 @@ function updateDescriptionAction (description){
 
 
 
-function submitRestAction(username, token, name, location, description){
+function submitRestAction(username, token, name, location, coords, description){
+    let lonAndLen = strToLonAndLat(coords);
   return {
     type: SubmitRestActionsConstants.SUBMIT_NEW_REST,
     uri: '/api/reviews/newRestaurant',
@@ -39,6 +40,8 @@ function submitRestAction(username, token, name, location, description){
       token: token,
         name: name,
         location: location,
+        lon: lonAndLen[0],
+        lat: lonAndLen[1],
         description: description
     }
   }
@@ -64,13 +67,24 @@ function submitRestFailureAction(error){
   }
 }
 
+function updateCoordsAction(coords){
+    return {
+        type: SubmitRestActionsConstants.UPDATE_REST_COORDS,
+        payload: {
+            coords: coords
+        }
+    }
+}
+
+
 let SubmitRestActions  = {
     updateNameAction,
     updateNewLocationAction,
     updateDescriptionAction,
     submitRestAction,
     submitRestSuccessAction,
-    submitRestFailureAction
+    submitRestFailureAction,
+    updateCoordsAction
 };
 
 export default SubmitRestActions

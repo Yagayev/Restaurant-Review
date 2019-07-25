@@ -15,6 +15,8 @@ const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action
             return state.set('password', action.payload.password);
         case UpdateUserDetailsActionsConstants.UPDATE_NEW_LOCATION:
             return state.set('location', action.payload.location);
+        case UpdateUserDetailsActionsConstants.UPDATE_USER_COORDS:
+            return state.set('coords', action.payload.coords);
 
 
 

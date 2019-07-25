@@ -64,6 +64,15 @@ function updateRatingAction(key, rating){
     }
 }
 
+function updateDistanceVsScoreAction(val){
+    return {
+        type: SearchEngineActionsConstants.UPDATE_CLOSER_BETTER,
+        payload:{
+            distanceVsScore: val
+        }
+    }
+}
+
 let SearchEngineActions  = {
     updateTagAction,
     loadTagsAction,
@@ -73,7 +82,8 @@ let SearchEngineActions  = {
     updateNameAction,
     advancedOpenAction,
     advancedCloseAction,
-    updateRatingAction
+    updateRatingAction,
+    updateDistanceVsScoreAction
 };
 
 export default SearchEngineActions

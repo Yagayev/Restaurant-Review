@@ -1,4 +1,5 @@
 import { UpdateUserDetailsActionsConstants} from './constants.js';
+import {strToLonAndLat} from '../../utils/geo';
 
 
 function updateNewUsernameAction (username){
@@ -27,9 +28,18 @@ function updatePasswordAction (password){
   }
 }
 
+function updateCoordsAction (coords){
+    return{
+        type: UpdateUserDetailsActionsConstants.UPDATE_USER_COORDS,
+        payload:{
+            coords: coords
+        }
+    }
+}
 
 
-function submitDetailsEventAction(username, token, newUsername, location, password){
+
+function submitDetailsEventAction(username, token, newUsername, location, coords, password){
     var updates = {};
     if(newUsername && newUsername !== ''){
         updates.username = newUsername;
@@ -39,6 +49,11 @@ function submitDetailsEventAction(username, token, newUsername, location, passwo
     }
     if(password && password !== ''){
         updates.password = password;
+    }
+    if(coords && coords !==''){
+        let lonAndLat = strToLonAndLat(coords);
+        updates.lon = lonAndLat[0];
+        updates.lat = lonAndLat[1];
     }
   return {
     type: UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS,
@@ -75,6 +90,7 @@ let UpdateUserDetailsActions  = {
     updateNewUsernameAction,
     updateNewLocationAction,
     updatePasswordAction,
+    updateCoordsAction,
     submitDetailsEventAction,
     updateUserDetailsSuccessAction,
     updateUserDetailsFailureAction

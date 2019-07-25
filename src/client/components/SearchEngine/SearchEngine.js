@@ -10,6 +10,7 @@ import {InputText} from 'primereact/inputtext';
 // import {Card} from "react-bootstrap";
 import { Redirect } from 'react-router';
 import LoginActions from "../Login/actions";
+import {Slider} from 'primereact/slider';
 
 class SearchEngine extends React.Component {
     // componentDidMount() {
@@ -53,6 +54,15 @@ class SearchEngine extends React.Component {
                         )}
                         {this.props.advanced && (
                             <div>
+                                <div>
+                                    <p>{this.props.distanceVsScore}:{100-this.props.distanceVsScore}</p>
+                                    <a>Closer</a>
+                                    <Slider value={this.props.distanceVsScore}
+                                            onChange={this.props.updateDistanceVsScoreEventHandler} />
+
+                                    <a>Better</a>
+                                </div>
+
                                 <table style={{fontSize:15}} className="center">
                                     <tbody>
                                     <tr >
@@ -214,6 +224,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     loadRestsEventHandler: (searchFields) => {
       dispatch(RestSearchActions.loadRestsAction(searchFields))
+    },
+    updateDistanceVsScoreEventHandler(e){
+        dispatch(SearchEngineActions.updateDistanceVsScoreAction(e.value))
     },
     advancedOpenHandler: () => {
       dispatch(SearchEngineActions.advancedOpenAction());

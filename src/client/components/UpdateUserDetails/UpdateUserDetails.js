@@ -48,6 +48,12 @@ class UpdateUserDetails extends React.Component {
                         placeholder="New location"
                         onChange={this.props.updateLocationEventHandler} />
                     <br />
+                    <InputText
+                        id="inCoords"
+                        value={this.props.coords}
+                        placeholder="Please paste coordinates"
+                        onChange={this.props.updateCoordsEventHandler} />
+                    <br />
                     <Password
                         value={this.props.password}
                         placeholder="New password"
@@ -62,6 +68,7 @@ class UpdateUserDetails extends React.Component {
                                                                         this.props.token,
                                                                         this.props.newUsername,
                                                                         this.props.location,
+                                                                        this.props.coords,
                                                                         this.props.password )}/>
                     {
                         (this.props.message !== '') ? (
@@ -86,6 +93,7 @@ const mapStateToProps = (state) => {
       submitted: state['updateUserDetails'].get('submitted'),
       password: state['updateUserDetails'].get('password'),
       message: state['updateUserDetails'].get('message'),
+      coords: state['updateUserDetails'].get('coords'),
   }
 };
 
@@ -100,8 +108,11 @@ const mapDispatchToProps = (dispatch) => {
     updatePasswordEventHandler: (e) =>{
       dispatch(UpdateUserDetailsActions.updatePasswordAction(e.target.value));
     },
-    submitDetailsEventHandler: (username, token, newUsername, location, password)  => {
-      dispatch(UpdateUserDetailsActions.submitDetailsEventAction(username, token, newUsername, location, password));
+      updateCoordsEventHandler: (e) =>{
+        dispatch(UpdateUserDetailsActions.updateCoordsAction(e.target.value));
+    },
+    submitDetailsEventHandler: (username, token, newUsername, location, coords, password)  => {
+      dispatch(UpdateUserDetailsActions.submitDetailsEventAction(username, token, newUsername, location, coords, password));
     },
   }
 };

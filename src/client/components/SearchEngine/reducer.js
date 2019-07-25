@@ -19,6 +19,8 @@ const SearchEngineReducer = (state = initialState.searchEngine, action) => {
             return state.set('advanced', true);
         case SearchEngineActionsConstants.ADVANCED_CLOSE:
             return state.set('advanced', false);
+        case SearchEngineActionsConstants.UPDATE_CLOSER_BETTER:
+            return state.set('distanceVsScore', action.payload.distanceVsScore);
         case SearchEngineActionsConstants.UPDATE_RATING:
             return state.setIn(['ratings', action.payload.key], action.payload.rating);
         default: //otherwise state is lost!

@@ -6,7 +6,8 @@ const SearchEngineActionsConstants = {
     UPDATE_NAME: 'UPDATE_NAME',
     ADVANCED_OPEN: 'ADVANCED_OPEN',
     ADVANCED_CLOSE: 'ADVANCED_CLOSE',
-    UPDATE_RATING: 'UPDATE_RATING'
+    UPDATE_RATING: 'UPDATE_RATING',
+    UPDATE_CLOSER_BETTER: 'UPDATE_CLOSER_BETTER'
 };
 
 export { SearchEngineActionsConstants }

@@ -10,16 +10,18 @@ export default {
         activeFilter: List(),
         galleryWidth: 0
     }),
+
+    app: Map({
+        size: 200,
+        tag: 'art',
+        tags: List()
+    }),
+
     login: Map({
         username: getFromStorage('restorant_review_username'),
         password: '',
         token: getFromStorage('restorant_review_token'),
         message: ''
-    }),
-    app: Map({
-        size: 200,
-        tag: 'art',
-        tags: List()
     }),
     menu: Map({
 
@@ -40,7 +42,7 @@ export default {
             prices: 0,
             waiting_time: 0
         },
-        distanceVsScore: 0,
+        distanceVsScore: 50,
         advanced: false
     }),
     restPage: Map({
@@ -95,13 +97,15 @@ export default {
         location: '',
         password: '',
         submitted: false,
-        message: false
+        message: false,
+        coords: ''
     }),
     submitRest: Map({
         name: '',
         location: '',
         description: '',
         submitted: false,
+        coords: '',
         // redirect: ''
     }),
     userSearch: Map({

@@ -15,7 +15,14 @@ let userSchema = new Schema({
         type: String,
         default: ''
     },
-
+    lat: {
+        type: Number,
+        default: 0
+    },
+    lon: {
+        type: Number,
+        default: 0
+    }
     //TODO add image
 });
 

@@ -56,7 +56,7 @@ module.exports = (app) => {
                         viewer: user,
                         restaurant: rest,
                         ratings: body.ratings,
-                        description: body.description
+                        description: body.description,
                     },
                     {   //settings
                         upsert: true, //if exists update, else create
@@ -180,6 +180,9 @@ module.exports = (app) => {
                 newRest.name = body.name;
                 newRest.location = body.location;
                 newRest.description = body.description;
+                newRest.lat = body.lat;
+                newRest.lon= body.lon;
+
                 newRest.save((err, seesion) => {
                     if (err) {
                         return res.send({
@@ -620,16 +623,29 @@ async function updateRestRatings(id) {
 function sortRests(distanceVsScore, docs, user) {
     var score = (rest)=>{
         let distance = getDistance(user,rest);
-        let score = rest.average_ratings.overall;
-        return 5*(1-distanceVsScore) * score - distanceVsScore * distance;
+        var closeness = 0;
+        if(distance){
+            closeness = 1/distance
+        }
+
+        let rating = rest.average_ratings.overall;
+        let finalScore = 5*(100-distanceVsScore) * rating - distanceVsScore * closeness;
+        // console.log("calculating:", "rest:", rest.lon, rest.lat, "user:", user.lon, user.lat, "d/r/score:", distance, rating, finalScore);
+        return finalScore;
     };
     var sorter = (a,b) => score(b)-score(a);
     return docs.sort(sorter);
 }
 
 function getDistance(pointA, pointB){
-    //TODO messure the distance
-    return 0;
+    if(!pointA.lon || pointA.lon === 0 ||
+        !pointA.lat || pointA.lat === 0 ||
+        !pointB.lon || pointB.lon === 0 ||
+        !pointB.lat || pointB.lat === 0){
+        return false;
+    }
+
+    return getDistanceFromLatLonInKm(pointA.lat, pointA.lon, pointB.lat, pointB.lon);
 }
 
 
