@@ -15,6 +15,7 @@ import { Card } from 'react-bootstrap/Card'
 import RestPreview from "../RestPreview";
 // import {Button} from "primereact/button";
 import { Button } from 'react-bootstrap';
+import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 
 class RestPage extends React.Component {
 
@@ -29,6 +30,36 @@ class RestPage extends React.Component {
             !this.props.username === ''
         ) {
             return (<Redirect to='/login' />)
+        }
+    };
+
+    renderMap = () => {
+        if(this.props.rest.lon &&
+            this.props.rest.lat){
+            return (
+                <div>
+                    <LeafletMap
+                        center={[this.props.rest.lat, this.props.rest.lon]}
+                        zoom={15}
+                        maxZoom={19}
+                        attributionControl={true}
+                        zoomControl={true}
+                        doubleClickZoom={true}
+                        scrollWheelZoom={true}
+                        dragging={true}
+                        animate={true}
+                        easeLinearity={0.9}
+                        onClick={this.props.updateCoordsEventHandler}
+                    >
+                        <TileLayer
+                            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                        />
+                        <Marker position={[this.props.rest.lat, this.props.rest.lon]}>
+                        </Marker>
+
+                    </LeafletMap>
+                </div>
+            )
         }
     };
 
@@ -154,6 +185,9 @@ class RestPage extends React.Component {
                             </table>
                         </div>
                         <h5>Total number of reviews: {this.props.rest.review_count}</h5>
+                        <div>
+                            {this.renderMap()}
+                        </div>
                         <Button
                             variant="light"
                             // size="sm"

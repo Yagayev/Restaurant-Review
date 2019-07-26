@@ -31,7 +31,6 @@ function updateDescriptionAction (description){
 
 
 function submitRestAction(username, token, name, location, coords, description){
-    let lonAndLen = strToLonAndLat(coords);
   return {
     type: SubmitRestActionsConstants.SUBMIT_NEW_REST,
     uri: '/api/reviews/newRestaurant',
@@ -40,8 +39,8 @@ function submitRestAction(username, token, name, location, coords, description){
       token: token,
         name: name,
         location: location,
-        lon: lonAndLen[0],
-        lat: lonAndLen[1],
+        lon: coords.lng,
+        lat: coords.lat,
         description: description
     }
   }

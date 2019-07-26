@@ -9,6 +9,7 @@ import {InputText} from 'primereact/inputtext';
 import {Password} from 'primereact/password';
 import { Redirect } from 'react-router';
 import {InputTextarea} from "primereact/components/inputtextarea/InputTextarea";
+import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 
 
 class SubmitRest extends React.Component {
@@ -19,6 +20,15 @@ class SubmitRest extends React.Component {
             !this.props.username === ''
         ) {
             return (<Redirect to='/login' />)
+        }
+    };
+
+    renderMarker = () =>{
+        if(this.props.coords.lat&&this.props.coords.lng){
+            return(
+                <Marker position={[this.props.coords.lat, this.props.coords.lng]}>
+                </Marker>
+            )
         }
     };
 
@@ -41,7 +51,7 @@ class SubmitRest extends React.Component {
             <div className="app-root">
 
                 <div className="app-header">
-                    <h3>Updating {this.props.username} user details</h3>
+                    <h3>Submit a new restaurant</h3>
 
                     <InputText
                       id="inName"
@@ -55,13 +65,6 @@ class SubmitRest extends React.Component {
                         placeholder="Location"
                         onChange={this.props.updateLocationEventHandler} />
                     <br />
-                    <InputText
-                        id="inCoords"
-                        value={this.props.coords}
-                        placeholder="Please paste coordinates"
-                        onChange={this.props.updateCoordsEventHandler} />
-                    <br />
-                    <br />
                     <InputTextarea
                         placeholder="Description"
                         rows={5}
@@ -70,6 +73,29 @@ class SubmitRest extends React.Component {
                         onChange={this.props.updateDescriptionEventHandler}
                         autoResize={true}
                     />
+                    <h5>Location:</h5>
+                    <div>
+                        <LeafletMap
+                            center={[31.262184, 34.803913]}
+                            zoom={12}
+                            maxZoom={19}
+                            attributionControl={true}
+                            zoomControl={true}
+                            doubleClickZoom={true}
+                            scrollWheelZoom={true}
+                            dragging={true}
+                            animate={true}
+                            easeLinearity={0.9}
+                            onClick={this.props.updateCoordsEventHandler}
+                        >
+                            <TileLayer
+                                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                            />
+                            {this.renderMarker()}
+
+                        </LeafletMap>
+                    </div>
+
                     <br />
                     <Button
                         label="Submit restaurant"
@@ -120,7 +146,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(UpdateUserDetailsActions.updateDescriptionAction(e.target.value));
     },
     updateCoordsEventHandler: (e)  => {
-      dispatch(UpdateUserDetailsActions.updateCoordsAction(e.target.value));
+      dispatch(UpdateUserDetailsActions.updateCoordsAction(e.latlng));
     },
     submitRestEventHandler: (username, token, name, location, coords, description)  => {
       dispatch(UpdateUserDetailsActions.submitRestAction(username, token, name, location, coords, description));

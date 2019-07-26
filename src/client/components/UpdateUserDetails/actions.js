@@ -50,10 +50,9 @@ function submitDetailsEventAction(username, token, newUsername, location, coords
     if(password && password !== ''){
         updates.password = password;
     }
-    if(coords && coords !==''){
-        let lonAndLat = strToLonAndLat(coords);
-        updates.lon = lonAndLat[0];
-        updates.lat = lonAndLat[1];
+    if(coords.lng && coords.lat){
+        updates.lon = coords.lng;
+        updates.lat = coords.lat;
     }
   return {
     type: UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS,

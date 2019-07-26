@@ -8,6 +8,7 @@ import { Button } from 'primereact/button';
 import {InputText} from 'primereact/inputtext';
 import {Password} from 'primereact/password';
 import { Redirect } from 'react-router';
+import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
 
 
 class UpdateUserDetails extends React.Component {
@@ -20,9 +21,17 @@ class UpdateUserDetails extends React.Component {
             return (<Redirect to='/login' />)
         }
     };
+    renderMarker = () =>{
+        if(this.props.coords.lat&&this.props.coords.lng){
+            return(
+                <Marker position={[this.props.coords.lat, this.props.coords.lng]}>
+                </Marker>
+            )
+        }
+    };
 
 
-  render() {
+    render() {
     console.log('update user details: props=', this.props);
       // if (this.props.token != '') {
       //     console
@@ -48,18 +57,35 @@ class UpdateUserDetails extends React.Component {
                         placeholder="New location"
                         onChange={this.props.updateLocationEventHandler} />
                     <br />
-                    <InputText
-                        id="inCoords"
-                        value={this.props.coords}
-                        placeholder="Please paste coordinates"
-                        onChange={this.props.updateCoordsEventHandler} />
-                    <br />
                     <Password
                         value={this.props.password}
                         placeholder="New password"
                         feedback={false}
                         onChange={this.props.updatePasswordEventHandler} />
                     <br />
+                    <h5>Location:</h5>
+                    <div>
+                        <LeafletMap
+                            center={[31.262184, 34.803913]}
+                            zoom={12}
+                            maxZoom={19}
+                            attributionControl={true}
+                            zoomControl={true}
+                            doubleClickZoom={true}
+                            scrollWheelZoom={true}
+                            dragging={true}
+                            animate={true}
+                            easeLinearity={0.9}
+                            onClick={this.props.updateCoordsEventHandler}
+                        >
+                            <TileLayer
+                                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                            />
+                            {this.renderMarker()}
+
+                        </LeafletMap>
+                    </div>
+
                     <Button
                         label="Submit changes"
                         className="p-button-secondary"
@@ -109,7 +135,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(UpdateUserDetailsActions.updatePasswordAction(e.target.value));
     },
       updateCoordsEventHandler: (e) =>{
-        dispatch(UpdateUserDetailsActions.updateCoordsAction(e.target.value));
+        dispatch(UpdateUserDetailsActions.updateCoordsAction(e.latlng));
     },
     submitDetailsEventHandler: (username, token, newUsername, location, coords, password)  => {
       dispatch(UpdateUserDetailsActions.submitDetailsEventAction(username, token, newUsername, location, coords, password));

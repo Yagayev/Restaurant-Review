@@ -105,7 +105,7 @@ export default {
         location: '',
         description: '',
         submitted: false,
-        coords: '',
+        coords: {},
         // redirect: ''
     }),
     userSearch: Map({
