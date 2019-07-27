@@ -88,9 +88,11 @@ export default {
             userViewing: '',
             location: '',
             reviews: [],
-            hasWritingPermissions: false
+            hasWritingPermissions: false,
+            profile_image: ''
         },
-        loading: true
+        loading: true,
+        // new_image: null
     }),
     updateUserDetails: Map({
         newUsername: '',

@@ -2,6 +2,13 @@ let User = require('../model/user');
 let UserSession = require('../model/userSession');
 let Review = require('../model/Review');
 let Restaurant = require('../model/Restaurant');
+let Image = require('../model/Image');
+
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+
+
 
 /*TODO for this file:
 * move some of the functionality to more appropriate files(maybe refactor this and signin.js into 3 files)
@@ -9,6 +16,20 @@ let Restaurant = require('../model/Restaurant');
 * possibly - to change the rest upload to only new rests, or perhaps allow both new and update but under different URIs.
 * */
 
+
+cloudinary.config({
+    cloud_name: 'dfdtghlqz',
+    api_key: 458841873635211,
+    api_secret: '0lSymMcWVO6DAg_QM7TfJuff0F4'
+});
+
+const storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "restr",
+    allowedFormats: ["jpg", "png"],
+    transformation: [{ width: 800, height: 800, crop: "limit" }]
+});
+const parser = multer({ storage: storage });
 
 module.exports = (app) => {
     app.post('/api/reviews/uploadReview', function(req, res) {
@@ -254,41 +275,45 @@ module.exports = (app) => {
         // console.log("looking up:"+ usertoview,token, username);
         let userToView = usertoview;
         verifySession(token, username, res, (user) => {
-            User.findOne({username: userToView}, (err, u)=>{
-                if (err) {
-                    return res.send({
-                        success: false,
-                        message: 'Error 1135: Server error'
-                    });
-                }
-                if(!u){
-                    return res.send({
-                        success: false,
-                        message: 'Error 1136: user '+ userToView +' does not exist'
-                    });
-                }
-                var retUser =  u.toObject();
-                delete retUser.password;
-
-                let writePermissions = userToView===username;
-                retUser.hasWritingPermissions = writePermissions;
-                Review.find({reviewer: retUser._id})
-                    // .populate('reviewer') //probably redundant because it's the same user?
-                    .populate('restaurant')
-                    .exec((err2, docs)=>{
-                    if (err2) {
+            User.findOne({username: userToView})
+                .populate('profile_image')
+                .exec((err, u)=>{
+                    if (err) {
                         return res.send({
                             success: false,
-                            message: 'Error 1137: Server error'
+                            message: 'Error 1135: Server error'
                         });
                     }
-                    retUser.reviews = docs;
-                    // console.log(retUser);
-                    return res.send({
-                        success: true,
-                        user: retUser
+                    if(!u){
+                        return res.send({
+                            success: false,
+                            message: 'Error 1136: user '+ userToView +' does not exist'
+                        });
+                    }
+
+
+                    var retUser =  u.toObject();
+                    delete retUser.password;
+
+                    let writePermissions = userToView===username;
+                    retUser.hasWritingPermissions = writePermissions;
+                    Review.find({reviewer: retUser._id})
+                        // .populate('reviewer') //probably redundant because it's the same user?
+                        .populate('restaurant')
+                        .exec((err2, docs)=>{
+                        if (err2) {
+                            return res.send({
+                                success: false,
+                                message: 'Error 1137: Server error'
+                            });
+                        }
+                        retUser.reviews = docs;
+                        // console.log(retUser);
+                        return res.send({
+                            success: true,
+                            user: retUser
+                        });
                     });
-                });
             });
 
         });
@@ -440,6 +465,30 @@ module.exports = (app) => {
                     });
                 });
             }
+
+        });
+    });
+
+    app.post('/api/images/profile', parser.single("image"), (req, res) => {
+
+        // console.log(req.body); // to see what is returned to you
+        const {username, token} = req.body;
+        verifySession(token, username, res, (user) =>{
+            const image = {};
+            image.url = req.file.url;
+            image.public_id = req.file.public_id;
+            Image.create(image) // save image information in database
+                .then((newImage) => {
+                    User.findOneAndUpdate({_id: user._id},
+                        {profile_image: newImage},
+                        async (err, docs) => {
+                            let oldImage = await Image.findById(user.profile_image);
+                            //TODO delete old image
+                            cloudinary.v2.uploader.destroy(oldImage.public_id);
+                            res.end();
+                        })
+                })
+                .catch(err => console.log(err));
 
         });
     });
@@ -629,7 +678,7 @@ function sortRests(distanceVsScore, docs, user) {
         }
 
         let rating = rest.average_ratings.overall;
-        let finalScore = 5*(100-distanceVsScore) * rating - distanceVsScore * closeness;
+        let finalScore = 5*(100-distanceVsScore) * rating + distanceVsScore * distance;
         // console.log("calculating:", "rest:", rest.lon, rest.lat, "user:", user.lon, user.lat, "d/r/score:", distance, rating, finalScore);
         return finalScore;
     };

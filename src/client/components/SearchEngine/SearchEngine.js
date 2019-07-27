@@ -55,12 +55,24 @@ class SearchEngine extends React.Component {
                         {this.props.advanced && (
                             <div>
                                 <div>
-                                    <p>{this.props.distanceVsScore}:{100-this.props.distanceVsScore}</p>
-                                    <a>Closer</a>
-                                    <Slider value={this.props.distanceVsScore}
-                                            onChange={this.props.updateDistanceVsScoreEventHandler} />
-
-                                    <a>Better</a>
+                                    <table className="center">
+                                        <tbody>
+                                            <tr>
+                                                <th />
+                                                <th style={{fontSize:14}}>
+                                                    {this.props.distanceVsScore}:{100-this.props.distanceVsScore}
+                                                </th>
+                                                <th />
+                                            </tr>
+                                            <tr>
+                                                <th style={{fontSize:14}}>Closer</th>
+                                                <th style={{width: '90%'}}><Slider value={this.props.distanceVsScore}
+                                                            onChange={this.props.updateDistanceVsScoreEventHandler} />
+                                                </th>
+                                                <th style={{fontSize:14}}>Better</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
 
                                 <table style={{fontSize:15}} className="center">

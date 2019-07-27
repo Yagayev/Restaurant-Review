@@ -14,6 +14,7 @@ import UserPageReview from "../UserPageReview";
 // import {Button} from "primereact/button";
 import { Button } from 'react-bootstrap';
 import {getFromStorage} from "../../utils/storage";
+import { FileUpload } from 'primereact/fileupload';
 
 class UserPage extends React.Component {
     constructor(props) {
@@ -36,7 +37,13 @@ class UserPage extends React.Component {
         }
     };
 
+    upload = e => {
+        const [ file ] = e.target.files || e.dataTransfer.files;
+        this.props.onUpload(file);
+    }
+
     render = () => {
+        console.log("user page =", this.props.userViewing);
         if(this.props.loading){
             return (
                 <h3>Loading...</h3>
@@ -47,17 +54,35 @@ class UserPage extends React.Component {
                 {this.renderRedirect()}
                 <div className="app-root">
                     <div className="app-header">
+                        <img src={this.props.userViewing.profile_image.url} height={400}/>
                         <h2>{this.props.userViewing.username}</h2>
                         <h4>Location: {this.props.userViewing.location}</h4>
-                        <div>
-                            {this.props.userViewing.hasWritingPermissions &&(
+
+                        {this.props.userViewing.hasWritingPermissions &&(
+                            <div>
                                 <Button
                                     variant="light"
                                     size="sm"
                                     href={"/editDetails"}
                                 >Edit Details</Button>
-                            )}
-                        </div>
+                                <br />
+                                <br />
+                                <form action='/api/images/profile'
+                                      method="post"
+                                      encType="multipart/form-data"
+                                      style={{fontSize:12}}
+                                      // onsubmit = {()=>{this.props.loadUserInfoEventHandler(this.props.token, this.props.username, this.props.match.params.username)}}
+                                      id="form1">
+                                    <input type='file' name='image' placeholder='Upload new profile picture'/>
+                                    <input type="hidden" id="userId" name="username" value={this.props.username} />
+                                    <input type="hidden" id="tokenId" name="token" value={this.props.token} />
+                                    <input type="submit" />
+                                </form>
+                                {/*<button type="submit" form="form1" value="Submit">Submit</button>*/}
+                            </div>
+                        )}
+
+
                     </div>
                     <div>
                        <h3>All of {this.props.userViewing.username}'s reviews:</h3>
@@ -72,7 +97,6 @@ class UserPage extends React.Component {
                                     />;
                             })}
                     </div>
-
                 </div>
             </div>
         );

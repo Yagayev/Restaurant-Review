@@ -81,6 +81,7 @@ class UpdateUserDetails extends React.Component {
                             <TileLayer
                                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                             />
+
                             {this.renderMarker()}
 
                         </LeafletMap>

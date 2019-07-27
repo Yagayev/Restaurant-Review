@@ -22,8 +22,11 @@ let userSchema = new Schema({
     lon: {
         type: Number,
         default: 0
+    },
+    profile_image: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Image'
     }
-    //TODO add image
 });
 
 userSchema.methods.generateHash = function(pass) {

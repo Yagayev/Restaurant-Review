@@ -63,12 +63,50 @@ function deleteReviewAction(token, username, reviewid, restid){
 //     }
 // }
 
+function uploadRequest (file, username, token){
+    return {
+        type: ActionTypes.UPLOAD_REQUEST,
+        uri: '/api/images/profile',
+        payload: {
+            file: file,
+            username: username,
+            token: token
+        },
+    };
+}
+
+function uploadProgress (file, progress) {
+    return{
+        type: ActionTypes.UPLOAD_PROGRESS,
+        payload: progress,
+        meta: { file },
+    }
+}
+function uploadSuccess (file){
+    return {
+        type: ActionTypes.UPLOAD_SUCCESS,
+        meta: { file }
+    }
+};
+function uploadFailure (file, err) {
+    return {
+        type: ActionTypes.UPLOAD_FAILURE,
+        payload: err,
+        error: true,
+        meta: { file },
+    }
+}
+
 
 let UserPageActions  = {
     loadUserInfo,
     loadUserInfoSuccessAction,
     loadUserInfoFailureAction,
-    deleteReviewAction
+    deleteReviewAction,
+    uploadRequest,
+    uploadProgress,
+    uploadSuccess,
+    uploadFailure
 };
 
 export default UserPageActions

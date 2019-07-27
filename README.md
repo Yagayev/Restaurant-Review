@@ -16,6 +16,10 @@ bcrypt - for password encryption
 React-route - for routing between pages  
 Leaflet-React - Maps  
 
+Image hosting:  
+multer  
+cloudinary  
+multer-storage-cloudinary  
 
 UI:
 Bootstrap
