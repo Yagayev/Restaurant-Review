@@ -2,7 +2,6 @@ let User = require('../model/user');
 let UserSession = require('../model/userSession');
 let Review = require('../model/Review');
 let Restaurant = require('../model/Restaurant');
-let Image = require('../model/Image');
 
 const multer = require("multer");
 const cloudinary = require("cloudinary");
@@ -13,7 +12,6 @@ const cloudinaryStorage = require("multer-storage-cloudinary");
 /*TODO for this file:
 * move some of the functionality to more appropriate files(maybe refactor this and signin.js into 3 files)
 * add checks that every request consists only legal requests(assume malicious client)
-* possibly - to change the rest upload to only new rests, or perhaps allow both new and update but under different URIs.
 * */
 
 
@@ -136,13 +134,16 @@ module.exports = (app) => {
             // find matching review to user and restaurant
 
 
-            Review.findOneAndDelete({_id: reviewid, 'reviewer': user}, (err) => {
+            Review.findOneAndDelete({_id: reviewid, 'reviewer': user}, (err, doc) => {
                 if (err) {
                     return res.send({
                         success: false,
                         message: 'Error 1180: Server error'
                     });
                 }
+                doc.photos.map((img) => {
+                    cloudinary.v2.uploader.destroy(img.public_id);
+                });
 
                 updateRestRatings(restid);
                 // console.log("restid2:", restid);
@@ -154,7 +155,6 @@ module.exports = (app) => {
             });
         });
     });
-
 
     app.post('/api/reviews/newRestaurant', function(req, res) {
         const {body} = req;
@@ -276,7 +276,7 @@ module.exports = (app) => {
         let userToView = usertoview;
         verifySession(token, username, res, (user) => {
             User.findOne({username: userToView})
-                .populate('profile_image')
+                // .populate('profile_image')
                 .exec((err, u)=>{
                     if (err) {
                         return res.send({
@@ -359,7 +359,6 @@ module.exports = (app) => {
         });
     });
 
-
     app.get('/api/reviews/viewRestaurant', function(req, res) {
         let {headers} = req;
         let {restid} = headers;
@@ -410,6 +409,7 @@ module.exports = (app) => {
             });
 
         });
+
     app.post('/api/account/updateDetails', function(req, res) {
         // verify user
         let {body} = req;
@@ -470,26 +470,32 @@ module.exports = (app) => {
     });
 
     app.post('/api/images/profile', parser.single("image"), (req, res) => {
-
         // console.log(req.body); // to see what is returned to you
         const {username, token} = req.body;
         verifySession(token, username, res, (user) =>{
-            const image = {};
-            image.url = req.file.url;
-            image.public_id = req.file.public_id;
-            Image.create(image) // save image information in database
-                .then((newImage) => {
-                    User.findOneAndUpdate({_id: user._id},
-                        {profile_image: newImage},
-                        async (err, docs) => {
-                            let oldImage = await Image.findById(user.profile_image);
-                            //TODO delete old image
-                            cloudinary.v2.uploader.destroy(oldImage.public_id);
-                            res.end();
-                        })
+            User.findOneAndUpdate({_id: user._id},
+                {$set: {'profile_image.public_id': req.file.public_id, 'profile_image.url': req.file.url }},
+                (err, docs) => {
+                    cloudinary.v2.uploader.destroy(user.profile_image.public_id);
+                    res.end();
                 })
-                .catch(err => console.log(err));
+        });
+    });
 
+    app.post('/api/images/review', parser.single("image"), (req, res) => {
+        // console.log(req.body); // to see what is returned to you
+        const {username, token, reviewid} = req.body;
+        verifySession(token, username, res, (user) =>{
+            Review.findOneAndUpdate({_id: reviewid, reviewer: user._id},
+                {$push: {
+                    photos: {
+                        public_id: req.file.public_id,
+                        url: req.file.url
+                    }
+                }},
+                (err, docs) => {
+                    res.end();
+                })
         });
     });
 };

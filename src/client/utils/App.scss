@@ -49,8 +49,16 @@ table.center {
 }
 
 .image-preview{
-  max-height:150px;
-  max-width:150px;
+  max-height:300px;
+  max-width:400px;
   height:auto;
   width:auto;
+  display: inline-block;
+  clear: left;
+}
+
+.lightbox{
+  display: inline-block;
+  clear: left;
+  white-space: nowrap;
 }

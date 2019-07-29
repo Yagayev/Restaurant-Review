@@ -78,7 +78,6 @@ class UserPage extends React.Component {
                                     <input type="hidden" id="tokenId" name="token" value={this.props.token} />
                                     <input type="submit" />
                                 </form>
-                                {/*<button type="submit" form="form1" value="Submit">Submit</button>*/}
                             </div>
                         )}
 

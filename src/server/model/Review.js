@@ -55,6 +55,16 @@ let reviewSchema = new Schema({
         default: ''
     },
 
+    photos: [{
+        url: {
+            type: String,
+            default: ''
+        },
+        public_id: {
+            type: String,
+            default: ''
+        }
+    }]
 
 });
 

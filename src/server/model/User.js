@@ -24,8 +24,14 @@ let userSchema = new Schema({
         default: 0
     },
     profile_image: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Image'
+        url: {
+            type: String,
+            default: ''
+        },
+        public_id:{
+            type: String,
+            default: ''
+        }
     }
 });
 

@@ -48,63 +48,63 @@ function* deleteReview(action){
         yield put(UserPageActions.loadUserInfoFailureAction(e.message));
     }
 }
-
-function createUploadFileChannel(endpoint, payload) {
-    var {file, username, token} = payload;
-    return eventChannel(emitter => {
-            const xhr = new XMLHttpRequest();
-            xhr.responseType = "json";
-
-            const onFailure = (e) => {
-                emitter({err: new Error('Upload failed')});
-                emitter(END);
-            };
-
-            xhr.upload.addEventListener("error", onFailure);
-            xhr.upload.addEventListener("abort", onFailure);
-            xhr.onreadystatechange = () => {
-                const {readyState, status} = xhr;
-                if (readyState === 4) {
-                    if (status === 200) {
-                        emitter({success: true, response: xhr.response});
-                        emitter(END);
-                    } else {
-                        onFailure(null);
-                    }
-                }
-            };
-
-            xhr.open("POST", endpoint, true);
-
-            let formData = new FormData();
-            formData.append('filename', file.filename);
-            formData.append('buffer', file.data);
-            formData.append('username', username);
-            formData.append('token', token);
-            xhr.send(formData);
-
-            return () => {
-                xhr.upload.removeEventListener("error", onFailure);
-                xhr.upload.removeEventListener("abort", onFailure);
-                xhr.onreadystatechange = null;
-                xhr.abort();
-            };
-        },
-        buffers.sliding(2));
-}
-
-function* uploadRequest(action) {
-    console.log('uploadRequest=', action);
-
-    const channel = yield call(createUploadFileChannel, '/api/upload/file', action.payload);
-    const result = yield take(channel);
-
-    if (result.success)
-        action.payload.imageURL = result.response.url.replace(/\\/g,"/");
-    yield put({type: UserPageActionsConstants.UPLOAD_SUCCESS, payload: {...action}});
-    if (result.err)
-        yield put({type: UserPageActionsConstants.UPLOAD_FAILURE, payload: {file: action.payload.file, err: result.err}});
-}
+//
+// function createUploadFileChannel(endpoint, payload) {
+//     var {file, username, token} = payload;
+//     return eventChannel(emitter => {
+//             const xhr = new XMLHttpRequest();
+//             xhr.responseType = "json";
+//
+//             const onFailure = (e) => {
+//                 emitter({err: new Error('Upload failed')});
+//                 emitter(END);
+//             };
+//
+//             xhr.upload.addEventListener("error", onFailure);
+//             xhr.upload.addEventListener("abort", onFailure);
+//             xhr.onreadystatechange = () => {
+//                 const {readyState, status} = xhr;
+//                 if (readyState === 4) {
+//                     if (status === 200) {
+//                         emitter({success: true, response: xhr.response});
+//                         emitter(END);
+//                     } else {
+//                         onFailure(null);
+//                     }
+//                 }
+//             };
+//
+//             xhr.open("POST", endpoint, true);
+//
+//             let formData = new FormData();
+//             formData.append('filename', file.filename);
+//             formData.append('buffer', file.data);
+//             formData.append('username', username);
+//             formData.append('token', token);
+//             xhr.send(formData);
+//
+//             return () => {
+//                 xhr.upload.removeEventListener("error", onFailure);
+//                 xhr.upload.removeEventListener("abort", onFailure);
+//                 xhr.onreadystatechange = null;
+//                 xhr.abort();
+//             };
+//         },
+//         buffers.sliding(2));
+// }
+//
+// function* uploadRequest(action) {
+//     console.log('uploadRequest=', action);
+//
+//     const channel = yield call(createUploadFileChannel, '/api/upload/file', action.payload);
+//     const result = yield take(channel);
+//
+//     if (result.success)
+//         action.payload.imageURL = result.response.url.replace(/\\/g,"/");
+//     yield put({type: UserPageActionsConstants.UPLOAD_SUCCESS, payload: {...action}});
+//     if (result.err)
+//         yield put({type: UserPageActionsConstants.UPLOAD_FAILURE, payload: {file: action.payload.file, err: result.err}});
+// }
 
 // export function* uploadFile(action) {
 //     const channel = yield call(fetch, action.uri, {

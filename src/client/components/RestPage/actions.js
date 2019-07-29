@@ -1,4 +1,5 @@
 import { RestPageActionsConstants} from './constants.js';
+import {UserPageActionsConstants} from "../UserPage/constants";
 
 
 function loadRestInfo(id) {
@@ -30,11 +31,25 @@ function loadRestInfoFailureAction(message){
 }
 
 
+function deleteReviewAction(token, username, reviewid, restid){
+    return {
+        type: RestPageActionsConstants.DELETE_REST_REVIEW,
+        uri: '/api/reviews/deleteReview',
+        payload:{
+            token,
+            username,
+            reviewid,
+            restid
+        }
+    }
+}
+
 
 let RestPageActions  = {
     loadRestInfo,
     loadRestInfoSuccessAction,
-    loadRestInfoFailureAction
+    loadRestInfoFailureAction,
+    deleteReviewAction,
 };
 
 export default RestPageActions

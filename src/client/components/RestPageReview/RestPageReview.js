@@ -2,8 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 // import './RestPreview.scss';
 import StarRatings from 'react-star-ratings';
-import { Card } from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 import '../../utils/App.scss';
+import {Lightbox} from "primereact/components/lightbox/Lightbox";
+import RestPageActions from "../RestPage/actions";
 
 
 class RestPageReview extends React.Component {
@@ -24,6 +26,8 @@ class RestPageReview extends React.Component {
     if(this.props.review.description!==''){
       description = (<Card.Text>{'\"'+this.props.review.description+'\"'}</Card.Text>)
     }
+
+    let hasWritingPermissions = this.props.username === this.props.review.reviewer.username;
     return (
         <div>
           <Card>
@@ -135,6 +139,67 @@ class RestPageReview extends React.Component {
                   </tbody>
                 </table>
               </div>
+              {
+                this.props.review.photos && this.props.review.photos.map((dto, idx) => {
+                  return <img src={dto.url}
+                              className='image-preview'
+                              key={'rest-review-photo-preview' + dto.id + idx}
+                              id={idx}
+                  />
+                  {/*    <Lightbox type="content"*/}
+                  {/*                 key={'rest-review-lightbox' + dto.id + idx}*/}
+                  {/*                 style={{'display': 'inline-block'}}*/}
+                  {/*    // className="lightbox"*/}
+                  {/*                 target={<img src={dto.url}*/}
+                  {/*                              className='image-preview'*/}
+                  {/*                              key={'rest-review-photo-preview' + dto.id + idx}*/}
+                  {/*                              id={idx}*/}
+                  {/*                 />}>*/}
+                  {/*  <img src={dto.url}*/}
+                  {/*       key={'review-photo-full' + dto.id + idx}*/}
+                  {/*       id={idx}*/}
+                  {/*  />*/}
+                  {/*</Lightbox>*/}
+                })
+              }
+
+              {hasWritingPermissions && (
+                  <div>
+                    <br />
+                    <h6>Add another photo:</h6>
+                    <form action='/api/images/review'
+                          method="post"
+                          encType="multipart/form-data"
+                          style={{fontSize:12}}
+                        // onsubmit = {()=>{this.props.loadUserInfoEventHandler(this.props.token, this.props.username, this.props.match.params.username)}}
+                          id="form1">
+                      <input type='file' name='image' placeholder='Upload new profile picture'/>
+                      <input type="hidden" id="userId" name="username" value={this.props.username} />
+                      <input type="hidden" id="tokenId" name="token" value={this.props.token} />
+                      <input type="hidden" id="tokenId" name="reviewid" value={this.props.review._id} />
+                      <input type="submit" />
+                    </form>
+
+                    <br />
+                    <Button
+                        variant="dark"
+                        size="sm"
+                        href={"/addreview/"+this.props.restaurant.name}
+                    >Edit review</Button>
+                    <a>    </a>
+                    <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={()=>
+                            this.props.deleteReviewEventHandler(this.props.token,
+                                this.props.username,
+                                this.props.review._id,
+                                this.props.restaurant._id)
+                        }
+                    >Delete review</Button>
+                  </div>
+              )}
+
             </Card.Body>
           </Card>
           <br />
@@ -150,8 +215,8 @@ const mapStateToProps = (state, props) => {
     id: props.id,
     token: state['login'].get('token'),
     username: state['login'].get('username'),
-    loading: state['restPage'].get('loading')
-
+    loading: state['restPage'].get('loading'),
+    restaurant: state['restPage'].get('rest'),
   }
 };
 
@@ -160,6 +225,9 @@ const mapDispatchToProps = (dispatch) => {
     // onClickGoToRestEventHandler: (idx) => {
     //   dispatch(RestSearchActions.goToRestAction(idx))
     // }
+    deleteReviewEventHandler: (token, username, reviewid, restid) => {
+      dispatch(RestPageActions.deleteReviewAction(token, username, reviewid, restid));
+    }
   }
 };
 
