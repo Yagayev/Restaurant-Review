@@ -20,7 +20,14 @@ function* updateUserDetails(action){
 
     const json = yield call([res, 'json']); //retrieve body of response
     // yield put(UpdateUserDetailsActions.submitRestSuccessAction(json));
-    yield put(LoginActions.disconnectAction());
+    if(action.payload.updates.username){
+        yield put(LoginActions.setNewUsernameAction(action.payload.updates.username));
+    }
+    // else{
+        yield put(UpdateUserDetailsActions.updateUserDetailsSuccessAction());
+    // }
+
+
   } catch (e) {
     yield put(UpdateUserDetailsActions.updateUserDetailsFailureAction(e.message));
   }

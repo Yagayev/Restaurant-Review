@@ -67,16 +67,9 @@ function submitDetailsEventAction(username, token, newUsername, location, coords
 }
 
 
-function updateUserDetailsSuccessAction(json){
-    if(!json.success){
-        return updateUserDetailsFailureAction(json.error);
-    }
-
+function updateUserDetailsSuccessAction(){
   return {
     type: UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS_SUCCESS,
-    payload: {
-      json: json
-    }
   }
 }
 function updateUserDetailsFailureAction(error){

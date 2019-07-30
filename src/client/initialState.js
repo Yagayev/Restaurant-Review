@@ -110,6 +110,8 @@ export default {
         locations: [],
         suggestedLocations: [],
         loc: '',
+
+        // redirect: false
     }),
     submitRest: Map({
         name: '',

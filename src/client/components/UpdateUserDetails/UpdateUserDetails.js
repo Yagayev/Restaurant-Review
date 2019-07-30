@@ -52,6 +52,10 @@ class UpdateUserDetails extends React.Component {
       //     console
       //     return <App />;
       // }
+        console.log("update page, submittd?", this.props.submitted);
+        if(this.props.submitted){
+            return (<Redirect to='/' />)
+        }
     return (
         <div>
             {this.renderRedirect()}
@@ -140,6 +144,7 @@ const mapStateToProps = (state) => {
       locations: state['updateUserDetails'].get('locations'),
       suggestedLocations: state['updateUserDetails'].get('suggestedLocations'),
       loc: state['updateUserDetails'].get('loc'),
+      // redirect: state['updateUserDetails'].get('redirect'),
   }
 };
 

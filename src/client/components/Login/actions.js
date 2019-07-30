@@ -132,6 +132,15 @@ function disconnectAction(){
     };
 }
 
+function setNewUsernameAction (username){
+    return{
+        type: LoginActionsConstants.SET_NEW_USERNAME,
+        payload:{
+            username: username
+        }
+    }
+}
+
 let LoginActions  = {
     updateTagAction,
     loadTagsAction,
@@ -146,7 +155,8 @@ let LoginActions  = {
     signupSuccessAction,
     signupFailureAction,
     loadUserAction,
-    disconnectAction
+    disconnectAction,
+    setNewUsernameAction
 };
 
 export default LoginActions

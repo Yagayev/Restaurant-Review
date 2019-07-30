@@ -46,7 +46,7 @@ class SearchEngine extends React.Component {
                     <div className="app-header">
                         <h2>Restr</h2>
                         <InputText value={this.props.name}
-                                   placeholder="Name"
+                                   placeholder="Restaurant name"
                                    onChange={this.props.updateNameEventHandler}/>
                         <br/>
                         <AutoComplete value={this.props.loc}

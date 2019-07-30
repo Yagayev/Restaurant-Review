@@ -3,11 +3,12 @@ import {UpdateUserDetailsActionsConstants} from './constants.js';
 import { List } from 'immutable';
 import {getFromStorage, setInStorage} from '../../utils/storage';
 import {SearchEngineActionsConstants} from "../SearchEngine/constants";
+import {LoginActionsConstants} from "../Login/constants";
 
 
 const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action) => {
-    console.log('AppReducerState=', state);
-    console.log('RECEIVED ACTION:', action);
+    console.log('UpdateUserDetails=', state);
+    console.log('UpdateUserDetails RECEIVED ACTION:', action);
     switch (action.type){
 
         case UpdateUserDetailsActionsConstants.UPDATE_NEW_USERNAME:
@@ -21,11 +22,12 @@ const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action
 
 
 
-        case UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS_SUCCESS:
+        case UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS_SUCCESS: //get through here if no new username
+        // case LoginActionsConstants.SET_NEW_USERNAME: //through here if yes
             state = state.set('password', '');
-            state = state.set('message', action.payload.json.message);
+            // state = state.set('message', action.payload.json.message);
             // setInStorage('restorant_review_username', state.newUsername);
-            state.set('submitted', true);
+            state = state.set('submitted', true);
             return state;
         case UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS_FAIL:
             state = state.set('message', action.error);
@@ -45,6 +47,13 @@ const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action
             return state.set('suggestedLocations', action.payload.locations);
         case UpdateUserDetailsActionsConstants.UPDATE_LOC:
             return state.set('loc', action.payload.location);
+
+        // case UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS_SUCCESS:
+        //     return state.set('redirect', true);
+
+        case UpdateUserDetailsActionsConstants.LOAD_LOCATIONS:
+            state.set('submitted', false);
+
         default: //otherwise state is lost!
             return state;
     }

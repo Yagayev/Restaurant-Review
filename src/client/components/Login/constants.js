@@ -12,7 +12,8 @@ const LoginActionsConstants = {
     SIGNUP_SUCCESS: 'SIGNUP_SUCCESS',
     SIGNUP_FAILURE: 'SIGNUP_FAILURE',
     LOAD_USER: 'LOAD_USER',
-    DISCONNECT: 'DISCONNECT'
+    DISCONNECT: 'DISCONNECT',
+    SET_NEW_USERNAME: 'SET_NEW_USERNAME'
 };
 
 export { LoginActionsConstants }

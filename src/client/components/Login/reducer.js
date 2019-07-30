@@ -50,6 +50,12 @@ const AppReducer = (state = initialState.login, action) => {
             state = state.set('token','');
             state = state.set('username', '');
             return state;
+
+        case LoginActionsConstants.SET_NEW_USERNAME:
+            // let ret = state.set('username', action.payload.username);
+            // console.log("usernam update: ", ret.toJS());
+            setInStorage('restorant_review_username', action.payload.username);
+            return state.set('username', action.payload.username);
         default: //otherwise state is lost!
             return state;
     }
