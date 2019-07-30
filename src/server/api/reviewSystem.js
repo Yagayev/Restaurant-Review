@@ -2,6 +2,7 @@ let User = require('../model/user');
 let UserSession = require('../model/userSession');
 let Review = require('../model/Review');
 let Restaurant = require('../model/Restaurant');
+let Locations = require('../model/Locations');
 
 const multer = require("multer");
 const cloudinary = require("cloudinary");
@@ -203,7 +204,7 @@ module.exports = (app) => {
                 newRest.description = body.description;
                 newRest.lat = body.lat;
                 newRest.lon= body.lon;
-
+                updateLocations(body.location);
                 newRest.save((err, seesion) => {
                     if (err) {
                         return res.send({
@@ -247,6 +248,9 @@ module.exports = (app) => {
         const { searchCriteria } = body;
         let {params, distanceVsScore, sortBy, token, username} = searchCriteria;
         verifySession(token, username, res, (user) => {
+            if(params.location){
+                updateLocations(params.location);
+            }
             Restaurant.find(paramsToFilter(params), (err, docs) => {
                 if (err) {
                     return res.send({
@@ -424,7 +428,9 @@ module.exports = (app) => {
             if(updates.password){
                 updates.password = user.generateHash(updates.password);
             }
-
+            if(body.location){
+                updateLocations(body.location);
+            }
             if(updates.username){
                 User.find({
                     username: updates.username
@@ -474,7 +480,7 @@ module.exports = (app) => {
     });
 
     app.post('/api/images/profile', parser.single("image"), (req, res) => {
-        // console.log(req.body); // to see what is returned to you
+         // console.log(req); // to see what is returned to you
         const {username, token} = req.body;
         verifySession(token, username, res, (user) =>{
             User.findOneAndUpdate({_id: user._id},
@@ -501,6 +507,15 @@ module.exports = (app) => {
                     res.end();
                 })
         });
+    });
+
+    app.get('/api/reviews/locations', function(req, res){
+        Locations
+            .findOne()
+            .then(doc => {
+                res.json(doc.locations);
+                res.end();
+            });
     });
 };
 
@@ -605,6 +620,12 @@ function paramsToFilter(params){
             "$options": "i"
         };
     }
+    if(params.location){
+        filter.location = {
+            "$regex": params.location,
+            "$options": "i"
+        };
+    }
     if(params.ratings){
         Object.keys(params.ratings).map(function(key, index) {
             filter["average_ratings."+key] = {
@@ -612,14 +633,12 @@ function paramsToFilter(params){
             };
         });
     }
-    if(params.location){
-        fliter.location = params.location;
-    }
-    return filter;
 
+    return filter;
 }
 
-var ratings_dict = {   overall: {
+var ratings_dict = {
+    overall: {
             type: Number,
             default: 0
         },
@@ -656,6 +675,7 @@ var ratings_dict = {   overall: {
             default: 0
         }
     };
+
 async function updateRestRatings(id) {
     var reviews = await Review.find({"restaurant": id});
     if (!reviews||reviews.length===0){
@@ -707,7 +727,6 @@ function getDistance(pointA, pointB){
     return getDistanceFromLatLonInKm(pointA.lat, pointA.lon, pointB.lat, pointB.lon);
 }
 
-
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
@@ -724,4 +743,24 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
     return deg * (Math.PI/180)
+};
+
+
+async function updateLocations(currLocation) {
+    Locations
+        .findOne()
+        .then(doc => {
+            if (doc === null) {
+                let newDoc = new Locations();
+                newDoc.locations.push(currLocation);
+                newDoc.save(_handleError);
+            }else if (!doc.locations.includes(currLocation)) {
+                doc.locations.push(currLocation);
+                doc.save(_handleError);
+            }
+        });
+}
+
+let _handleError = function(err){
+    if (err) return console.log(err);
 };

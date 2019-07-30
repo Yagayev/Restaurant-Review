@@ -2,8 +2,8 @@ import {SearchEngineActionsConstants} from './constants'
 import { call, put, takeEvery } from 'redux-saga/effects'
 import SearchEngineActions from './actions'
 
-function* loadTags(action){
-    console.log('MenuSaga=', action);
+function* loadLocations(action){
+    console.log('LOAD LOCATIONS=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -14,7 +14,7 @@ function* loadTags(action){
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        yield put(SearchEngineActions.loadTagsSuccessAction(json));
+        yield put(SearchEngineActions.loadLocationsCompleteAction(json));
     } catch (e) {
         yield put(SearchEngineActions.loadTagsFailureAction(e.message));
     }
@@ -22,7 +22,7 @@ function* loadTags(action){
 
 function* SearchEngineSaga() {
     //using takeEvery, you take the action away from reducer to saga
-    // yield takeEvery(AddReviewActionsConstants.LOAD_TAGS, loadTags);
+    yield takeEvery(SearchEngineActionsConstants.LOAD_LOCATIONS, loadLocations);
 }
 
 export default SearchEngineSaga;

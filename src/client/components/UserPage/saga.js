@@ -38,7 +38,8 @@ function* deleteReview(action){
                     'username': action.payload.username,
                     'reviewid': action.payload.reviewid,
                     'restid': action.payload.restid
-                }
+                },
+
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
@@ -93,8 +94,8 @@ function* deleteReview(action){
 //         buffers.sliding(2));
 // }
 //
-// function* uploadRequest(action) {
-//     console.log('uploadRequest=', action);
+// function* uploadRequestAction(action) {
+//     console.log('uploadRequestAction=', action);
 //
 //     const channel = yield call(createUploadFileChannel, '/api/upload/file', action.payload);
 //     const result = yield take(channel);
@@ -132,12 +133,35 @@ function* deleteReview(action){
 //     }
 // }
 
+function* uploadRequest(action){
+    console.log('UPLOAD SAGA=', action);
+    try {
+        const res = yield call(fetch, action.uri,
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+
+                },
+                body: JSON.stringify(action.payload),
+                file: JSON.stringify(action.file)
+
+            });
+
+        const json = yield call([res, 'json']); //retrieve body of response
+        console.log("return delete review,", json);
+        yield put(UserPageActions.loadUserInfo(action.payload.token, action.payload.username, action.payload.username));
+    } catch (e) {
+        yield put(UserPageActions.loadUserInfoFailureAction(e.message));
+    }
+}
+
 
 function* UserPageSaga() {
     //using takeEvery, you take the action away from reducer to saga
     yield takeEvery(UserPageActionsConstants.LOAD_USER_INFO, loadUserInfo);
     yield takeEvery(UserPageActionsConstants.DELETE_USER_REVIEW, deleteReview);
-    // yield takeEvery(UserPageActionsConstants.UPLOAD_REQUEST, uploadRequest);
+    yield takeEvery(UserPageActionsConstants.UPLOAD_REQUEST, uploadRequest);
 }
 
 export default UserPageSaga;

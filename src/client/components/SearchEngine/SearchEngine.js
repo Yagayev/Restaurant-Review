@@ -7,15 +7,17 @@ import RestSearchActions from "../RestSearch/actions";
 import { Button } from 'primereact/button';
 import StarRatings from 'react-star-ratings';
 import {InputText} from 'primereact/inputtext';
+import {AutoComplete} from 'primereact/autocomplete';
+
 // import {Card} from "react-bootstrap";
 import { Redirect } from 'react-router';
 import LoginActions from "../Login/actions";
 import {Slider} from 'primereact/slider';
 
 class SearchEngine extends React.Component {
-    // componentDidMount() {
-    //     this.props.loadUserEventHandler()
-    // };
+    componentDidMount() {
+        this.props.loadLocationsEventHandler();
+    };
     renderRedirect = () => {
         if (!this.props.token||
             !this.props.token === ''||
@@ -26,8 +28,16 @@ class SearchEngine extends React.Component {
         }
     };
 
+    suggestLocations(event) {
+        let results = this.props.locations.filter((location) => {
+            return location.toLowerCase().startsWith(event.query.toLowerCase());
+        });
+        this.props.updateSuggestionsEventHandler(results);
+        // this.props.suggestedLocations = results ;
+    }
+
     render() {
-        console.log('Search Engine props=', this.props);
+        console.log('Search Engine props=', JSON.stringify(this.props.locations));
         return (
             <div>
                 {this.renderRedirect()}
@@ -36,7 +46,14 @@ class SearchEngine extends React.Component {
                     <div className="app-header">
                         <h2>Restr</h2>
                         <InputText value={this.props.name}
+                                   placeholder="Name"
                                    onChange={this.props.updateNameEventHandler}/>
+                        <br/>
+                        <AutoComplete value={this.props.loc}
+                                      placeholder="Location"
+                                      suggestions={this.props.suggestedLocations}
+                                      completeMethod={this.suggestLocations.bind(this)}
+                                      onChange={this.props.updateLocEventHandler}/>
                         <br/>
                         <Button
                             label="Search"
@@ -224,7 +241,8 @@ function propsToParams(props){
     return {
         params: {
             name: props.name,
-            ratings: props.ratings
+            ratings: props.ratings,
+            location: props.loc
         },
         username: props.username,
         token: props.token,
@@ -240,7 +258,10 @@ const mapStateToProps = (state) => {
       distanceVsScore: state['searchEngine'].get('distanceVsScore'),
       username: state['login'].get('username'),
       token: state['login'].get('token'),
-      viewOnMap: state['searchEngine'].get('viewOnMap')
+      viewOnMap: state['searchEngine'].get('viewOnMap'),
+      locations: state['searchEngine'].get('locations'),
+      suggestedLocations: state['searchEngine'].get('suggestedLocations'),
+      loc: state['searchEngine'].get('loc'),
 
   }
 };
@@ -275,7 +296,15 @@ const mapDispatchToProps = (dispatch) => {
     viewMapUnsetEventHandler: () =>{
       dispatch(SearchEngineActions.viewMapUnsetAction());
     },
-
+    loadLocationsEventHandler: () =>{
+      dispatch(SearchEngineActions.loadLocationsAction());
+    },
+    updateLocEventHandler: (e) => {
+      dispatch(SearchEngineActions.updateLocAction(e.target.value));
+    },
+    updateSuggestionsEventHandler: (suggestions) =>{
+      dispatch(SearchEngineActions.updateSuggestionAction(suggestions));
+    },
   }
 };
 

@@ -2,6 +2,7 @@ import initialState from '../../initialState';
 import {UpdateUserDetailsActionsConstants} from './constants.js';
 import { List } from 'immutable';
 import {getFromStorage, setInStorage} from '../../utils/storage';
+import {SearchEngineActionsConstants} from "../SearchEngine/constants";
 
 
 const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action) => {
@@ -29,6 +30,21 @@ const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action
         case UpdateUserDetailsActionsConstants.SUBMIT_NEW_DETAILS_FAIL:
             state = state.set('message', action.error);
             return state;
+
+        case UpdateUserDetailsActionsConstants.COMPLETE_LOAD_LOCATIONS:
+            // let res = action.payload.locations.map(elm => {
+            //     return {label: elm, value: elm }
+            // });
+            state = state.set('locations', action.payload.locations);
+            console.log("SearchEngineReducer returninh", state);
+            return state;
+        case UpdateUserDetailsActionsConstants.UPDATE_SUGGESTION:
+            // let res2 = action.payload.locations.map(elm => {
+            //     return {label: elm, value: elm }
+            // });
+            return state.set('suggestedLocations', action.payload.locations);
+        case UpdateUserDetailsActionsConstants.UPDATE_LOC:
+            return state.set('loc', action.payload.location);
         default: //otherwise state is lost!
             return state;
     }

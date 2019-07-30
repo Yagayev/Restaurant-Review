@@ -67,10 +67,15 @@ class UserPage extends React.Component {
                                 >Edit Details</Button>
                                 <br />
                                 <br />
+                                <iframe width="0" height="0" border="0" name="dummyframe"
+                                        id="dummyframe"
+                                        onLoad={()=> this.props.loadUserInfoEventHandler(this.props.token, this.props.username, this.props.match.params.username)}
+                                        style={{"display": "none"}}/>
                                 <form action='/api/images/profile'
                                       method="post"
                                       encType="multipart/form-data"
                                       style={{fontSize:12}}
+                                      target="dummyframe"
                                       // onsubmit = {()=>{this.props.loadUserInfoEventHandler(this.props.token, this.props.username, this.props.match.params.username)}}
                                       id="form1">
                                     <input type='file' name='image' placeholder='Upload new profile picture'/>
@@ -78,6 +83,19 @@ class UserPage extends React.Component {
                                     <input type="hidden" id="tokenId" name="token" value={this.props.token} />
                                     <input type="submit" />
                                 </form>
+                                {/*<input type='file'*/}
+                                {/*       name='image'*/}
+                                {/*       onChange={*/}
+                                {/*           (e)=> this.props.updateFileEventHandler(e.target.files)*/}
+                                {/*       }*/}
+                                {/*       placeholder='Upload new profile picture'/>*/}
+                                {/*<Button*/}
+                                {/*    variant="light"*/}
+                                {/*    size="sm"*/}
+                                {/*    onClick={*/}
+                                {/*        ()=>this.props.uploadRequestEventHandler(this.props.new_image, this.props.username, this.props.token)*/}
+                                {/*    }>Submit</Button>*/}
+
                             </div>
                         )}
 
@@ -110,7 +128,7 @@ const mapStateToProps = (state) => {
         token: state['login'].get('token'),
         loading: state['userPage'].get('loading'),
         userViewing: state['userPage'].get('userViewing'),
-
+        new_image: state['userPage'].get('new_image'),
     }
 };
 
@@ -118,6 +136,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         loadUserInfoEventHandler: (token, username, usertoview) =>{
             dispatch(UserPageActions.loadUserInfo(token, username, usertoview));
+        },
+        updateFileEventHandler: (f) =>{
+            dispatch(UserPageActions.updateFileAction(f));
+        },
+        uploadRequestEventHandler: (f, username, token) =>{
+            dispatch(UserPageActions.uploadRequestAction(f, username, token));
         },
     }
 };

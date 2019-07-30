@@ -9,6 +9,8 @@ import {InputText} from 'primereact/inputtext';
 import {Password} from 'primereact/password';
 import { Redirect } from 'react-router';
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
+import SearchEngineActions from "../SearchEngine/actions";
+import {AutoComplete} from "primereact/components/autocomplete/AutoComplete";
 
 
 class UpdateUserDetails extends React.Component {
@@ -21,6 +23,19 @@ class UpdateUserDetails extends React.Component {
             return (<Redirect to='/login' />)
         }
     };
+    componentDidMount() {
+        this.props.loadLocationsEventHandler();
+    };
+
+    suggestLocations(event) {
+        let results = this.props.locations.filter((location) => {
+            return location.toLowerCase().startsWith(event.query.toLowerCase());
+        });
+        this.props.updateSuggestionsEventHandler(results);
+        // this.props.suggestedLocations = results ;
+    }
+
+
     renderMarker = () =>{
         if(this.props.coords.lat&&this.props.coords.lng){
             return(
@@ -51,11 +66,11 @@ class UpdateUserDetails extends React.Component {
                       placeholder="New username"
                       onChange={this.props.updateUsernameEventHandler} />
                     <br />
-                    <InputText
-                        id="inLoc"
-                        value={this.props.location}
-                        placeholder="New location"
-                        onChange={this.props.updateLocationEventHandler} />
+                    <AutoComplete value={this.props.loc}
+                                  placeholder="Location"
+                                  suggestions={this.props.suggestedLocations}
+                                  completeMethod={this.suggestLocations.bind(this)}
+                                  onChange={this.props.updateLocEventHandler}/>
                     <br />
                     <Password
                         value={this.props.password}
@@ -63,6 +78,7 @@ class UpdateUserDetails extends React.Component {
                         feedback={false}
                         onChange={this.props.updatePasswordEventHandler} />
                     <br />
+
                     <h5>Location:</h5>
                     <div>
                         <LeafletMap
@@ -94,7 +110,7 @@ class UpdateUserDetails extends React.Component {
                             () => this.props.submitDetailsEventHandler( this.props.username,
                                                                         this.props.token,
                                                                         this.props.newUsername,
-                                                                        this.props.location,
+                                                                        this.props.loc,
                                                                         this.props.coords,
                                                                         this.props.password )}/>
                     {
@@ -116,11 +132,14 @@ const mapStateToProps = (state) => {
       username: state['login'].get('username'),
       token: state['login'].get('token'),
       newUsername: state['updateUserDetails'].get('newUsername'),
-      location: state['updateUserDetails'].get('location'),
+      // location: state['updateUserDetails'].get('location'),
       submitted: state['updateUserDetails'].get('submitted'),
       password: state['updateUserDetails'].get('password'),
       message: state['updateUserDetails'].get('message'),
       coords: state['updateUserDetails'].get('coords'),
+      locations: state['updateUserDetails'].get('locations'),
+      suggestedLocations: state['updateUserDetails'].get('suggestedLocations'),
+      loc: state['updateUserDetails'].get('loc'),
   }
 };
 
@@ -141,6 +160,15 @@ const mapDispatchToProps = (dispatch) => {
     submitDetailsEventHandler: (username, token, newUsername, location, coords, password)  => {
       dispatch(UpdateUserDetailsActions.submitDetailsEventAction(username, token, newUsername, location, coords, password));
     },
+      loadLocationsEventHandler: () =>{
+          dispatch(UpdateUserDetailsActions.loadLocationsAction());
+      },
+      updateLocEventHandler: (e) => {
+          dispatch(UpdateUserDetailsActions.updateLocAction(e.target.value));
+      },
+      updateSuggestionsEventHandler: (suggestions) =>{
+          dispatch(UpdateUserDetailsActions.updateSuggestionAction(suggestions));
+      },
   }
 };
 

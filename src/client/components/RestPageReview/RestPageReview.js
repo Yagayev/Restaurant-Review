@@ -169,8 +169,13 @@ class RestPageReview extends React.Component {
                   <div>
                     <br />
                     <h6>Add another photo:</h6>
+                    <iframe width="0" height="0" border="0" name={"dummyframe"+this.props.id}
+                            id={"dummyframe"+this.props.id}
+                            onLoad={()=> this.props.loadRestInfoEventHandler(this.props.restaurant._id)}
+                            style={{"display": "none"}}/>
                     <form action='/api/images/review'
                           method="post"
+                          target={"dummyframe"+this.props.id}
                           encType="multipart/form-data"
                           style={{fontSize:12}}
                         // onsubmit = {()=>{this.props.loadUserInfoEventHandler(this.props.token, this.props.username, this.props.match.params.username)}}
@@ -229,6 +234,9 @@ const mapDispatchToProps = (dispatch) => {
     // }
     deleteReviewEventHandler: (token, username, reviewid, restid) => {
       dispatch(RestPageActions.deleteReviewAction(token, username, reviewid, restid));
+    },
+    loadRestInfoEventHandler: (id) =>{
+      dispatch(RestPageActions.loadRestInfo(id));
     }
   }
 };

@@ -13,6 +13,9 @@ const UserPageReducer = (state = initialState.userPage, action) => {
             state = state.set('loading', false);
             console.log("UserPageReducer returning state=", state.toString());
             return state;
+        case UserPageActionsConstants.UPDATE_FILE:
+            state = state.set('new_image', action.payload.file);
+            return state;
         default: //otherwise state is lost!
             return state;
     }

@@ -63,50 +63,61 @@ function deleteReviewAction(token, username, reviewid, restid){
 //     }
 // }
 
-function uploadRequest (file, username, token){
+function uploadRequestAction (file, username, token){
     return {
-        type: ActionTypes.UPLOAD_REQUEST,
+        type: UserPageActionsConstants.UPLOAD_REQUEST,
         uri: '/api/images/profile',
         payload: {
-            file: file,
+            // file: file,
             username: username,
             token: token
         },
+        file: file[0],
     };
 }
 
 function uploadProgress (file, progress) {
     return{
-        type: ActionTypes.UPLOAD_PROGRESS,
+        type: UserPageActionsConstants.UPLOAD_PROGRESS,
         payload: progress,
         meta: { file },
     }
 }
 function uploadSuccess (file){
     return {
-        type: ActionTypes.UPLOAD_SUCCESS,
+        type: UserPageActionsConstants.UPLOAD_SUCCESS,
         meta: { file }
     }
 };
 function uploadFailure (file, err) {
     return {
-        type: ActionTypes.UPLOAD_FAILURE,
+        type: UserPageActionsConstants.UPLOAD_FAILURE,
         payload: err,
         error: true,
         meta: { file },
     }
 }
 
+function updateFileAction(f) {
+    return {
+        type: UserPageActionsConstants.UPDATE_FILE,
+        payload: {
+            file: f
+        }
+    }
+}
 
 let UserPageActions  = {
     loadUserInfo,
     loadUserInfoSuccessAction,
     loadUserInfoFailureAction,
     deleteReviewAction,
-    uploadRequest,
+    updateFileAction,
+    uploadRequestAction,
     uploadProgress,
     uploadSuccess,
-    uploadFailure
+    uploadFailure,
+
 };
 
 export default UserPageActions

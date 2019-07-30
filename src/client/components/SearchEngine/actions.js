@@ -85,6 +85,40 @@ function viewMapUnsetAction(){
     }
 }
 
+function loadLocationsAction() {
+    return {
+        type: SearchEngineActionsConstants.LOAD_LOCATIONS,
+        uri: '/api/reviews/locations'
+    }
+}
+function loadLocationsCompleteAction(locations) {
+    return {
+        type: SearchEngineActionsConstants.COMPLETE_LOAD_LOCATIONS,
+        payload:{
+            locations: locations
+        }
+    }
+}
+
+function updateSuggestionAction(locations) {
+    return {
+        type: SearchEngineActionsConstants.UPDATE_SUGGESTION,
+        payload:{
+            locations: locations
+        }
+
+    }
+}
+
+function updateLocAction(location) {
+    return {
+        type: SearchEngineActionsConstants.UPDATE_LOC,
+        payload:{
+            location: location
+        }
+
+    }
+}
 
 let SearchEngineActions  = {
     updateTagAction,
@@ -98,7 +132,11 @@ let SearchEngineActions  = {
     updateRatingAction,
     updateDistanceVsScoreAction,
     viewMapSetAction,
-    viewMapUnsetAction
+    viewMapUnsetAction,
+    loadLocationsAction,
+    loadLocationsCompleteAction,
+    updateSuggestionAction,
+    updateLocAction
 };
 
 export default SearchEngineActions

@@ -46,7 +46,10 @@ export default {
         },
         distanceVsScore: 50,
         advanced: false,
-        viewOnMap: false
+        viewOnMap: false,
+        locations: [],
+        suggestedLocations: [],
+        loc: '',
     }),
     restPage: Map({
         loading: true,
@@ -95,15 +98,18 @@ export default {
             profile_image: ''
         },
         loading: true,
-        // new_image: null
+        new_image: null
     }),
     updateUserDetails: Map({
         newUsername: '',
-        location: '',
+        // location: '',
         password: '',
         submitted: false,
         message: false,
-        coords: ''
+        coords: '',
+        locations: [],
+        suggestedLocations: [],
+        loc: '',
     }),
     submitRest: Map({
         name: '',

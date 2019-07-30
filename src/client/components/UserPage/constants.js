@@ -9,6 +9,7 @@ const UserPageActionsConstants = {
     UPLOAD_PROGRESS: 'UPLOAD_PROGRESS',
     UPLOAD_SUCCESS:  'UPLOAD_SUCCESS',
     UPLOAD_FAILURE:  'UPLOAD_FAILURE',
+    UPDATE_FILE: 'UPDATE_FILE'
 };
 
 export { UserPageActionsConstants }

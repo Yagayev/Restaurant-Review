@@ -1,5 +1,6 @@
 import { UpdateUserDetailsActionsConstants} from './constants.js';
 import {strToLonAndLat} from '../../utils/geo';
+import {SearchEngineActionsConstants} from "../SearchEngine/constants";
 
 
 function updateNewUsernameAction (username){
@@ -85,6 +86,42 @@ function updateUserDetailsFailureAction(error){
   }
 }
 
+
+function loadLocationsAction() {
+    return {
+        type: UpdateUserDetailsActionsConstants.LOAD_LOCATIONS,
+        uri: '/api/reviews/locations'
+    }
+}
+function loadLocationsCompleteAction(locations) {
+    return {
+        type: UpdateUserDetailsActionsConstants.COMPLETE_LOAD_LOCATIONS,
+        payload:{
+            locations: locations
+        }
+    }
+}
+
+function updateSuggestionAction(locations) {
+    return {
+        type: UpdateUserDetailsActionsConstants.UPDATE_SUGGESTION,
+        payload:{
+            locations: locations
+        }
+
+    }
+}
+
+function updateLocAction(location) {
+    return {
+        type: UpdateUserDetailsActionsConstants.UPDATE_LOC,
+        payload:{
+            location: location
+        }
+
+    }
+}
+
 let UpdateUserDetailsActions  = {
     updateNewUsernameAction,
     updateNewLocationAction,
@@ -92,7 +129,13 @@ let UpdateUserDetailsActions  = {
     updateCoordsAction,
     submitDetailsEventAction,
     updateUserDetailsSuccessAction,
-    updateUserDetailsFailureAction
+    updateUserDetailsFailureAction,
+
+    loadLocationsAction,
+    loadLocationsCompleteAction,
+    updateSuggestionAction,
+    updateLocAction
+
 };
 
 export default UpdateUserDetailsActions
