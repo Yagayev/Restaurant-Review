@@ -43,15 +43,15 @@ class SearchEngine extends React.Component {
                             className="p-button-secondary"
                             onClick={() => this.props.loadRestsEventHandler(propsToParams(this.props))}
                         />
-                        {!this.props.advanced && (
-                            <div>
+                        <div>
+                            {!this.props.advanced && (
                                 <Button
                                     label="Advanced"
                                     className="p-button-secondary"
                                     onClick={this.props.advancedOpenHandler}
                                 />
-                            </div>
-                        )}
+                            )}
+                        </div>
                         {this.props.advanced && (
                             <div>
                                 <div>
@@ -196,6 +196,22 @@ class SearchEngine extends React.Component {
                                 />
                             </div>
                         )}
+                        <div>
+                            {!this.props.viewOnMap && (
+                                <Button
+                                    label="View on map"
+                                    className="p-button-secondary"
+                                    onClick={this.props.viewMapSetEventHandler}
+                                />
+                            )}
+                            {this.props.viewOnMap && (
+                                <Button
+                                    label="Close map"
+                                    className="p-button-secondary"
+                                    onClick={this.props.viewMapUnsetEventHandler}
+                                />
+                            )}
+                        </div>
                     </div>
                     <RestSearch/>
                 </div>
@@ -223,7 +239,8 @@ const mapStateToProps = (state) => {
       ratings: state['searchEngine'].get('ratings'),
       distanceVsScore: state['searchEngine'].get('distanceVsScore'),
       username: state['login'].get('username'),
-      token: state['login'].get('token')
+      token: state['login'].get('token'),
+      viewOnMap: state['searchEngine'].get('viewOnMap')
 
   }
 };
@@ -251,7 +268,14 @@ const mapDispatchToProps = (dispatch) => {
     },
     loadUserEventHandler: () =>{
       dispatch(LoginActions.loadUserAction());
-    }
+    },
+    viewMapSetEventHandler: () =>{
+        dispatch(SearchEngineActions.viewMapSetAction());
+    },
+    viewMapUnsetEventHandler: () =>{
+      dispatch(SearchEngineActions.viewMapUnsetAction());
+    },
+
   }
 };
 

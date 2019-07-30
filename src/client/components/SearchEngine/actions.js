@@ -73,6 +73,19 @@ function updateDistanceVsScoreAction(val){
     }
 }
 
+function viewMapSetAction(){
+    return {
+        type: SearchEngineActionsConstants.VIEW_MAP_SET
+    }
+}
+
+function viewMapUnsetAction(){
+    return {
+        type: SearchEngineActionsConstants.VIEW_MAP_UNSET
+    }
+}
+
+
 let SearchEngineActions  = {
     updateTagAction,
     loadTagsAction,
@@ -83,7 +96,9 @@ let SearchEngineActions  = {
     advancedOpenAction,
     advancedCloseAction,
     updateRatingAction,
-    updateDistanceVsScoreAction
+    updateDistanceVsScoreAction,
+    viewMapSetAction,
+    viewMapUnsetAction
 };
 
 export default SearchEngineActions

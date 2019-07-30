@@ -22,6 +22,8 @@ class RestPageReview extends React.Component {
     }
     const username = this.props.review.reviewer.username;
     const userLink = <a href={'/user/'+username}>{username}</a>;
+    const profilePic = <a href={'/user/'+username}><img className="profile-pic-small"
+                                                        src={this.props.review.reviewer.profile_image.url}/></a>;
     var description = null;
     if(this.props.review.description!==''){
       description = (<Card.Text>{'\"'+this.props.review.description+'\"'}</Card.Text>)
@@ -31,7 +33,7 @@ class RestPageReview extends React.Component {
     return (
         <div>
           <Card>
-            <Card.Header>{userLink}</Card.Header>
+            <Card.Header>{profilePic} {userLink}</Card.Header>
             <Card.Body>
               {description}
               <div>

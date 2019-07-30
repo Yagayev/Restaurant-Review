@@ -27,7 +27,9 @@ export default {
 
     }),
     restSearch: Map({
-        rests: List()
+        rests: List(),
+        lng: 0,
+        lat: 0
     }),
     searchEngine: Map({
         name: '',
@@ -43,7 +45,8 @@ export default {
             waiting_time: 0
         },
         distanceVsScore: 50,
-        advanced: false
+        advanced: false,
+        viewOnMap: false
     }),
     restPage: Map({
         loading: true,

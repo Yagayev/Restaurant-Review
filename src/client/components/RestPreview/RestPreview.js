@@ -25,7 +25,7 @@ class RestPreview extends React.Component {
     return (
         <div>
           <Card>
-            <Card.Header>{this.props.rest.name}</Card.Header>
+            <Card.Header><a href={"/rest/"+this.props.rest._id}>{this.props.rest.name}</a></Card.Header>
             <Card.Body>
               {/*<Card.Title>Special title treatment</Card.Title>*/}
               <Card.Text>

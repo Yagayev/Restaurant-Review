@@ -255,7 +255,11 @@ module.exports = (app) => {
                     });
                 }
                 var sorted = sortRests(distanceVsScore, docs, user);
-                return res.send(sorted);
+                return res.send({
+                    rests: sorted,
+                    lng: user.lon,
+                    lat: user.lat
+                });
             })
         });
     });

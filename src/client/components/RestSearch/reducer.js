@@ -70,6 +70,8 @@ const RestSearchReducer = (state = initialState.restSearch, action) => {
       console.log('RECEIVED: RestSearchActionsConstants.LOAD_IMAGES_ACTION_SUCCESS');
       console.log('ACTION:', action);
       state = state.set('rests', new List(action.payload.rests));
+      state = state.set('lat', action.payload.lat);
+      state = state.set('lng', action.payload.lng);
       console.log('NEW STATE=', state);
       return state;
     default: //otherwise state is lost!

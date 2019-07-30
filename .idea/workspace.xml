@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fed73b01-2ced-462f-aae0-2c6c78628f88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/client/components/RestMapPreview/RestMapPreview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/components/RestMapPreview/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/RestPage/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPage/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/RestPage/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPage/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/RestPage/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPage/saga.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/UserPage/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPage/saga.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/RestSearch/RestSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestSearch/RestSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/RestSearch/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestSearch/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/RestSearch/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RestSearch/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/SearchEngine/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/SearchEngine/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/SearchEngine/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/SearchEngine/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/components/SearchEngine/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/SearchEngine/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/initialState.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/utils/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/utils/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/api/reviewSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/api/reviewSystem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/model/Image.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/model/Review.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/model/Review.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/model/User.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,44 +30,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/UserPage.js">
+        <entry file="file://$PROJECT_DIR$/src/client/utils/App.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="75" column="70" selection-start-line="75" selection-start-column="70" selection-end-line="75" selection-end-column="70" />
+            <state relative-caret-position="479">
+              <caret line="72" column="18" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-867">
+              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#575#616#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#96#141#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/utils/App.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server/api/reviewSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="76">
+              <caret line="232" column="64" selection-start-line="232" selection-start-column="64" selection-end-line="232" selection-end-column="64" />
               <folding>
-                <element signature="e#1159#3684#0" />
-                <element signature="e#3748#5104#0" />
-                <element signature="e#3758#4261#0" />
-                <element signature="e#5171#7544#0" />
-                <element signature="e#7612#8510#0" />
-                <element signature="e#8570#10686#0" />
-                <element signature="e#10748#11851#0" />
-                <element signature="e#11918#13482#0" />
-                <element signature="e#13547#15577#0" />
-                <element signature="e#15655#16577#0" />
-                <element signature="e#16245#16684#0" />
+                <element signature="e#999#3524#0" />
+                <element signature="e#3588#5078#0" />
+                <element signature="e#5144#7517#0" />
+                <element signature="e#7585#8600#0" />
+                <element signature="e#7595#7858#0" />
+                <element signature="e#8660#10779#0" />
+                <element signature="e#10841#11944#0" />
+                <element signature="e#13640#15670#0" />
+                <element signature="e#15748#16259#0" />
+                <element signature="e#16336#16883#0" />
                 <element signature="n#!!block;n#validNum#0" />
                 <element signature="n#!!block;n#paramsToFilter#0" />
               </folding>
@@ -74,29 +75,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js">
+        <entry file="file://$PROJECT_DIR$/src/server/model/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="164" column="25" lean-forward="true" selection-start-line="164" selection-start-column="25" selection-end-line="164" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#96#141#0" expanded="true" />
-                <element signature="e#1217#5506#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#96#141#0" expanded="true" />
-                <element signature="e#916#5297#0" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -105,12 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateRestRatings</find>
-      <find>C</find>
-      <find>for</find>
-      <find>consol</find>
-      <find>userSearch</find>
-      <find>InputText</find>
       <find>searchQuery</find>
       <find>.reviews</find>
       <find>ו</find>
@@ -132,9 +108,15 @@
       <find>imag</find>
       <find>LIG</find>
       <find>LIGHTBOX</find>
-      <find>$set</find>
       <find>USER</find>
+      <find>$set</find>
       <find>map</find>
+      <find>ADVANCED</find>
+      <find>LEAF</find>
+      <find>api/reviews/findRestaurants</find>
+      <find>LOAD_RES</find>
+      <find>Lightbox</find>
+      <find>&lt;img</find>
     </findStrings>
     <replaceStrings>
       <replace>body</replace>
@@ -162,11 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/Login.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/saga.js" />
-        <option value="$PROJECT_DIR$/src/client/components/AddReview/reducer.js" />
-        <option value="$PROJECT_DIR$/src/client/components/SubmitRest/saga.js" />
-        <option value="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserSearch/index.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserSearch/constants.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserSearch/actions.js" />
@@ -183,9 +160,6 @@
         <option value="$PROJECT_DIR$/src/client/utils/geo.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/constants.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/reducer.js" />
-        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/constants.js" />
-        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/reducer.js" />
-        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/actions.js" />
         <option value="$PROJECT_DIR$/src/client/utils/map.css" />
         <option value="$PROJECT_DIR$/src/client/components/Map/Map.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -194,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/actions.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/RestPage.js" />
         <option value="$PROJECT_DIR$/src/client/components/UpdateUserDetails/UpdateUserDetails.js" />
-        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js" />
         <option value="$PROJECT_DIR$/src/server/model/Image.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/constants.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/actions.js" />
@@ -203,16 +176,25 @@
         <option value="$PROJECT_DIR$/src/server/model/User.js" />
         <option value="$PROJECT_DIR$/src/server/model/Review.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/UserPage.js" />
-        <option value="$PROJECT_DIR$/src/client/initialState.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestSearch/constants.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/constants.js" />
         <option value="$PROJECT_DIR$/src/client/components/UserPage/saga.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/actions.js" />
         <option value="$PROJECT_DIR$/src/client/components/RestPage/saga.js" />
+        <option value="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/constants.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/actions.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/reducer.js" />
+        <option value="$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js" />
+        <option value="$PROJECT_DIR$/src/server/api/reviewSystem.js" />
+        <option value="$PROJECT_DIR$/src/client/initialState.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestSearch/actions.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestSearch/reducer.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestMapPreview/RestMapPreview.js" />
+        <option value="$PROJECT_DIR$/src/client/components/RestSearch/RestSearch.js" />
         <option value="$PROJECT_DIR$/src/client/utils/App.scss" />
         <option value="$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js" />
-        <option value="$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js" />
-        <option value="$PROJECT_DIR$/src/server/api/reviewSystem.js" />
       </list>
     </option>
   </component>
@@ -260,31 +242,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Gallery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="RestPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="RestPageReview" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restr" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="UserPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restr" type="b2602c69:ProjectViewProjectNode" />
@@ -335,15 +293,15 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\utils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ashmedai\Desktop\study\reactive\restr\src\client\components" />
       <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\components" />
       <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\components\RestPage" />
       <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\components\Menu" />
       <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\components\SearchEngine" />
-      <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\components\RestSearch" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ashmedai\Desktop\study\reactive\project\clone\simple-react-redux-reducers-saga-webkit-express-mongoose-boilerplate\src\client\utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -422,12 +380,12 @@
       <workItem from="1563729292593" duration="9291000" />
       <workItem from="1563795040889" duration="102849000" />
       <workItem from="1564266457093" duration="274000" />
-      <workItem from="1564406145540" duration="13592000" />
+      <workItem from="1564406145540" duration="22204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="411044000" />
+    <option name="totallyTimeSpent" value="419656000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -442,13 +400,13 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.2075347" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.2075347" />
       <window_info id="Structure" order="1" sideWeight="0.5010352" side_tool="true" weight="0.19960344" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4957039" visible="true" weight="0.18854749" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4957039" weight="0.18854749" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -456,7 +414,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32960895" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.504957" side_tool="true" weight="0.14664805" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49504295" weight="0.26396647" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49504295" visible="true" weight="0.1075419" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -490,76 +448,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/saga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SubmitRest/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UpdateUserDetails/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="75" column="23" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/utils/map.css" />
-    <entry file="file://$PROJECT_DIR$/src/client/components/Image/Image.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="21" selection-start-line="7" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Map/Map.js" />
     <entry file="file://$PROJECT_DIR$/src/client/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -604,18 +492,6 @@
           <caret line="41" selection-start-line="41" selection-end-line="43" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/RestPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#180#206#0" expanded="true" />
-            <element signature="e#661#702#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,17 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3033">
-          <caret line="239" column="4" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#416#456#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -736,13 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/model/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="33" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/model/gallery.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -767,17 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-544">
           <caret line="1" column="43" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/initialState.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="16" />
-          <folding>
-            <element signature="e#128#266#0" />
-            <element signature="e#283#350#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,27 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/UserPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="75" column="70" selection-start-line="75" selection-start-column="70" selection-end-line="75" selection-end-column="70" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#575#616#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/saga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="44" column="60" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/saga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1162">
@@ -858,25 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/utils/App.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#96#141#0" expanded="true" />
-            <element signature="e#916#5297#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/UserPageReview/UserPageReview.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -889,24 +696,189 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/UserPage/UserPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="75" column="70" selection-start-line="75" selection-start-column="70" selection-end-line="75" selection-end-column="70" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#575#616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/SearchEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#416#456#0" expanded="true" />
+            <element signature="e#2137#11215#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/RestPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="60" column="22" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#180#206#0" expanded="true" />
+            <element signature="e#661#702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/initialState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding>
+            <element signature="e#128#266#0" />
+            <element signature="e#283#350#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPage/saga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="44" column="60" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestSearch/saga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestSearch/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestSearch/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SearchEngine/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-star-ratings/build/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPreview/RestPreview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="90" selection-start-line="27" selection-start-column="90" selection-end-line="27" selection-end-column="90" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestMapPreview/RestMapPreview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#235#280#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestSearch/RestSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#134#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/utils/App.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="72" column="18" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/api/reviewSystem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="76">
+          <caret line="232" column="64" selection-start-line="232" selection-start-column="64" selection-end-line="232" selection-end-column="64" />
           <folding>
-            <element signature="e#1159#3684#0" />
-            <element signature="e#3748#5104#0" />
-            <element signature="e#3758#4261#0" />
-            <element signature="e#5171#7544#0" />
-            <element signature="e#7612#8510#0" />
-            <element signature="e#8570#10686#0" />
-            <element signature="e#10748#11851#0" />
-            <element signature="e#11918#13482#0" />
-            <element signature="e#13547#15577#0" />
-            <element signature="e#15655#16577#0" />
-            <element signature="e#16245#16684#0" />
+            <element signature="e#999#3524#0" />
+            <element signature="e#3588#5078#0" />
+            <element signature="e#5144#7517#0" />
+            <element signature="e#7585#8600#0" />
+            <element signature="e#7595#7858#0" />
+            <element signature="e#8660#10779#0" />
+            <element signature="e#10841#11944#0" />
+            <element signature="e#13640#15670#0" />
+            <element signature="e#15748#16259#0" />
+            <element signature="e#16336#16883#0" />
             <element signature="n#!!block;n#validNum#0" />
             <element signature="n#!!block;n#paramsToFilter#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/RestPageReview/RestPageReview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-867">
+          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#96#141#0" expanded="true" />
           </folding>
         </state>
       </provider>

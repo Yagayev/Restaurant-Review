@@ -82,11 +82,13 @@ function loadRestsAction(searchCriteria) {
   }
 }
 
-function loadRestsSuccessAction(rests){
+function loadRestsSuccessAction(json){
   return {
     type: RestSearchActionsConstants.LOAD_RESTS_ACTION_SUCCESS,
     payload: {
-      rests
+      rests: json.rests,
+      lng: json.lng,
+      lat: json.lat
     }
   }
 }
