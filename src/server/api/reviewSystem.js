@@ -517,6 +517,23 @@ module.exports = (app) => {
                 res.end();
             });
     });
+
+    app.get('/api/account/logout', function(req, res)  {
+        let {headers} = req;
+        let {token, username} = headers;
+        verifySession(token, username, res, (user)=>{
+            UserSession.findOneAndDelete(
+                {
+                    _id: token,
+                    user: user._id
+                },
+                (err) =>{
+                    // console.log("deleted?", err);
+                }
+            )
+        })
+
+    });
 };
 
 

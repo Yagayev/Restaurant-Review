@@ -31,7 +31,7 @@ class Menu extends React.Component {
                                   text="white">User search</Nav.Link>
 
                         <Nav.Link
-                            onSelect={this.props.disconnectEventHandler}
+                            onSelect={()=>this.props.disconnectEventHandler(this.props.username, this.props.token)}
                             eventKey="disconnect"
                         >Disconnect</Nav.Link>
                     </Nav>
@@ -49,14 +49,15 @@ class Menu extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        username: state['login'].get('username')
+        username: state['login'].get('username'),
+        token: state['login'].get('token')
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        disconnectEventHandler: () =>{
-            dispatch(LoginActions.disconnectAction());
+        disconnectEventHandler: (username, token) =>{
+            dispatch(LoginActions.disconnectAction(username, token));
         }
     }
 };

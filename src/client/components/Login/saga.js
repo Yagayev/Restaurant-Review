@@ -41,22 +41,42 @@ function* login(action){
 }
 
 function* signup(action){
-  console.log('signup saga=', action);
-  try {
-    const res = yield call(fetch, action.uri,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(action.payload)
+    console.log('signup saga=', action);
+    try {
+        const res = yield call(fetch, action.uri,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(action.payload)
 
-      });
-    const json = yield call([res, 'json']); //retrieve body of response
-    yield put(LoginActions.signupSuccessAction(json));
-  } catch (e) {
-    yield put(LoginActions.signupFailureAction(e.message));
-  }
+            });
+        const json = yield call([res, 'json']); //retrieve body of response
+        yield put(LoginActions.signupSuccessAction(json));
+    } catch (e) {
+        yield put(LoginActions.signupFailureAction(e.message));
+    }
+}
+
+function* disconnect(action){
+    console.log('signup saga=', action);
+    try {
+        const res = yield call(fetch, action.uri,
+            {
+                method: 'get',
+                headers: {
+                    'Content-Type': 'application/json',
+                    username: action.payload.username,
+                    token: action.payload.token
+                },
+
+            });
+        const json = yield call([res, 'json']); //retrieve body of response
+        // yield put(LoginActions.signupSuccessAction(json));
+    } catch (e) {
+        // yield put(LoginActions.signupFailureAction(e.message));
+    }
 }
 
 function* LoginSaga() {
@@ -64,6 +84,8 @@ function* LoginSaga() {
 
     yield takeEvery(LoginActionsConstants.LOGIN, login);
     yield takeEvery(LoginActionsConstants.SIGNUP, signup);
+    yield takeEvery(LoginActionsConstants.DISCONNECT, disconnect);
+
 
 }
 

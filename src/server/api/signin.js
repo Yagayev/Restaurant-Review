@@ -152,31 +152,31 @@ module.exports = (app) => {
         next();
     });
 
-    app.post('/api/account/logout', function(req, res, next)  {
-        let { query } = req;
-        let { token } = query;
-        //TODO correct this to findOneAndDelete
-        UserSession.findOneAndUpdate({
-            _id: token,
-            isDeleted: false
-        },
-        {
-            $set: {isDeleted: true}
-        },
-        null,
-        (err, sessions) =>{
-            if (err) {
-                return res.send({
-                    success: false,
-                    message: 'Error 1014: Server error'
-                });
-            }
-            return res.send({
-                success: true,
-                message: "The session is valid"
-            });
-        });
-        next();
-    });
+    // app.post('/api/account/logout', function(req, res, next)  {
+    //     let { query } = req;
+    //     let { token } = query;
+    //     //TODO correct this to findOneAndDelete
+    //     UserSession.findOneAndUpdate({
+    //         _id: token,
+    //         isDeleted: false
+    //     },
+    //     {
+    //         $set: {isDeleted: true}
+    //     },
+    //     null,
+    //     (err, sessions) =>{
+    //         if (err) {
+    //             return res.send({
+    //                 success: false,
+    //                 message: 'Error 1014: Server error'
+    //             });
+    //         }
+    //         return res.send({
+    //             success: true,
+    //             message: "The session is valid"
+    //         });
+    //     });
+    //     next();
+    // });
 
 };

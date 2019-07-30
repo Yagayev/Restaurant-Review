@@ -126,9 +126,14 @@ function loadUserAction(){
     }
 }
 
-function disconnectAction(){
+function disconnectAction(username, token){
     return {
-        type: LoginActionsConstants.DISCONNECT
+        type: LoginActionsConstants.DISCONNECT,
+        uri: '/api/account/logout',
+        payload: {
+            username: username,
+            token: token
+        }
     };
 }
 
