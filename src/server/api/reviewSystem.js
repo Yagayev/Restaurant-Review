@@ -534,6 +534,77 @@ module.exports = (app) => {
         })
 
     });
+    // app.get('/api/reviews/findReview', (req, res) => {
+    //     const {headers} = req;
+    //     const {token, username, restName} = headers;
+    //     console.log(token, username, restName);
+    //     verifySession(token, username, res, (user)=> {
+    //         Restaurant.findOne({name: restName},
+    //             (err, rest) =>{
+    //                 Review.findOne(
+    //                     {
+    //                         reviewer: user._id,
+    //                         restaurant: rest._id
+    //                     },
+    //                     (err, doc) => {
+    //                         console.log("err", err, "\n\n doc", doc);
+    //                         if(err){
+    //                             return res.end();
+    //                         }
+    //                         return res.send(doc);
+    //                     }
+    //                 )
+    //             });
+    //
+    //     });
+    //
+    // })
+
+    app.get('/api/reviews/findReview', (req, res) => {
+        const {headers} = req;
+        const {token, username, restname} = headers;
+        console.log(token, username, restname);
+
+        verifySession(token, username, res, (user)=> {
+            Restaurant.findOne({name: restname},
+                (err, rest) => {
+                    if (err) {
+                        return res.end;
+                    }
+                    Review.findOne(
+                        {
+                            reviewer: user._id,
+                            restaurant: rest._id
+                        },
+                        (err, doc) => {
+                            // console.log("err", err, "\n\n doc", doc);
+                            if (err) {
+                                return res.end();
+                            }
+                            return res.send(doc);
+                        }
+                    )
+                });
+
+        });
+
+        // verifySession(token, username, res, (user)=> {
+        //     Review.findOne(
+        //         {
+        //             'reviewer.username': username,
+        //             'restaurant.name': restname
+        //         },
+        //         (err, doc) => {
+        //             console.log("err", err, "\n\n doc", doc);
+        //             if(err){
+        //                 return res.end();
+        //             }
+        //             return res.send(doc);
+        //         }
+        //     )
+        // });
+
+    })
 };
 
 

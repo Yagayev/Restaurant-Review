@@ -19,6 +19,10 @@ const AddReviewReducer = (state = initialState.addReview, action) => {
             return state.setIn(['ratings', action.payload.key], action.payload.rating);
         case AddReviewActionsConstants.SUBMIT_REVIEW_SUCCESS:
             return state.set('submitted', true);
+        case AddReviewActionsConstants.LOAD_EXISTING_REVIEW_SUCCESS:
+            state = state.set('ratings', action.review.ratings);
+            state = state.set('description', action.review.description);
+            return state;
         default: //otherwise state is lost!
             return state;
     }

@@ -12,9 +12,10 @@ import { Redirect } from 'react-router';
 import LoginActions from "../Login/actions";
 
 class AddReview extends React.Component {
-    // componentDidMount() {
-    //     this.props.loadRestEventHandler()
-    // };
+    componentDidMount() {
+        this.props.loadExistingReviewHandler(this.props.username, this.props.token, this.props.match.params.restName);
+
+    };
     renderRedirect = () => {
         // if (!this.props.token||
         //     !this.props.token === ''||
@@ -41,7 +42,7 @@ class AddReview extends React.Component {
                 <div className="app-root">
 
                     <div className="app-header">
-                        <h3>Submitting a new review for {this.props.match.params.restName}</h3>
+                        <h3>Reviewing the restaurant {this.props.match.params.restName}</h3>
                         <InputTextarea
                             rows={5}
                             cols={60}
@@ -240,6 +241,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     submitReviewEventHandler: (review) => {
         dispatch(AddReviewActions.submitReviewAction(review));
+    },
+    loadExistingReviewHandler(username, token, restName){
+        dispatch(AddReviewActions.loadExistingReviewAction(username, token, restName))
     }
   }
 };

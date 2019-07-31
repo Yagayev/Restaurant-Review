@@ -78,6 +78,26 @@ function submitReviewFailureAction(msg){
 }
 
 
+function loadExistingReviewAction(username, token, restName){
+    return {
+        type: AddReviewActionsConstants.LOAD_EXISTING_REVIEW,
+        uri: '/api/reviews/findReview',
+        payload:{
+            username: username,
+            token: token,
+            restName: restName
+        }
+
+    }
+}
+
+function loadExistingReviewSuccessAction(json) {
+    return {
+        type: AddReviewActionsConstants.LOAD_EXISTING_REVIEW_SUCCESS,
+        review: json
+    }
+}
+
 let AddReviewActions  = {
     updateDescriptionAction,
     updateRatingAction,
@@ -86,7 +106,9 @@ let AddReviewActions  = {
     loadRestFailureAction,
     submitReviewAction,
     submitReviewSuccessAction,
-    submitReviewFailureAction
+    submitReviewFailureAction,
+    loadExistingReviewAction,
+    loadExistingReviewSuccessAction
     
 };
 
