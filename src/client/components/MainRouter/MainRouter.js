@@ -15,7 +15,6 @@ import UserSearch from "../UserSearch";
 
 import LoginActions from "../Login/actions";
 
-import GalleryActions from "../Gallery/actions";
 import {connect} from "react-redux";
 
 

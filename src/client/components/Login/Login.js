@@ -1,14 +1,11 @@
 import React from 'react';
 import '../../utils/App.scss';
-// import Gallery from '../Gallery';
 import { connect } from 'react-redux';
 import LoginActions from './actions';
-import GalleryActions from '../Gallery/actions';
 import { Button } from 'primereact/button';
 import {InputText} from 'primereact/inputtext';
 import {Password} from 'primereact/password';
 import { Redirect } from 'react-router';
-import UpdateUserDetailsActions from "../UpdateUserDetails/actions";
 import {TabView,TabPanel} from 'primereact/tabview';
 import {AutoComplete} from "primereact/components/autocomplete/AutoComplete";
 import {Map as LeafletMap, Marker, TileLayer} from "react-leaflet";
@@ -207,18 +204,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      loadTagsEventHandler: () => {
-          dispatch(LoginActions.loadTagsAction());
+
+      updateUsernameEventHandler: (e) =>{
+          dispatch(LoginActions.updateUsernameAction(e.target.value));
       },
-    updateTagEventHandler: (e) => {
-      dispatch(LoginActions.updateTagAction(e.value));
-    },
-    loadImagesEventHandler: (tag) => {
-      dispatch(GalleryActions.loadImagesAction(tag));
-    },
-    updateUsernameEventHandler: (e) =>{
-      dispatch(LoginActions.updateUsernameAction(e.target.value));
-    },
     updatePasswordEventHandler: (e) =>{
       dispatch(LoginActions.updatePasswordAction(e.target.value));
     },

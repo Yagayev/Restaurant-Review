@@ -3,7 +3,6 @@ import '../../utils/App.scss';
 // import Gallery from '../Gallery';
 import { connect } from 'react-redux';
 import UpdateUserDetailsActions from './actions';
-import GalleryActions from '../Gallery/actions';
 import { Button } from 'primereact/button';
 import {InputText} from 'primereact/inputtext';
 import {Password} from 'primereact/password';

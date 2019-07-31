@@ -1,39 +1,5 @@
 import { LoginActionsConstants} from './constants.js';
-import {UpdateUserDetailsActionsConstants} from "../UpdateUserDetails/constants";
 
-
-function updateTagAction(tag) {
-  return {
-    type: LoginActionsConstants.UPDATE_TAG,
-    payload: {
-      tag
-    }
-  }
-}
-
-function loadTagsAction(){
-    return {
-        type: LoginActionsConstants.LOAD_TAGS,
-        uri: '/api/load/tags'
-    }
-}
-
-function loadTagsSuccessAction(tags){
-
-    return {
-        type: LoginActionsConstants.LOAD_TAGS_SUCCESS,
-        payload: {
-            tags: tags
-        }
-    }
-}
-
-function loadTagsFailureAction(error){
-    return {
-        type: LoginActionsConstants.LOAD_TAGS_FAILURE,
-        error: error
-    }
-}
 
 function updateUsernameAction (username){
     return{
@@ -204,10 +170,6 @@ function setLoginSignup(index){
 }
 
 let LoginActions  = {
-    updateTagAction,
-    loadTagsAction,
-    loadTagsSuccessAction,
-    loadTagsFailureAction,
 
 
     updateUsernameAction,
