@@ -1,4 +1,5 @@
 import { LoginActionsConstants} from './constants.js';
+import {UpdateUserDetailsActionsConstants} from "../UpdateUserDetails/constants";
 
 
 function updateTagAction(tag) {
@@ -63,13 +64,16 @@ function loginEventAction(username, password){
   }
 }
 
-function signupEventAction(username, password){
+function signupEventAction(username, password, location, lat, lon){
   return {
     type: LoginActionsConstants.SIGNUP,
     uri: '/api/account/signup',
     payload:{
-      username: username,
-      password: password
+        username: username,
+        password: password,
+        location: location,
+        lat: lat,
+        lon: lon
     }
   }
 }
@@ -146,11 +150,66 @@ function setNewUsernameAction (username){
     }
 }
 
+
+
+function loadLocationsAction() {
+    return {
+        type: LoginActionsConstants.LOAD_LOCATIONS,
+        uri: '/api/reviews/locations'
+    }
+}
+function loadLocationsCompleteAction(locations) {
+    return {
+        type: LoginActionsConstants.COMPLETE_LOAD_LOCATIONS,
+        payload:{
+            locations: locations
+        }
+    }
+}
+
+function updateSuggestionAction(locations) {
+    return {
+        type: LoginActionsConstants.UPDATE_SUGGESTION,
+        payload:{
+            locations: locations
+        }
+
+    }
+}
+
+function updateLocAction(location) {
+    return {
+        type: LoginActionsConstants.UPDATE_LOC,
+        payload:{
+            location: location
+        }
+
+    }
+}
+
+function updateCoordsAction (coords){
+    return{
+        type: LoginActionsConstants.UPDATE_USER_COORDS,
+        payload:{
+            coords: coords
+        }
+    }
+}
+
+function setLoginSignup(index){
+    return {
+        type: LoginActionsConstants.SET_SIGNUP_LOGIN,
+        index: index
+    }
+}
+
 let LoginActions  = {
     updateTagAction,
     loadTagsAction,
     loadTagsSuccessAction,
     loadTagsFailureAction,
+
+
     updateUsernameAction,
     updatePasswordAction,
     loginEventAction,
@@ -161,7 +220,14 @@ let LoginActions  = {
     signupFailureAction,
     loadUserAction,
     disconnectAction,
-    setNewUsernameAction
+    setNewUsernameAction,
+
+    updateCoordsAction,
+    loadLocationsAction,
+    loadLocationsCompleteAction,
+    updateSuggestionAction,
+    updateLocAction,
+    setLoginSignup
 };
 
 export default LoginActions

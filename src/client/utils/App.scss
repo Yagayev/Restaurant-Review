@@ -74,3 +74,27 @@ table.center {
   max-height: 50px;
   max-width: 50px;
 }
+
+.tab-header{
+  background-color: black;
+  border: 1px solid #ffffff !important;
+}
+
+.ui-state-focus {
+  background-color: #222;
+  padding: 10px;
+  color: white;
+  font-size: 20pt;
+}
+.ui-tabs-selected {
+  background-color: #222;
+  padding: 10px;
+  color: white;
+  font-size: 20pt;
+}
+.ui-state-active{
+  background-color: #222;
+  padding: 10px;
+  color: white;
+  font-size: 20pt;
+}

@@ -5,12 +5,15 @@ let UserSession = require('../model/userSession');
 module.exports = (app) => {
     // console.log("signin: ", app);
     app.post('/api/account/signup', function(req, res) {
-
         const {body} = req;
         const {
             username,
-            password
+            password,
+            location,
+            lat,
+            lon
         } = body;
+
         console.log("signup serversid: username:", username, "password:",password, "body:", body.username, body['password']);
         if(!username){
             return res.send({
@@ -22,6 +25,24 @@ module.exports = (app) => {
             return res.send({
                 success: false,
                 message: 'Error 1002: no password'
+            })
+        }
+        if(!location){
+            return res.send({
+                success: false,
+                message: 'Error 10061: no location'
+            })
+        }
+        if(!lat){
+            return res.send({
+                success: false,
+                message: 'Error 10062: no lat'
+            })
+        }
+        if(!lon){
+            return res.send({
+                success: false,
+                message: 'Error 10063: no lon'
             })
         }
 
@@ -43,6 +64,9 @@ module.exports = (app) => {
             const newUser = new User();
             newUser.username = username;
             newUser.password = newUser.generateHash(password);
+            newUser.lat = lat;
+            newUser.lon = lon;
+            newUser.location = location;
             console.log("saving user:", newUser);
             newUser.save((err, seesion) => {
                 if (err) {

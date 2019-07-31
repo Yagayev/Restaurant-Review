@@ -21,7 +21,13 @@ export default {
         username: getFromStorage('restorant_review_username'),
         password: '',
         token: getFromStorage('restorant_review_token'),
-        message: ''
+        message: '',
+        signupOrLogin: 0,
+        coords: '',
+        locations: [],
+        suggestedLocations: [],
+        loc: '',
+
     }),
     menu: Map({
 
