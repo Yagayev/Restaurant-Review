@@ -563,12 +563,12 @@ module.exports = (app) => {
     app.get('/api/reviews/findReview', (req, res) => {
         const {headers} = req;
         const {token, username, restname} = headers;
-        console.log(token, username, restname);
+        // console.log(token, username, restname);
 
         verifySession(token, username, res, (user)=> {
             Restaurant.findOne({name: restname},
                 (err, rest) => {
-                    if (err) {
+                    if (err || !rest) {
                         return res.end;
                     }
                     Review.findOne(
@@ -796,7 +796,9 @@ function sortRests(distanceVsScore, docs, user) {
         }
 
         let rating = rest.average_ratings.overall;
-        let finalScore = 5*(100-distanceVsScore) * rating + distanceVsScore * distance;
+        // let finalScore = 5*(100-distanceVsScore) * rating - distanceVsScore * distance;
+        let finalScore = 5*distanceVsScore * rating - (100-distanceVsScore) * distance;
+
         // console.log("calculating:", "rest:", rest.lon, rest.lat, "user:", user.lon, user.lat, "d/r/score:", distance, rating, finalScore);
         return finalScore;
     };

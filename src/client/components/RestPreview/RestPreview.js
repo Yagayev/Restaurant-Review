@@ -7,19 +7,9 @@ import { Card } from 'react-bootstrap'
 import StarRatings from 'react-star-ratings';
 
 class RestPreview extends React.Component {
-  // calcImageSize() {
-  //   const galleryWidth = this.props.galleryWidth;
-  //   const targetSize = 200;
-  //   const imagesPerRow = Math.round(galleryWidth / targetSize);
-  //   return galleryWidth / imagesPerRow;
-  // }
-  //
-  // static urlFromDto(dto) {
-  //   return `https://farm${dto.farm}.staticflickr.com/${dto.server}/${dto.id}_${dto.secret}.jpg`;
-  // }
+
 
   render() {
-    // let size = this.calcImageSize();
 
     // star rating taken from: https://www.npmjs.com/package/react-star-ratings
     return (

@@ -67,7 +67,7 @@ module.exports = (app) => {
             newUser.lat = lat;
             newUser.lon = lon;
             newUser.location = location;
-            console.log("saving user:", newUser);
+            // console.log("saving user:", newUser);
             newUser.save((err, seesion) => {
                 if (err) {
                     return res.send({

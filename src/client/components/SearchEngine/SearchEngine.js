@@ -82,11 +82,13 @@ class SearchEngine extends React.Component {
                                                 <th />
                                             </tr>
                                             <tr>
-                                                <th style={{fontSize:14}}>Closer</th>
-                                                <th style={{width: '90%'}}><Slider value={this.props.distanceVsScore}
+                                                <th style={{fontSize:14}}>Closer  </th>
+                                                <th style={{width: '90%'}}>
+                                                    <Slider value={this.props.distanceVsScore}
+                                                            onSlideEnd={() => this.props.loadRestsEventHandler(propsToParams(this.props))}
                                                             onChange={this.props.updateDistanceVsScoreEventHandler} />
                                                 </th>
-                                                <th style={{fontSize:14}}>Better</th>
+                                                <th style={{fontSize:14}}>  Better</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -262,7 +264,6 @@ const mapStateToProps = (state) => {
       locations: state['searchEngine'].get('locations'),
       suggestedLocations: state['searchEngine'].get('suggestedLocations'),
       loc: state['searchEngine'].get('loc'),
-
   }
 };
 

@@ -29,8 +29,10 @@ const LoginReducer = (state = initialState.login, action) => {
         case LoginActionsConstants.SIGNUP_SUCCESS:
             state = state.set('message', action.payload.json.message);
             //nullify username and password:
-            state = state.set('username', '');
+            state = state.set('loc', '');
             state = state.set('password', '');
+            state = state.set('coords', '');
+            state = state.set('signupOrLogin', 0);
             return state;
         case LoginActionsConstants.LOGIN_SUCCESS:
             // state = state.set('username', '');
