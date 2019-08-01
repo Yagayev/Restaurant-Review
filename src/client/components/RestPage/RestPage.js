@@ -191,6 +191,13 @@ class RestPage extends React.Component {
                         <Button
                             variant="light"
                             // size="sm"
+                            target="_blank"
+                            href={"https://www.google.com/maps/dir/?api=1&destination="+this.props.rest.lat+","+this.props.rest.lon}
+                        >Navigate</Button>
+                        <br />
+                        <Button
+                            variant="light"
+                            // size="sm"
                             href={"/addreview/"+this.props.rest.name}
                         >Add review</Button>
                     </div>

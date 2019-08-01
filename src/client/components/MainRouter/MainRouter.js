@@ -47,10 +47,10 @@ class MainRouter extends React.Component {
                             path="/addreview/:restName"
                             component={AddReview}
                         />
-                        <Route
-                        path="/addreview/:restName"
-                        component={AddReview}
-                        />
+                        {/*<Route*/}
+                        {/*path="/addreview/:restName"*/}
+                        {/*component={AddReview}*/}
+                        {/*/>*/}
                         <Route
                             path="/user/:username"
                             component={UserPage}
@@ -66,8 +66,7 @@ class MainRouter extends React.Component {
                         <Route
                             path="/userSearch"
                             component={UserSearch}
-                        />UserSearch
-
+                        />
                         <Route
                             component={PageNotFound}
                         />
