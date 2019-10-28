@@ -7,7 +7,7 @@ import {SearchEngineActionsConstants} from "../SearchEngine/constants";
 
 
 function* updateUserDetails(action){
-  console.log('SubmitRestSaga=', action);
+  // console.log('SubmitRestSaga=', action);
   try {
     const res = yield call(fetch, action.uri,
       {
@@ -34,7 +34,7 @@ function* updateUserDetails(action){
 }
 
 function* loadLocations(action){
-    console.log('LOAD LOCATIONS=', action);
+    // console.log('LOAD LOCATIONS=', action);
     try {
         const res = yield call(fetch, action.uri,
             {

@@ -5,7 +5,7 @@ import {UserPageActionsConstants} from "../UserPage/constants";
 import UserPageActions from "../UserPage/actions";
 
 function* loadRestInfo(action){
-    console.log('loadRestInfo=', action);
+    // console.log('loadRestInfo=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -24,7 +24,7 @@ function* loadRestInfo(action){
 }
 
 function* deleteReview(action){
-    console.log('delete review=', action);
+    // console.log('delete review=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -39,7 +39,7 @@ function* deleteReview(action){
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        console.log("return delete review,", json);
+        // console.log("return delete review,", json);
         yield put(RestPageActions.loadRestInfo(action.payload.restid));
     } catch (e) {
         yield put(RestPageActions.loadRestInfoFailureAction(e.message));

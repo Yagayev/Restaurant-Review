@@ -29,7 +29,7 @@ class UserSearch extends React.Component {
     };
 
     render = () => {
-        console.log("props users:", this.props.users[0])
+        // console.log("props users:", this.props.users[0])
         return (
             <div>
                 {this.renderRedirect()}

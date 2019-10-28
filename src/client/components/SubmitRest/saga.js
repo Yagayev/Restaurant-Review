@@ -5,7 +5,7 @@ import LoginActions from "../Login/actions";
 
 
 function* submitRest(action){
-  console.log('SubmitRestSaga=', action);
+  // console.log('SubmitRestSaga=', action);
   try {
     const res = yield call(fetch, action.uri,
       {

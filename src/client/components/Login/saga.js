@@ -5,7 +5,7 @@ import UpdateUserDetailsActions from "../UpdateUserDetails/actions";
 import {UpdateUserDetailsActionsConstants} from "../UpdateUserDetails/constants";
 
 function* loadTags(action){
-    console.log('MenuSaga=', action);
+    // console.log('MenuSaga=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -24,7 +24,7 @@ function* loadTags(action){
 }
 
 function* login(action){
-  console.log('LoginSaga=', action);
+//   console.log('LoginSaga=', action);
   try {
     const res = yield call(fetch, action.uri,
       {
@@ -43,7 +43,7 @@ function* login(action){
 }
 
 function* signup(action){
-    console.log('signup saga=', action);
+    // console.log('signup saga=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -62,7 +62,7 @@ function* signup(action){
 }
 
 function* disconnect(action){
-    console.log('signup saga=', action);
+    // console.log('signup saga=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -83,7 +83,7 @@ function* disconnect(action){
 
 
 function* loadLocations(action){
-    console.log('LOAD LOCATIONS=', action);
+    // console.log('LOAD LOCATIONS=', action);
     try {
         const res = yield call(fetch, action.uri,
             {

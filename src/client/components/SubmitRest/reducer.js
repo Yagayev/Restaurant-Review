@@ -5,8 +5,8 @@ import {getFromStorage, setInStorage} from '../../utils/storage';
 
 
 const SubmitRestReducer = (state = initialState.submitRest, action) => {
-    console.log('AppReducerState=', state);
-    console.log('RECEIVED ACTION:', action);
+    // console.log('AppReducerState=', state);
+    // console.log('RECEIVED ACTION:', action);
     switch (action.type){
 
         case SubmitRestActionsConstants.UPDATE_REST_NAME:
@@ -22,7 +22,6 @@ const SubmitRestReducer = (state = initialState.submitRest, action) => {
         case SubmitRestActionsConstants.SUBMIT_NEW_REST_SUCCESS:
             // setInStorage('restorant_review_username', state.newUsername);
             state = state.set('submitted', true);
-            console.log("AAAAAAAAAAA", state);
             // state.set('redirect', action.payload.json.redirect);
             return state;
         case SubmitRestActionsConstants.SUBMIT_NEW_REST_FAIL:

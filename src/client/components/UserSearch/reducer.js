@@ -3,8 +3,8 @@ import {UserSearchActionsConstants} from './constants.js';
 import { List, Map} from 'immutable';
 
 const UserSearchReducer = (state = initialState.userSearch, action) => {
-    console.log('user search reducer=', state);
-    console.log('RECEIVED ACTION:', action);
+    // console.log('user search reducer=', state);
+    // console.log('RECEIVED ACTION:', action);
     switch (action.type){
         // case UserSearchActionsConstants.UPDATE_USER_ID:
         //     return state.set('userId', action.payload.userId);

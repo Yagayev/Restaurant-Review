@@ -3,8 +3,8 @@ import {AddReviewActionsConstants} from './constants.js';
 import { List } from 'immutable';
 
 const AddReviewReducer = (state = initialState.addReview, action) => {
-    console.log('SearchEngineReducerState=', state);
-    console.log('RECEIVED ACTION:', action);
+    // console.log('SearchEngineReducerState=', state);
+    // console.log('RECEIVED ACTION:', action);
     switch (action.type){
         // case AddReviewActionsConstants.UPDATE_TAG:
         //     return state.set('tag', action.payload.tag);

@@ -27,7 +27,7 @@ class AddReview extends React.Component {
     };
 
     render() {
-        console.log('Search Engine props=', this.props);
+        // console.log('Search Engine props=', this.props);
         if(this.props.submitted){
             return (
                 <div>

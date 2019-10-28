@@ -3,8 +3,8 @@ import {SearchEngineActionsConstants} from './constants.js';
 import { List } from 'immutable';
 
 const SearchEngineReducer = (state = initialState.searchEngine, action) => {
-    console.log('SearchEngineReducerState=', state);
-    console.log('SearchEngineReducerRECEIVED ACTION:', action);
+    // console.log('SearchEngineReducerState=', state);
+    // console.log('SearchEngineReducerRECEIVED ACTION:', action);
     switch (action.type){
         // case AddReviewActionsConstants.UPDATE_TAG:
         //     return state.set('tag', action.payload.tag);
@@ -32,7 +32,7 @@ const SearchEngineReducer = (state = initialState.searchEngine, action) => {
             //     return {label: elm, value: elm }
             // });
             state = state.set('locations', action.payload.locations);
-            console.log("SearchEngineReducer returninh", state);
+            // console.log("SearchEngineReducer returninh", state);
             return state;
         case SearchEngineActionsConstants.UPDATE_SUGGESTION:
             // let res2 = action.payload.locations.map(elm => {

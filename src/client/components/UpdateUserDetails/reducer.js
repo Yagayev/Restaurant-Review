@@ -7,8 +7,8 @@ import {LoginActionsConstants} from "../Login/constants";
 
 
 const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action) => {
-    console.log('UpdateUserDetails=', state);
-    console.log('UpdateUserDetails RECEIVED ACTION:', action);
+    // console.log('UpdateUserDetails=', state);
+    // console.log('UpdateUserDetails RECEIVED ACTION:', action);
     switch (action.type){
 
         case UpdateUserDetailsActionsConstants.UPDATE_NEW_USERNAME:
@@ -38,7 +38,7 @@ const UpdateUserDetailsReducer = (state = initialState.updateUserDetails, action
             //     return {label: elm, value: elm }
             // });
             state = state.set('locations', action.payload.locations);
-            console.log("SearchEngineReducer returninh", state);
+            // console.log("SearchEngineReducer returninh", state);
             return state;
         case UpdateUserDetailsActionsConstants.UPDATE_SUGGESTION:
             // let res2 = action.payload.locations.map(elm => {

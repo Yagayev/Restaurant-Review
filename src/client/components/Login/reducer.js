@@ -6,8 +6,8 @@ import {UpdateUserDetailsActionsConstants} from "../UpdateUserDetails/constants"
 
 
 const LoginReducer = (state = initialState.login, action) => {
-    console.log('AppReducerState=', state);
-    console.log('RECEIVED ACTION:', action);
+    ('AppReducerState=', state);
+    // console.console.loglog('RECEIVED ACTION:', action);
     switch (action.type){
         case LoginActionsConstants.UPDATE_TAG:
             return state.set('tag', action.payload.tag);
@@ -47,7 +47,7 @@ const LoginReducer = (state = initialState.login, action) => {
             state = state.set('username', getFromStorage('restorant_review_username'));
             return state;
         case LoginActionsConstants.DISCONNECT:
-            console.log("DISCONNECT")
+            // console.log("DISCONNECT")
             setInStorage('restorant_review_token','');
             setInStorage('restorant_review_username','');
             state = state.set('token','');
@@ -67,7 +67,7 @@ const LoginReducer = (state = initialState.login, action) => {
             //     return {label: elm, value: elm }
             // });
             state = state.set('locations', action.payload.locations);
-            console.log("SearchEngineReducer returninh", state);
+            // console.log("SearchEngineReducer returninh", state);
             return state;
         case LoginActionsConstants.UPDATE_SUGGESTION:
             // let res2 = action.payload.locations.map(elm => {

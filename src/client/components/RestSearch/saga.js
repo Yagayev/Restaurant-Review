@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 import RestSearchActions from './actions'
 
 function* loadRests(action){
-  console.log('RestSearchSaga=', action);
+  // console.log('RestSearchSaga=', action);
   try {
     const res = yield call(fetch, action.uri,
       {

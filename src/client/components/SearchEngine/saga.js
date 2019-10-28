@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 import SearchEngineActions from './actions'
 
 function* loadLocations(action){
-    console.log('LOAD LOCATIONS=', action);
+    // console.log('LOAD LOCATIONS=', action);
     try {
         const res = yield call(fetch, action.uri,
             {

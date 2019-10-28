@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 import UserPageActions from './actions'
 
 function* queryUsers(action){
-    console.log('user search saga=', action);
+    // console.log('user search saga=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -17,7 +17,7 @@ function* queryUsers(action){
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        console.log("search saga recieved = ", json)
+        // console.log("search saga recieved = ", json)
         yield put(UserPageActions.userSearchQuerySuccessAction(json));
     } catch (e) {
         yield put(UserPageActions.userSearchQueryFailAction(e.message));

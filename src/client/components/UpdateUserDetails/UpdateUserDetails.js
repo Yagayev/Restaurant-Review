@@ -46,12 +46,12 @@ class UpdateUserDetails extends React.Component {
 
 
     render() {
-    console.log('update user details: props=', this.props);
+    // console.log('update user details: props=', this.props);
       // if (this.props.token != '') {
       //     console
       //     return <App />;
       // }
-        console.log("update page, submittd?", this.props.submitted);
+        // console.log("update page, submittd?", this.props.submitted);
         if(this.props.submitted){
             return (<Redirect to='/' />)
         }

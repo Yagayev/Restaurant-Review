@@ -33,12 +33,12 @@ class SubmitRest extends React.Component {
 
 
   render() {
-    console.log('update user details: props=', this.props);
+    // console.log('update user details: props=', this.props);
       // if (this.props.token != '') {
       //     console
       //     return <App />;
       // }
-        console.log("rendering submit rest, props.submitted =", this.props.submitted);
+        // console.log("rendering submit rest, props.submitted =", this.props.submitted);
       if(this.props.submitted){
           return (
               <Redirect to={'/'} />

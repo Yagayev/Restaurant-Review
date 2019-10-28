@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 import AddReviewActions from "./actions";
 
 function* submitReview(action){
-    console.log('submitReview SAGA=', action);
+    // console.log('submitReview SAGA=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -23,7 +23,7 @@ function* submitReview(action){
 }
 
 function* loadReview(action){
-    console.log('submitReview SAGA=', action);
+    // console.log('submitReview SAGA=', action);
     try {
         const res = yield call(fetch, action.uri,
             {

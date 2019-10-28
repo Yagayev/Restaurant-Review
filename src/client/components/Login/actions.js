@@ -45,7 +45,7 @@ function signupEventAction(username, password, location, lat, lon){
 }
 
 function loginSuccessAction(json){
-    console.log("loginSuccessAction:", json);
+    // console.log("loginSuccessAction:", json);
     if(!json.success){
         return loginFailureAction(json);
     }
@@ -58,7 +58,7 @@ function loginSuccessAction(json){
   }
 }
 function loginFailureAction(json){
-    console.log("loginFailureAction:", json);
+    // console.log("loginFailureAction:", json);
 
     return {
     type: LoginActionsConstants.LOGIN_FAILURE,
@@ -68,7 +68,7 @@ function loginFailureAction(json){
   }
 }
 function signupSuccessAction(json){
-    console.log("signupSuccessAction:", json);
+    // console.log("signupSuccessAction:", json);
     if(!json.success){
         return signupFailureAction(json);
     }
@@ -80,7 +80,7 @@ function signupSuccessAction(json){
   }
 }
 function signupFailureAction(json){
-    console.log("signupFailureAction:", json);
+    // console.log("signupFailureAction:", json);
 
     return {
     type: LoginActionsConstants.SIGNUP_FAILURE,

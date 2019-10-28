@@ -14,7 +14,7 @@ module.exports = (app) => {
             lon
         } = body;
 
-        console.log("signup serversid: username:", username, "password:",password, "body:", body.username, body['password']);
+        // console.log("signup serversid: username:", username, "password:",password, "body:", body.username, body['password']);
         if(!username){
             return res.send({
                 success: false,

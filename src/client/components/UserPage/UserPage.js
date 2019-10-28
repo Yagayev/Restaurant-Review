@@ -43,7 +43,7 @@ class UserPage extends React.Component {
     }
 
     render = () => {
-        console.log("user page =", this.props.userViewing);
+        // console.log("user page =", this.props.userViewing);
         if(this.props.loading){
             return (
                 <h3>Loading...</h3>

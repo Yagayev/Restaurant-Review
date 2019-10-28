@@ -37,7 +37,7 @@ class SearchEngine extends React.Component {
     }
 
     render() {
-        console.log('Search Engine props=', JSON.stringify(this.props.locations));
+        // console.log('Search Engine props=', JSON.stringify(this.props.locations));
         return (
             <div>
                 {this.renderRedirect()}
@@ -270,7 +270,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateNameEventHandler: (e) => {
-        console.log("updateNameEventHandler, e=", e);
+        // console.log("updateNameEventHandler, e=", e);
       dispatch(SearchEngineActions.updateNameAction(e.target.value));
     },
     loadRestsEventHandler: (searchFields) => {

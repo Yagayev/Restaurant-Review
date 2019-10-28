@@ -4,7 +4,7 @@ import UserPageActions from './actions'
 
 
 function* loadUserInfo(action){
-    console.log('loadUserInfo=', action);
+    // console.log('loadUserInfo=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -27,7 +27,7 @@ function* loadUserInfo(action){
 
 
 function* deleteReview(action){
-    console.log('delete review=', action);
+    // console.log('delete review=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -43,7 +43,7 @@ function* deleteReview(action){
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        console.log("return delete review,", json);
+        // console.log("return delete review,", json);
         yield put(UserPageActions.loadUserInfo(action.payload.token, action.payload.username, action.payload.username));
     } catch (e) {
         yield put(UserPageActions.loadUserInfoFailureAction(e.message));
@@ -134,7 +134,7 @@ function* deleteReview(action){
 // }
 
 function* uploadRequest(action){
-    console.log('UPLOAD SAGA=', action);
+    // console.log('UPLOAD SAGA=', action);
     try {
         const res = yield call(fetch, action.uri,
             {
@@ -149,7 +149,7 @@ function* uploadRequest(action){
             });
 
         const json = yield call([res, 'json']); //retrieve body of response
-        console.log("return delete review,", json);
+        // console.log("return delete review,", json);
         yield put(UserPageActions.loadUserInfo(action.payload.token, action.payload.username, action.payload.username));
     } catch (e) {
         yield put(UserPageActions.loadUserInfoFailureAction(e.message));

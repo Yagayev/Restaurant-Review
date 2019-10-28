@@ -43,7 +43,7 @@ class Login extends React.Component {
     };
 
   render() {
-    console.log('login: props=', this.props);
+    // console.log('login: props=', this.props);
       // if (this.props.token != '') {
       //     console
       //     return <App />;
