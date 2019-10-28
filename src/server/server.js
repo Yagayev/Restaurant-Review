@@ -9,7 +9,7 @@ const path = require('path');
 mongoose.set('useFindAndModify', false);
 
 const config = {
-  mongoURL: process.env.MONGO_URL || 'mongodb://rest-r.com:27017/restr',
+  mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/restr',
   port: 8000
 };
 
