@@ -1,5 +1,5 @@
-let User = require('../model/user');
-let UserSession = require('../model/userSession');
+let User = require('../model/User');
+let UserSession = require('../model/UserSession');
 let Review = require('../model/Review');
 let Restaurant = require('../model/Restaurant');
 let Locations = require('../model/Locations');
