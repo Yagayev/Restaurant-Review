@@ -1,5 +1,5 @@
-let User = require('../model/user');
-let UserSession = require('../model/userSession');
+let User = require('../model/User');
+let UserSession = require('../model/UserSession');
 
 
 module.exports = (app) => {
