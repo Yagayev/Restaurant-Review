@@ -44,7 +44,7 @@ module.exports = {
     port: 8080,
     open: true,
     proxy: {
-      '/api': 'http://localhost:8000'
+      '/api': 'http://rest-r.com:8000'
     },
     historyApiFallback: true
   },
