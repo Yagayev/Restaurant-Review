@@ -46,6 +46,7 @@ module.exports = {
     proxy: {
       '/api': 'http://rest-r.com:8000'
     },
+    disableHostCheck: true,
     historyApiFallback: true
   },
   plugins: [
