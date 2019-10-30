@@ -15,7 +15,7 @@ const cloudinaryStorage = require("multer-storage-cloudinary");
 * add checks that every request consists only legal requests(assume malicious client)
 * */
 
-
+// those are placeholders, replace with actual clodinary details
 cloudinary.config({
     cloud_name: 'dfdtghlqz',
     api_key: 458841873635211,
@@ -513,8 +513,15 @@ module.exports = (app) => {
         Locations
             .findOne()
             .then(doc => {
-                res.json(doc.locations);
-                res.end();
+                if (doc === null) {
+                    let newDoc = new Locations();
+                    res.json([]);
+                }
+                else{
+                    res.json(doc.locations);
+                    res.end();
+                }
+                
             });
     });
 
@@ -844,7 +851,8 @@ async function updateLocations(currLocation) {
                 let newDoc = new Locations();
                 newDoc.locations.push(currLocation);
                 newDoc.save(_handleError);
-            }else if (!doc.locations.includes(currLocation)) {
+            }
+            else if (!doc.locations.includes(currLocation)) {
                 doc.locations.push(currLocation);
                 doc.save(_handleError);
             }
