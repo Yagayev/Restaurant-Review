@@ -4,9 +4,9 @@ const { List, Map } = require('immutable');
 
 export default {
     login: Map({
-        username: getFromStorage('restorant_review_username'),
+        username: getFromStorage('restorant_review_username') || '',
         password: '',
-        token: getFromStorage('restorant_review_token'),
+        token: getFromStorage('restorant_review_token') ||'',
         message: '',
         signupOrLogin: 0,
         coords: '',
