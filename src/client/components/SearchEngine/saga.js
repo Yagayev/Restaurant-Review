@@ -16,7 +16,7 @@ function* loadLocations(action){
         const json = yield call([res, 'json']); //retrieve body of response
         yield put(SearchEngineActions.loadLocationsCompleteAction(json));
     } catch (e) {
-        yield put(SearchEngineActions.loadTagsFailureAction(e.message));
+        // yield put(SearchEngineActions.loadTagsFailureAction(e.message));
     }
 }
 

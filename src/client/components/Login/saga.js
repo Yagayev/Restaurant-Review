@@ -4,24 +4,24 @@ import LoginActions from './actions'
 import UpdateUserDetailsActions from "../UpdateUserDetails/actions";
 import {UpdateUserDetailsActionsConstants} from "../UpdateUserDetails/constants";
 
-function* loadTags(action){
-    // console.log('MenuSaga=', action);
-    try {
-        const res = yield call(fetch, action.uri,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+// function* loadTags(action){
+//     // console.log('MenuSaga=', action);
+//     try {
+//         const res = yield call(fetch, action.uri,
+//             {
+//                 method: 'GET',
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
 
-            });
+//             });
 
-        const json = yield call([res, 'json']); //retrieve body of response
-        yield put(LoginActions.loadTagsSuccessAction(json));
-    } catch (e) {
-        yield put(LoginActions.loadTagsFailureAction(e.message));
-    }
-}
+//         const json = yield call([res, 'json']); //retrieve body of response
+//         yield put(LoginActions.loadTagsSuccessAction(json));
+//     } catch (e) {
+//         yield put(LoginActions.loadTagsFailureAction(e.message));
+//     }
+// }
 
 function* login(action){
 //   console.log('LoginSaga=', action);
@@ -96,7 +96,7 @@ function* loadLocations(action){
         const json = yield call([res, 'json']); //retrieve body of response
         yield put(LoginActions.loadLocationsCompleteAction(json));
     } catch (e) {
-        yield put(LoginActions.loadTagsFailureAction(e.message));
+        // yield put(LoginActions.loadTagsFailureAction(e.message));
     }
 }
 
